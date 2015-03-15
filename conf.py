@@ -17,7 +17,7 @@ import os
 import shlex
 import sys, os
 
-sys.path.append(os.path.abspath('extensions'))
+#sys.path.append(os.path.abspath('extensions'))
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -223,7 +223,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'fw4spl-doc.tex', 'fw4spl-doc Documentation',
+  (master_doc, 'fw4spl-doc.tex', 'FW4SPL Documentation',
    'Fred', 'manual'),
 ]
 
@@ -253,7 +253,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'fw4spl-doc', 'fw4spl-doc Documentation',
+    (master_doc, 'fw4spl-doc', 'FW4SPL Documentation',
      [author], 1)
 ]
 
@@ -267,7 +267,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'fw4spl-doc', 'fw4spl-doc Documentation',
+  (master_doc, 'fw4spl-doc', 'FW4SPL Documentation',
    author, 'fw4spl-doc', 'One line description of project.',
    'Miscellaneous'),
 ]
