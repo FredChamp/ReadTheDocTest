@@ -24,7 +24,7 @@ class AxiomDirective(Directive):
                 def_item = nodes.definition_list_item()
 
                 term = nodes.term()
-                def_text = nodes.Text( self.tag_name + " %d" % self.__class__.count)
+                def_text = nodes.Text( self.tag_name + str(" %d") % self.__class__.count)
                 self.__class__.count = self.__class__.count + 1
                 term.append(def_text)
 
