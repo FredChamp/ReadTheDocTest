@@ -1,2 +1,0 @@
-# ReadTheDocTest
-ReadTheDoc test
