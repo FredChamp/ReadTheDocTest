@@ -38,7 +38,7 @@ extensions = []
 templates_path = ['ytemplates']
 
 # The suffix(es) of source filenames.
-source_suffix = ['.rst']
+source_suffix = '.rst'
 
 # The encoding of source files.
 #source_encoding = 'utf-8-sig'
