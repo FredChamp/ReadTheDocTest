@@ -7,3 +7,4 @@ FW4SPL documentation
 
    SAD/SDM-SAD-FW4SPL
    CodingStyle/coding-style-FW4SPL
+   FAQ/FAQ-FW4SPL
