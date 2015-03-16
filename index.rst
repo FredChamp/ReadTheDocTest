@@ -1,5 +1,10 @@
-.. section-numbering::
+*********************
+FW4SPL documentation
+*********************
 
+.. contents::
+    :depth: 2
+    
 .. toctree::
    :maxdepth: 3
 
