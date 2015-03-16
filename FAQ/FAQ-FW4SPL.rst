@@ -82,6 +82,7 @@ I have an assertion/fatal message when I launch my program, any idea to correct 
 First, you can read the output message :) and try to solve the problem.
 In many cases, there are two kind of problems. The program fail:
     - to create the service given in configuration In this case, four reasons are possibles :
+    
         - the name of service implementation in config.xml contains mistakes
         - the bundle that contains this service is not activated in the profile
         - the bundle plugin.xml, that contains this service, not declares the     service or the declaration contains mistakes.
