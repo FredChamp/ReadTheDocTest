@@ -1,13 +1,13 @@
-Extract from Roni Z. 2011. Introduction to DICOM [#]_:
-
-.. [#] Roni Z. 2011. Introduction to DICOM. Introduction. http://dicomiseasy.blogspot.fr/2011/10/introduction-to-dicom-chapter-1.html
-
     DICOM is a software integration standard that is used in Medical Imaging. All modern medical imaging systems (aka Imaging Modalities) equipment like X-Rays,
     Ultrasounds, CT (Computed Tomography), and MRI (Magnetic Resonance Imaging) support DICOM and use it extensively. The core of DICOM is a file format and a networking protocol.
 
     All Medical Images are saved in DICOM format. Medical Imaging Equipment creates DICOM files. Doctors use DICOM Viewers, computer software applications that can display DICOM images.
 
     DICOM files contain more than just images. Every DICOM file holds patient information (name, ID, sex and birth date), important acquisition data (e.g., type of equipment used and its settings), and the context of the imaging study that is used to link the image to the medical treatment it was part of.
+    
+Roni Z. 2011. Introduction to DICOM [#]_:
+
+.. [#] Roni Z. 2011. Introduction to DICOM. Introduction. http://dicomiseasy.blogspot.fr/2011/10/introduction-to-dicom-chapter-1.html
 
 |
 
