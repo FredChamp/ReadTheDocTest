@@ -93,9 +93,12 @@ If I use fw4spl, do I need wrap all my data ?
 =============================================
 
 The first question is to know if the data is on center of application:
-- Need you to shared data between few bundles ?
-- Need you to attach services on this data ?
-If the answer is no, you don't need to wrap your data. Otherwise, you need to have an object that inherits of ::fwData::Object.
+    - Need you to shared data between few bundles ?
+    - Need you to attach services on this data ?
+    
+    If the answer is no, you don't need to wrap your data. 
+    Otherwise, you need to have an object that inherits of ::fwData::Object.
+
 In this last case, do you need shared this object between different services which use different libraries, ex for Object Image : itk::Image vs vtkImage ?
-If the answer is yes, you need create a new object like fwData::Image and a wrapping with fwData::Image<=>itk::Image and fwData::Image<=>vtkImage.
-Otherwise, you can just encapsulated an itk::Image in fwData::Image and create an accessor on it. ( however, this kind of choice implies that all applications that use fwData::Image need itk library for running. )
+    If the answer is yes, you need create a new object like fwData::Image and a wrapping with fwData::Image<=>itk::Image and fwData::Image<=>vtkImage.
+    Otherwise, you can just encapsulated an itk::Image in fwData::Image and create an accessor on it. ( however, this kind of choice implies that all applications that use fwData::Image need itk library for running. )
