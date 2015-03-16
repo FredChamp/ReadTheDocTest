@@ -1,4 +1,10 @@
-#example from http://sphinx-doc.org/extdev/tutorial.html#the-setup-function
+# ###### BEGIN LICENSE BLOCK ######
+# FW4SPL - Copyright (C) IRCAD, 2009-2015.
+# Distributed under the terms of the GNU Lesser General Public License (LGPL) as
+# published by the Free Software Foundation.
+# ###### END LICENSE BLOCK ######
+#
+#documentation extract from http://sphinx-doc.org/extdev/tutorial.html#the-setup-function
 
 from docutils import nodes
 from docutils.parsers.rst import Directive
@@ -58,7 +64,7 @@ class Recommendation(AxiomDirective):
     count = 1
     
     
-def  make_directives(app, docname, source):
+def  register_directive(app, docname, source):
     directives.register_directive("rule", Rule)
     directives.register_directive("recommendation", Recommendation)
 
@@ -68,19 +74,11 @@ def setup(app):
     # If the third argument was True, all documents would be re-read if the config value changed its value. This is needed for config values that influence reading (build phase 1).
     app.add_config_value('axiom_include', False, False)
 
-    
-    # adds a new node class to the build system. It also can specify visitor functions for each supported output format
-    # app.add_node(axiom,
-    #              html=(visit_axiom_node, depart_axiom_node),
-    #              latex=(visit_axiom_node, depart_axiom_node),
-    #              text=(visit_axiom_node, depart_axiom_node))
-
     # adds a new directive, given by name and class.
     app.add_directive('axiom', AxiomDirective)
     
     # adds an event handler to the event whose name is given by the first       argument. 
     # The event handler function is called with several arguments which are     documented with the event.
-    app.connect('source-read', make_directives)
-  #   app.connect('env-purge-doc', purge_axioms)
+    app.connect('source-read', register_directive)
 
     return {'version': '0.1'}   # identifies the version of our extension
