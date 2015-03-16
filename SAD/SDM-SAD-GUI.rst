@@ -2,12 +2,10 @@ Overview
 --------
 
 Graphical User Interface (GUI) is the process of displaying the graphical
-components of an application. In fw4spl, ``fwGui`` library provides abstract
+components of an application. In fw4spl, the ``fwGui`` library provides abstract
 tools to display components like windows, buttons, textfield, aso.
 
-The software architecture provides a way of selecting different backend in order
-to manage the GUI components. As a result, the ``fwGuiQt`` library has been
-created in order to display components created using the Qt soup. For now, this
+The software architecture provides a way of selecting different backends in order to manage the GUI components. As a result, the ``fwGuiQt`` library has been created to display components created using the Qt soup. Presently, this
 backend is the only one supported by the applications.
 
 
@@ -19,7 +17,7 @@ the chosen gui bundle must be activated and started in the profile.xml of the ap
 main gui bundle for any application is ``guiQt``. The ``gui`` bundle must be activated regardless
 of the chosen backend.
 
-.. code-block :: xml
+.. code:: xml
 
     <activate id="gui" version="0-1" />
     <activate id="guiQt" version="0-1" />
@@ -37,9 +35,7 @@ Configuration
 Frames
 ~~~~~~
 
-The frame is the main component of a GUI. The main service used to represent a general frame
-is ``::fwGui::IFrameSrv``. The service ``::gui::frame::DefaultFrame`` is the default implementation
-for main application frame. Every backend must provide his own implementation of this service.
+The frame is the main component of a GUI. The main service used to represent a general frame is ``::fwGui::IFrameSrv``. The service ``::gui::frame::DefaultFrame`` is the default implementation for the main application frame. Every backend must provide its own implementation of this service.
 
 The DefaultFrame service is configurable with different parameters :
 
@@ -49,7 +45,7 @@ The DefaultFrame service is configurable with different parameters :
 * GUI elements (toolbar, menubar, aso.)
 
 
-.. code-block :: xml
+.. code:: xml
 
     <service uid="mainFrame" type="::fwGui::IFrameSrv" 
         impl="::gui::frame::DefaultFrame" autoConnect="no" >
@@ -75,13 +71,11 @@ The DefaultFrame service is configurable with different parameters :
 Menus and actions
 ~~~~~~~~~~~~~~~~~
 
-The menu bar is used to organize application action groups. The main service used to display that kind of bar
-is ``::fwGui::IMenuBarSrv``. The service ``::gui::aspect::DefaultMenuBarSrv`` is the default implementation.
-Every backend must provide his own implementation of this service.
+The menu bar is used to organize application action groups. The main service used to display that kind of bar is ``::fwGui::IMenuBarSrv``. The service ``::gui::aspect::DefaultMenuBarSrv`` is the default implementation. Every backend must provide its own implementation of this service.
 
 The configuration is used to associate a menu label with the service representing the menu.
 
-.. code-block :: xml
+.. code:: xml
 
     <service uid="menuBar" type="::fwGui::IMenuBarSrv"
         impl="::gui::aspect::DefaultMenuBarSrv" autoConnect="no" >
@@ -98,14 +92,12 @@ The configuration is used to associate a menu label with the service representin
     </service>
 
 
-The main service used to display a menu is ``::fwGui::IMenuSrv``. The service ``::gui::aspect::DefaultMenuSrv``
-is the default implementation. Every backend must provide his own implementation of this service.
+The main service used to display a menu is ``::fwGui::IMenuSrv``. The service ``::gui::aspect::DefaultMenuSrv`` is the default implementation. Every backend must provide its own implementation of this service.
 
-The configuration is used to associate an action name and the service performing the action. An action can be
-configured with a shortcut, a style (default, check, radio) and/or an icon . Several special action can also be
+The configuration is used to associate an action name and the service performing the action. An action can be configured with a shortcut, a style (default, check, radio) and/or an icon. Several special actions can also be
 specified (QUIT, ABOUT, aso.).
 
-.. code-block :: xml
+.. code:: xml
 
     <service uid="myMenu" type="::fwGui::IMenuSrv"
         impl="::gui::aspect::DefaultMenuSrv" autoConnect="no" >
@@ -125,9 +117,7 @@ specified (QUIT, ABOUT, aso.).
     </service>
 
 
-A menu can also be displayed using a tool bar. The main service used to display a tool bar is ``::fwGui::IToolBarSrv``.
-The service ``::gui::aspect::DefaultToolBarSrv`` is the default implementation. Every backend must provide his own
-implementation of this service.
+A menu can also be displayed using a tool bar. The main service used to display a tool bar is ``::fwGui::IToolBarSrv``. The service ``::gui::aspect::DefaultToolBarSrv`` is the default implementation. Every backend must provide its own implementation of this service.
 
 The configuration of a tool bar is the same as the one used to describe a menu.
 
@@ -135,9 +125,7 @@ The configuration of a tool bar is the same as the one used to describe a menu.
 Layouts
 ~~~~~~~
 
-The layouts are used to organize the different parts of a GUI. The main service used to manage layouts is
-``::fwGui::IGuiContainerSrv``. The service ``::gui::view::DefaultView`` is the default implementation.
-Every backend must provide his own implementation of this service.
+The layouts are used to organize the different parts of a GUI. The main service used to manage layouts is ``::fwGui::IGuiContainerSrv``. The service ``::gui::view::DefaultView`` is the default implementation. Every backend must provide its own implementation of this service.
 
 Several types of layout can be used :
 
@@ -146,9 +134,9 @@ Several types of layout can be used :
 * Tab layout
 
 
-Every layouts can be configured with a set of parameters (orientation, alignment, aso.).
+Every layout can be configured with a set of parameters (orientation, alignment, aso.).
 
-.. code-block :: xml
+.. code:: xml
 
     <service uid="subView" type="::gui::view::IView"
         impl="::gui::view::DefaultView" autoConnect="no" >
@@ -169,11 +157,9 @@ Every layouts can be configured with a set of parameters (orientation, alignment
 Multi-threading
 ---------------
 
-The ``fwGui`` library has been designed in order to support multi-thread
-application. When a GUI component needs to be accessed, the function call must be
-encapsulated in a lambda declaration as shown in this example :
+The ``fwGui`` library has been designed to support multi-thread application. When a GUI component needs to be accessed, the function call must be encapsulated in a lambda declaration as shown in this example:
 
-.. code-block :: cpp
+.. code:: cpp
 
         ::fwGui::registry::Worker::get()->postTask<void>(
         [&] {
@@ -181,8 +167,4 @@ encapsulated in a lambda declaration as shown in this example :
         }
         ).wait();
 
-This encapsulation is required as every access to GUI components must be performed
-in the thread containing the GUI. It moves the function calls from
-the current thread, to the GUI thread.
-
-
+This encapsulation is required because all access to GUI components must be performed in the thread containing the GUI. It moves the function calls from the current thread, to the GUI thread.

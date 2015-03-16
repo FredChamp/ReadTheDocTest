@@ -1,9 +1,9 @@
+
 Dynamic program with factories
 ------------------------------
 
-As shown in the `Object-Service concept example`_,
-It is easy to change data and service to modify the application comportement like working on a mesh instead of an image. 
-Howerver it is for one service working with one data and it is impossible to manage several objects/services to create a complex software.
+As shown in the `Object-Service concept example`_, it is easy to change data and service to modify the application behavior by working on a mesh instead of an image. 
+However, this is limited to one service working with one datum. It is impossible to manage several objects/services to create complex software.
 
 Then FW4SPL architecture provides a dynamic management of configurations to allow the use of multiple objects and services.
 
@@ -14,7 +14,7 @@ In the ``fwService`` library, an application configuration parser
 allows to parse XML files then creates and manages objects, services and
 communications.
 
-.. code-block :: c++
+.. code:: c++
 
     // The parser
     void main (int argc , char * argv [])
@@ -35,7 +35,7 @@ communications.
 
 The following part correspond to the configuration XML file of the previous `Object-Service concept example`_.
 
-.. code-block :: xml
+.. code:: xml
 
     <object uid="image" type ="::fwData::MyData">
 

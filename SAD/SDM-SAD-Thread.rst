@@ -1,5 +1,3 @@
-
-
 Overview
 --------
 
@@ -24,12 +22,12 @@ Some advantages include:
   instructions depend on each other's result), running another thread can avoid
   leaving these idle.
 - If several threads work on the same set of data, they can actually share
-  their cache, leading to better cache usage or synchronization on its values.
+  their cache, leading to better cache usage or synchronization of its values.
 
 Some criticisms of multithreading include:
 
 - Multiple threads can interfere with each other when sharing hardware
-  resources such as caches or translation lookaside buffers (TLBs).
+  resources such as caches or translation look aside buffers (TLBs).
 - Execution times of a single thread are not improved but can be degraded, even
   when only one thread is executing. This is due to slower frequencies and/or
   additional pipeline stages that are necessary to accommodate thread-switching
@@ -56,7 +54,7 @@ implementation creates a loop in a new thread. Some tasks can be posted on the
 worker and will be executed on the managed thread. When the worker is stopped,
 it waits for the last task to be processed and stops the loop.
 
-.. code-block :: cpp
+.. code:: cpp
 
     ::fwThread::Worker::sptr worker = ::fwThread::Worker::New();
 
@@ -73,7 +71,7 @@ The Timer class provides single-shot or repetitive timers. A Timer triggers a
 function once after a delay, or periodically, inside the worker loop. The delay
 or the period is defined by the duration attribute.
 
-.. code-block :: cpp
+.. code:: cpp
 
     ::fwThread::Worker::sptr worker = ::fwThread::Worker::New();
 
@@ -107,7 +105,7 @@ Currently, FW4SPL uses Boost Thread library which allows the use of multiple
 execution threads with shared data, keeping the C++ code portable.
 ``fwCore::mt`` defines a few typedef over Boost:
 
-.. code-block :: cpp
+.. code:: cpp
 
     namespace fwCore
     {
@@ -157,12 +155,12 @@ Asynchronous call
 ~~~~~~~~~~~~~~~~~
 
 Slots are able to work with ``fwThread::Worker``. If a Slot has a Worker, each
-asynchronous execution request will be run in it's worker, otherwise
+asynchronous execution request will be run in its worker, otherwise
 asynchronous requests can not be satisfied without specifying a worker.
 
-Setting worker example :
+Setting worker example:
 
-.. code-block :: cpp
+.. code:: cpp
 
     ::fwCom::Slot< int (int, int) >::sptr slotSum
             = ::fwCom::newSlot( &sum );
@@ -177,23 +175,23 @@ Setting worker example :
 ``asyncRun`` method returns a boost::shared_future< void >, that makes it possible
 to wait for end-of-execution.
 
-.. code-block :: cpp
+.. code:: cpp
 
     ::boost::future< void > future = slotStart->asyncRun();
     // do something else ...
     future.wait(); //ensures slotStart is finished before continuing
 
 ``asyncCall`` method returns a ``boost::shared_future< R >`` where R is the return
-type, this allows to wait for end-of-execution and to get the computed value.
+type. This allows facilitates waiting for end-of-execution and retrieval of the computed value.
 
-.. code-block :: cpp
+.. code:: cpp
 
     ::boost::future< int > future = slotSum->asyncCall();
     // do something else ...
     future.wait(); //ensures slotStart is finished before continuing
     int result = future.get();
 
-Slots asynchronous execution has been made *weak*. For an async call/run
+In this case, the slots asynchronous execution has been *weakened*. For an async call/run
 pending in a worker queue, it means that :
 
 - if the slot is detroyed before the execution of this call, it will be
@@ -207,14 +205,14 @@ Asynchronous emit
 As slots can work asynchronously, triggering a Signal with asyncEmit results in
 the execution of connected slots in their worker :
 
-.. code-block :: cpp
+.. code:: cpp
 
     sig2->asyncEmit(21, 42);
 
-The instruction above has for consequence to run each connected slot in it's
+The instruction above has the consequence of running each connected slot in its
 own worker.
 
-Note: Each connected slot must have a worker set in order to use asyncEmit.
+Note: Each connected slot must have a worker set to use asyncEmit.
 
 
 Object-Service and Multithreading
@@ -223,12 +221,11 @@ Object-Service and Multithreading
 Object
 ~~~~~~
 
-The architecture allows writing thread safe functions which manipulate objects
+The architecture allows the writing of thread safe functions which manipulate objects
 easily. Objects have their own mutex (inherited from ``fwData::Object``) to
-control concurrent access from different threads. This mutex is available through
-to the method:
+control concurrent access from different threads. This mutex is available using the following method:
 
-.. code-block :: cpp
+.. code:: cpp
 
     ::fwCore::mt::ReadWriteMutex & getMutex();
 
@@ -241,7 +238,7 @@ multithreading:
 
 The following example illustrates how to use these helpers:
 
-.. code-block :: cpp
+.. code:: cpp
 
     ::fwData::String::sptr m_data = ::fwData::String::New();
     {
@@ -279,8 +276,8 @@ The following example illustrates how to use these helpers:
 Services
 ~~~~~~~~
 
-The service architecture allows to write a thread-safe service by
-avoiding the requirement of explicit synchronisation. Each service has an associated
+The service architecture allows the writing of a thread-safe service by
+avoiding the requirement of explicit synchronization. Each service has an associated
 worker in which service methods are intended to be executed.
 
 Specifically, all inherited ``IService`` methods (``start``, ``stop``,
@@ -290,7 +287,7 @@ cycle can be managed in a separate thread.
 Since services are designed to be managed in an associated worker, the worker
 can be set/updated by using the inherited method :
 
-.. code-block :: cpp
+.. code:: cpp
 
     // Initializes m_associatedWorker and associates
     // this worker to all service slots
@@ -301,7 +298,7 @@ can be set/updated by using the inherited method :
 
 Since the signal-slot communication is thread-safe and
 ``IService::receive(msg)`` method is a slot, it is possible to attach a service
-to a thread and send notifications to execute parallel tasks to it.
+to a thread and send notifications to execute parallel tasks.
 
 .. note::
     Some services use or require GUI backend elements. Thus, they can't be used

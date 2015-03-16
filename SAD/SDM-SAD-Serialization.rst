@@ -4,19 +4,19 @@ Overview
 
 Serialization is the process to save plain C++ structures from memory to hard
 drive.  In fw4spl, ``fwAtoms`` library provides tools to serialize all data (and
-especially Object than extend ``::fwData::Object``) to a JSON format [#]_.  Of
+especially Object that extend ``::fwData::Object``) to a JSON format [#]_.  Of
 course, this process is also available for loading data from JSON format to
 plain C++ structures.
 
 .. [#] Introducing JSON. http://json.org/
 
 
-To realize this serialization, ``fwAtoms`` provides basic structures (which extend
+To achieve this serialization, ``fwAtoms`` provides basic structures (which extend
 ``::fwAtoms::Base``) to manage better plain C++ structure evolution. Thus, there
 are two main steps in the serialization process:
 
-- How to convert a ``::fwData::Object`` into a ``::fwAtoms::Object``
-- How to serialize a ``::fwAtoms::Base`` in a JSON format
+- Converting a ``::fwData::Object`` into a ``::fwAtoms::Object``
+- Serializing a ``::fwAtoms::Base`` in a JSON format
 
 Atom objects
 ------------
@@ -38,9 +38,9 @@ and containers:
     ::fwAtoms::Object,"Atom to represent a C++ object with attributes"
     ::fwAtoms::Blob,"Atom to represent binary information like buffers"
 
-For instance, consider the following C++ class :
+For instance, consider the following C++ class:
 
-.. code-block :: cpp
+.. code:: cpp
 
     class SimpleClass
     {
@@ -54,9 +54,9 @@ For instance, consider the following C++ class :
         SimpleClass* m_mySimpleClass;
     };
 
-It's Atom equivalent is (simplified code) :
+It's Atom equivalent is (simplified code):
 
-.. code-block :: cpp
+.. code:: cpp
 
     fwAtoms::Object
     {
@@ -100,13 +100,13 @@ plain C++ object using this set of restricted types.
 Convert a ``fwData::Object``
 ----------------------------
 
-As explained earlier, all objects in fw4spl inherit from ``::fwData::Object``
+As explained earlier, all objects in fw4spl inherit from the ``::fwData::Object``
 class.  To convert a C++ object in Atom, it must inherit from this class.  To
 allow this conversion, some work must be done.
 
-The first things is to update the header file of the structure and add these lines :
+The first thing is to update the header file of the structure and add these lines :
 
-.. code-block :: cpp
+.. code:: cpp
 
     // Before all namespace
     fwCampAutoDeclareDataMacro((<namespace elem>)
@@ -117,21 +117,20 @@ The first things is to update the header file of the structure and add these lin
             (<namespace elem>)(<class name>));
 
 
-These two functions allow declaring the class to the conversion process.
+These two functions allow the declaration of the class to the conversion process.
 
-Next, the conversion system have to know the class information such as
+Next, the conversion systems must know the class information including
 attributes, base class, library location and data version. This is achieved by
 creating a class which defines these properties.
 
 Example
 ~~~~~~~
 
-To illustrate this, we can take the previous class and create this two files:
+This can be illustrated by taking the previous class and creating these two files:
 
+Header file of the newly created class: ComplexClass.hpp
 
-Header file of the newly created class : ComplexClass.hpp
-
-.. code-block :: cpp
+.. code:: cpp
 
     // Reference class
 
@@ -152,7 +151,7 @@ Header file of the newly created class : ComplexClass.hpp
 
 Header file of serialization class :
 
-.. code-block :: cpp
+.. code:: cpp
 
     // hpp binding file
     #include <fwCamp/macros.hpp>
@@ -164,7 +163,7 @@ Header file of serialization class :
 
 Source file of serialization class :
 
-.. code-block :: cpp
+.. code:: cpp
 
     // cpp binding file
     // include previous cpp file
@@ -183,11 +182,11 @@ Source file of serialization class :
             ;
     }
 
-In header file, the method fwCampDeclareAccessor is necessary when an object
-have a pointer or a smart pointer to an other object.
+In a header file, the method fwCampDeclareAccessor is necessary when an object
+has a pointer or a smart pointer to another object.
 
-In source file, fwCampImplementDataMacro declare the properties of the bound
-object with an object called a builder : it provides several methods to
+In a source file, fwCampImplementDataMacro declares the properties of the bound
+object with an object called a builder: it provides several methods to
 describe the object to bind.
 
 .. csv-table::
@@ -198,18 +197,13 @@ describe the object to bind.
     "base<BaseClass>()","Identify the base class of the bound object"
     "property(arg1, arg2)","Set property of the object and how to access it"
 
-Most of the work is completed when header file of class has been updated and
-binding class created.  The last step to complete is to register the binding
-class in the conversion system using the following line in the library
-containing binding classes :
+Most of the work is completed when the header file of the relevant class has been updated and a binding class created.  The last step is to register the binding class in the conversion system using the following line in the library containing binding classes:
 
-.. code-block :: cpp
+.. code:: cpp
 
     localDeclarefwDataComplexClass();
 
-In fw4spl, data are located in ``fwData`` library whereas data binding classes are
-located in ``fwDataCamp`` library. The above line registering a binding class can
-be found in ``fwDataCamp`` autoload.hpp files.
+In fw4spl, data are located in ``fwData`` library whereas data binding classes are located in ``fwDataCamp`` library. The above line registering a binding class can be found in ``fwDataCamp`` autoload.hpp files.
 
 
 Serialization file example
@@ -228,12 +222,12 @@ For more information about serialization see:
 ``fwData::Object`` to ``fwAtoms::Object`` conversion
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The necessary to convert a ``fwData::Object`` to a ``fwAtoms::Object`` is in
+The requirements to convert an ``fwData::Object`` into an ``fwAtoms::Object`` are in the
 ``fwAtomConversion`` library.
 
-To make this conversion, use this two functions:
+Two functions are necessary to achieve this conversion:
 
-.. code-block :: cpp
+.. code:: cpp
 
      //Convert a fwData::Object into fwAtoms::Object
      SPTR(::fwAtoms::Object) convert( const SPTR(::fwData::Object) &data );
@@ -245,20 +239,17 @@ To make this conversion, use this two functions:
 Serialize an Atoms object to JSON format
 ----------------------------------------
 
-When fw4spl data are converted into Atoms, the can be saved in JSON format. An
-Atom reader as well as an Atom writer are available in ``fwAtomsBoostIO``
+When a fw4spl datum is converted into Atoms, it can be saved in JSON format. Both an Atom reader and Atom writer are available in the ``fwAtomsBoostIO``
 fw4spl library: simply instantiate one of these classes with an Atom object
-and call read or write method.
+and call the read or write method.
 
-To serialize atoms into json, a visitor pattern is used. An example can be
+To serialize atoms into JSON, a visitor pattern is used. An example can be
 found in the ``fwAtomsBoostIO/Reader.cpp`` file.
 
 
 Conclusion
 ----------
 
-With this, you have now the necessary to serialize a data in the framework and
-a basic knowledge about the mechanism behind. To finish, this is a diagram of
-the serialization mechanism:
+Accordingly, you have now the requirements to serialize data in the framework and a basic knowledge about the mechanism behind it. To conclude, this is a diagram of the serialization mechanism:
 
 .. image:: Images/serialization.png

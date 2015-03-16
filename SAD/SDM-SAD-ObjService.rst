@@ -1,3 +1,4 @@
+
 Introduction
 ------------
 
@@ -7,38 +8,37 @@ This philosophy works well, provided that the classes do not change with time.
 However, in this situation, the maintenance of source code is difficult.
 
 In order to make this maintenance easier, FW4SPL architecture relies on an Object-Service
-paradigm where data and their methods are separated in different code units.
+paradigm where data and their methods are separated into different code units.
 
 Object
 -------
 
 Objects represent data used in the framework. 
-They can be simple (boolean, integer, string, etc.) or advanced strucutres 
-(image, mesh, video, patient, etc.) without dependencies with the input data format. 
-For example, an input image could have several type as Jpeg or Dicom but the FW4SPl object will be the same.
+They can be simple (boolean, integer, string, etc.) or advanced structures 
+(image, mesh, video, patient, etc.) without depending on the input data format. 
+For example, an input image could have one of several formats such as Jpeg or Dicom but the FW4SPl object will be the same.
 
-Moreover, these object classes contains only data features and contain their 
-getter/setter methods only.
+Moreover, these object classes contain only data features and their corresponding getter/setter methods.
 
 For instance, the ``Image`` object:
 
-- contain a buffer pointer, a buffer size, the image's dimension and origin,
-- has public setter/getter methods to access to these members,
-- doesn't have any methods like read or write a buffer
+- contains a buffer pointer, a buffer size, the image's dimension and origin,
+- has public setter/getter methods to access these members,
+- does not have methods such as reading or writing a buffer
 
-The ``fwData`` library contains all usual simple and advanced data. 
+The ``fwData`` library contains the standard simple and advanced data. 
 It is the FW4SPL's main data library. There is also the ``fwMedData`` library which 
 contains several structures to store medical data. 
 A data list with a brief description is available in the appendixes.
 
-Create a data
+Creating data
 ~~~~~~~~~~~~~
 
-A new data must be created as described below.
+New data must be created as described below.
 
-In the header file (MyData.hpp) :
+In the header file (MyData.hpp):
 
-.. code-block :: cpp
+.. code:: cpp
 
     class MyData : public ::fwData::Object
     {
@@ -63,34 +63,34 @@ In the header file (MyData.hpp) :
 
     };
 
-In source file (MyData.cpp), this line must be also added to declare
-``MyClass`` as a data of the framework architecture :
+In the source file (MyData.cpp), this line must also be added to declare
+``MyClass`` as data of the framework architecture :
 
-.. code-block :: cpp
+.. code:: cpp
 
     fwDataRegisterMacro( MyData );
 
 Service
 -------
 
-A service represents a functionality which uses or modifies a data. A service
-is always associated to a data. For example, an image data can have a reader
+A service represents a functionality which uses or modifies data. A service
+is always associated with a datum. For example, image data can have a reader
 service, a writer service, a visualization service or a processing operator.
 
 Service type
 ~~~~~~~~~~~~
 
 Some service categories exist in FW4SPL. These categories are called *service
-types* and are represented by an abstract class. The basic service types are :
+types* and are represented by an abstract class. The basic service types are:
 
-- ``io::IReader`` : base interface for reader services.
-- ``io::IWriter`` : base interface for writer services.
-- ``fwGui::IActionSrv`` : base interface to manage action from a button or a
+- ``io::IReader``: base interface for reader services.
+- ``io::IWriter``: base interface for writer services.
+- ``fwGui::IActionSrv``: base interface to manage action from a button or a
   menu in the GUI.
-- ``gui::editor::IEditor`` :  base interface to create new widget in the GUI.
-- ``fwRender::IRender`` : base interface to create new visualization widgets in
+- ``gui::editor::IEditor``:  base interface to create new widget in the GUI.
+- ``fwRender::IRender``: base interface to create new visualization widgets in
   the GUI.
-- ``fwServices::IController`` : Does nothing particularly, can be considered as
+- ``fwServices::IController``: Does nothing in particular but can be considered as
   a default service type to be implemented by unclassified services.
 
 All services require a type association and must inherit from an abstract
@@ -102,40 +102,39 @@ Service methods
 Several methods exist to manipulate a service. The main methods are:
 ``configure``, ``start``, ``stop``, ``update`` and ``receive``.
 
-- ``configure`` method is used to parses the service parameters and analyze its
+- ``configure``: parses the service parameters and analyze its
   configuration. For example, this method is used to configure an image file
-  path on filesystem for an image reader service.
-- ``start`` method is used to initialize and launch the service (be careful,
-  starting and instantiating a service doesn't mean the same thing. For
-  example, for a visualization service, the ``start`` method instantiate all GUI
-  widgets necessary to visualize the data but the service is itself
-  instantiated before.)
-- ``stop`` method is used to stop the service. For example, for a visualization
+  path on the file system for an image reader service.
+- ``start``: initializes and launch the service (be careful,
+  starting and instantiating a service is not the same thing. For
+  example, for a visualization service, the ``start`` method instantiates all GUI
+  widgets necessary to visualize the data but the service itself is
+  instantiated before.).
+- ``stop``: stops the service. For example, for a visualization
   service, this method detaches and destroys all GUI widgets previously
   instantiated earlier in the ``start`` method.
-- ``update`` method is called to do an action on the data associated to the
+- ``update`` method is called to perform an action on the data associated with the
   service. For example, for an image reader service, the service reads the
-  image, converts and loads it into the associated data.
-- ``receive`` is called when service associated object is modified. The method
-  parameter contains all information about this modification. For example,
+  image, converts it and loads it into the associated data.
+- ``receive`` is called when the service associated object is modified. The method parameter contains all the information about this modification. For example,
   after an image object update has been realized by an image reader service,
   the associated image visualization service is notified that the image buffer
-  has been modified and refresh the view.
+  has been modified and then, the view is refreshed.
 
-This method is mandatory, but can be empty. The reason is that some services do
+This method is mandatory, but can be empty. This is because some services do
 not need a start/stop process, an update process or to listen to object
 modifications.
 
 Service states
 ~~~~~~~~~~~~~~
 
-These methods must respect a calling sequence. For example, it is not possible to
-stop a service before having started it. To secure the process, a state machine
-has been implemented and control the calling sequence.
+These methods must follow a calling sequence. For example, it is not possible to
+stop a service before starting it. To secure the process, a state machine
+has been implemented to control the calling sequence.
 
-The calling sequence to manage a service is :
+The calling sequence to manage a service is:
 
-.. code-block :: cpp
+.. code:: cpp
 
     MyData::sptr myData = MyData::New();
     MyService::sptr mySrv = MyService::New();
@@ -153,13 +152,13 @@ Create a service
 
 A new service must be created as described below.
 
-In the header file (MyService.hpp) :
+In the header file (MyService.hpp):
 
-.. code-block :: cpp
+.. code:: cpp
 
     class MyService : public AbstractServiceType
     {
-    public :
+    public:
 
         // Macro to define few important parameters/functions
         // used by the architecture
@@ -190,10 +189,10 @@ In the header file (MyService.hpp) :
         void updating() throw(::fwTools::Failed);
     };
 
-In source file (MyService.cpp), this line must be also added to declare
-``MyService`` as a service of the framework architecture :
+In the source file (MyService.cpp), this line must be also added to declare
+``MyService`` as a service of the framework architecture:
 
-.. code-block :: cpp
+.. code:: cpp
 
     fwServicesRegisterMacro( AbstractServiceType, MyService, MyData );
 
@@ -206,34 +205,34 @@ In source file (MyService.cpp), this line must be also added to declare
 Object and service factories
 ----------------------------
 
-To instantiate an object or a service, the architecture require the use of a
+To instantiate an object or a service, the architecture requires the use of a
 factory system. In class-based programming, the factory method pattern is a
 creational pattern which uses factory methods to deal with the problem of
 creating classes without specifying the exact class that will be created. This
 is done by creating classes via a factory method, which is either specified in
 an interface (abstract class) and implemented in implementing classes (concrete
-classes); or implemented in a base class (optionally as a template method),
-which can be overridden when inherited in derived classes; rather than by a
+classes) or implemented in a base class (optionally as a template method),
+which can be overridden when inherited in derivative classes; rather than by a
 constructor.
 
 Object factory
 ~~~~~~~~~~~~~~
 
 The ``fwData`` library has a factory to register and create all objects.
-The registration is managed by two macros :
+The registration is managed by two macros:
 
-.. code-block :: cpp
+.. code:: cpp
 
     // in .hpp file
     fwCoreClassDefinitionsWithFactoryMacro( (MyData)(::fwData::Object),
-        (()), ::fwData::factory::New< MyData >) ;
+        (()), ::fwData::factory::New< MyData >);
 
     // in .cpp file
     fwDataRegisterMacro( MyData );
 
-Then, there are only two ways to build a data in the framework:
+Then, there are only two ways to build data in the framework:
 
-.. code-block :: cpp
+.. code:: cpp
 
     // Direct creation
     MyData::sptr obj = MyData::New();
@@ -246,9 +245,9 @@ Service factory
 ~~~~~~~~~~~~~~~
 
 The ``fwService`` library has a factory to register and create all
-services. The registration is managed by two macros :
+services. The registration is managed by two macros:
 
-.. code-block :: cpp
+.. code:: cpp
 
     // in .hpp file
     fwCoreServiceClassDefinitionsMacro ((MyService)(AbstractServiceType));
@@ -258,7 +257,7 @@ services. The registration is managed by two macros :
 
 Then, there is only one way to build a service in the framework:
 
-.. code-block :: cpp
+.. code:: cpp
 
     ::fwServices::registry::ServiceFactory::sptr srvFactory
             = ::fwServices::registry::ServiceFactory::getDefault();
@@ -270,21 +269,21 @@ Then, there is only one way to build a service in the framework:
 Object-Service registry
 -----------------------
 
-The FW4SPL architecture is very generic thanks to:
+The FW4SPL architecture is standardized thanks to:
 
-- abstract classes ``fwData::Object`` and ``fwService::IService``.
-- The two factory systems
+- Abstract classes ``fwData::Object`` and ``fwService::IService``.
+- The two factory systems.
 
-In an application, one of the problem is to manage the life cycle of a large number of object instances and their services. This problem is solved by the class ``fwServices::registry::ObjectService`` which maintains the relationship
+In an application, one of the problems is managing the life cycle of a large number of object instances and their services. This problem is solved by the class ``fwServices::registry::ObjectService`` which maintains the relationship
 between objects and services. This class concept is very simple :
 
-.. code-block :: cpp
+.. code:: cpp
 
     // OSR is a singleton
     class ObjectService
     {
       // relation map beetwen an object and his associated services
-      map < Object *, vec < IService > > osr ;
+      map < Object *, vec < IService > > osr;
 
       // Associates a service to an object
       // manages in the function the association: srv->setObject(obj);
@@ -301,7 +300,7 @@ between objects and services. This class concept is very simple :
     ::fwServices::IService::sptr add(::fwData::Object::sptr obj,
             std::string serviceType, std::string _implementationId)
 
-This registry manages the object-service relationships and guarantees the non destruction of an object while some services are still working on it.
+This registry manages the object-service relationships and guarantees the non-destruction of an object while some services are still working on it.
 
 Object-Service concept example
 ------------------------------
@@ -309,7 +308,7 @@ Object-Service concept example
 To conclude, the generic object-service concept is illustrated with this
 example:
 
-.. code-block :: cpp
+.. code:: cpp
 
     // Create an object
     ::fwData::Object::sptr obj = ::fwData::factory::New("::fwData::Image");

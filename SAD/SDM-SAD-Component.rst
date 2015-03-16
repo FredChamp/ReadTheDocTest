@@ -1,18 +1,21 @@
-The FW4SPL is also a component-based architecture. Component-based software
-engineering (CBSE) (also known as component-based development (CBD)) is a
+The FW4SPL is also a component-based architecture.
+ 
+Component-based software engineering (CBSE) (also known as component-based development (CBD)) is a
 branch of software engineering that emphasizes the separation of concerns in
 respect of the wide-ranging functionality available throughout a given software
 system. It is a reuse-based approach to defining, implementing and composing
 loosely coupled independent components into systems. This practice aims to
 bring about an equally wide-ranging degree of benefits in both the short-term
 and the long-term for the software itself and for organizations that sponsor
-such software.
+such software. Excerpt from "Component-based software engineering" [#]_ on Wikipedia 
+
+.. [#] Component-based software engineering http://en.wikipedia.org/wiki/Component-based_software_engineering  
 
 Definitions and characteristics
 -------------------------------
 
 An individual software component is a software package that encapsulates a set
-of related code : resources, objects, services, XML configuration, etc.
+of related code: resources, objects, services, XML configuration, etc.
 
 All the architecture is placed into separate components so that all of the data
 and functions inside each component are semantically related. Because of this
@@ -31,14 +34,14 @@ a way that many different programs can reuse them.
 Component-based implementation
 ------------------------------
 
-The implementation requires a dynamic structure which represents the component
-and a software launcher which load and manage these components. 
+Implementation requires a dynamic structure which represents the component
+and a software launcher which loads and manages these components. 
 A component, called a bundle, is just a simple folder that contains :
 
 - the component description file (plugin.xml) to describe the content of the
   dynamic library
-- the dynamic library, its type (.so, .dll, .dylib) differs between the
-  operating system
+- the dynamic library, the type of which (.so, .dll, .dylib) differs between
+  operating systems
 - other shared resources (icons, XSD file, media files, ...)
 
 The software launcher uses the library ``fwRuntime`` to parse the software
@@ -48,23 +51,19 @@ description file (profile.xml) and load required dynamic libraries::
 
 
 The component description file (plugin.xml) is used to describe the content of
-the dynamic library. This file allows knowing what are concepts proposed by the
-component and what are concept implementations proposed by the component.
+the dynamic library. This file reveals which concepts and concept implementations are proposed by the component.
 These terms are identified in the file by keywords:
 
 - Extension point: the concept
-- Extension: a concept implementation (there can be many implementations for
-  just one concept)
+- Extension: a concept implementation (there can be many implementations one of a single concept)
 
 In some cases, the Extension point is represented by an abstract class in a
-component, and the Extension by class that inherits of the abstract class in
-another component.
+component, and the Extension by the class that it inherits from the abstract class of another component.
 
-We can take the example of the service concept. The component description file
-of servicesReg introduces the concept of service and include in the dynamic
-library the class IService:
+One example is the service concept. The component description file
+of servicesReg introduces the concept of service and incorporates the class IService into the dynamic library:
 
-.. code-block :: xml
+.. code:: xml
 
  <plugin id="serviceReg">
 
@@ -77,7 +76,7 @@ library the class IService:
 And in another component, a new service is proposed in the dynamic library and
 the information is shared in the description file.
 
-.. code-block :: xml
+.. code:: xml
 
  <plugin id="myBundle">
 
