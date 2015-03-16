@@ -3,7 +3,7 @@ FW4SPL documentation
 *********************
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    SAD/SDM-SAD-FW4SPL
    CodingStyle/coding-style-FW4SPL

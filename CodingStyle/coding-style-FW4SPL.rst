@@ -1,5 +1,5 @@
 **********************
-FW4SPL coding style
+Coding style
 **********************
 
 Terminology :
