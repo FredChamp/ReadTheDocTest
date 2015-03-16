@@ -32,14 +32,14 @@ This framework can run under Windows, Linux and MacOS and we are working on the 
 Where can I find applications developed with fw4spl ?
 ===============================================
 
-Some tutorials are provide with the framework and you can also build VR-Render, a free visualization software.
+Some tutorials are provided with the framework and you can also build VR-Render, a free visualization software.
 
 Which technology do you need to develop bundle?
 ===============================================
 
 You must have knowledge in C++. Concerning the configuration files, the syntax is close to XML.
 
-What is BinPkgs?
+What are the BinPkgs?
 ================
 
 The BinPkgs (binary packages) contain all the extern libraries needed by fw4spl. For each BinPkg, a CMakeLists provides the OS specific instructions to build it . The can be download on https://github.com/fw4spl-org/fw4spl-deps
