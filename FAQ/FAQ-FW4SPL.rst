@@ -1,5 +1,5 @@
 *******************************
-Frequently Asked Question (FAQ)
+Frequently Asked Questions (FAQ)
 *******************************
 
 What is fw4spl?
