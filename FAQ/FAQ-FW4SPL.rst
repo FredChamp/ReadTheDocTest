@@ -80,7 +80,7 @@ I have an assertion/fatal message when I launch my program, any idea to correct 
 ===================================================================================================
 
 First, you can read the output message :) and try to solve the problem.
-In many cases, there are two kind of problems. The program fail :
+In many cases, there are two kind of problems. The program fail:
     - to create the service given in configuration In this case, four reasons are possibles :
         - the name of service implementation in config.xml contains mistakes
         - the bundle that contains this service is not activated in the profile
@@ -93,12 +93,13 @@ If I use fw4spl, do I need wrap all my data ?
 =============================================
 
 The first question is to know if the data is on center of application:
+
     - Need you to shared data between few bundles ?
     - Need you to attach services on this data ?
     
-    If the answer is no, you don't need to wrap your data. 
-    Otherwise, you need to have an object that inherits of ::fwData::Object.
+        - If the answer is no, you don't need to wrap your data. 
+        - Otherwise, you need to have an object that inherits of ::fwData::Object.
 
-In this last case, do you need shared this object between different services which use different libraries, ex for Object Image : itk::Image vs vtkImage ?
-    If the answer is yes, you need create a new object like fwData::Image and a wrapping with fwData::Image<=>itk::Image and fwData::Image<=>vtkImage.
-    Otherwise, you can just encapsulated an itk::Image in fwData::Image and create an accessor on it. ( however, this kind of choice implies that all applications that use fwData::Image need itk library for running. )
+    In this last case, do you need shared this object between different services which use different libraries, ex for Object Image : itk::Image vs vtkImage ?
+        - If the answer is yes, you need create a new object like fwData::Image and a wrapping with fwData::Image<=>itk::Image and fwData::Image<=>vtkImage.
+        - Otherwise, you can just encapsulated an itk::Image in fwData::Image and create an accessor on it. ( however, this kind of choice implies that all applications that use fwData::Image need itk library for running. )
