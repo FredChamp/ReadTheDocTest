@@ -6,7 +6,7 @@ Goal
 
 This tutorial explains how to create a basic application with a simple window. it contains only a title and an icon (cf. screenshot). 
 
-.. image:: picture.jpeg
+.. image:: media/simpleApp.jpeg
     :alt: Tuto01Basic screenshot
     :align: center
     
