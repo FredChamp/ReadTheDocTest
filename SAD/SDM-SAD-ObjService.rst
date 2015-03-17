@@ -1,5 +1,3 @@
-Object-Service concept
-======================
 
 Introduction
 ------------

@@ -1,6 +1,3 @@
-Signal-slot communication
-=========================
-
 Overview
 --------
 

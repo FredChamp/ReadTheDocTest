@@ -1,5 +1,3 @@
-Serialization
-=======================
 
 Overview
 --------

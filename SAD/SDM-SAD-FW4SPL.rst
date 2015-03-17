@@ -39,105 +39,85 @@ Annexes
    configuration as a diagram.
 
 
-.. .. toctree::
-..    :maxdepth: 2
-..
-..    SDM-SAD-ObjService
-..    SDM-SAD-SigSlot
-..    SDM-SAD-App-config
-..    SDM-SAD-Thread
-..    SDM-SAD-Serialization
-..    SDM-SAD-PatientFolder
-..    SDM-SAD-Manager
-..    SDM-SAD-Component
-..    SDM-SAD-GUI
-   
-   
-..    CodingStyle/coding-style-FW4SPL
-..    Doxygen <http://fw4spl-org.github.io/fw4spl-dox/>
-..    FAQ/FAQ-FW4SPL
-..
-..
-..
-.. Object-Service concept
-.. ======================
-..
-.. .. include:: SDM-SAD-ObjService.rst
-..
-..
-.. Signal-slot communication
-.. =========================
-..
-.. .. include:: SDM-SAD-SigSlot.rst
-..
-.. App-config
+Object-Service concept
+======================
+
+.. include:: SDM-SAD-ObjService.rst
+
+
+Signal-slot communication
+=========================
+
+.. include:: SDM-SAD-SigSlot.rst
+
+App-config
+=======================
+
+.. include:: SDM-SAD-App-config.rst
+
+.. [TODO]Activities
 .. =======================
-..
-.. .. include:: SDM-SAD-App-config.rst
-..
-.. .. [TODO]Activities
-.. .. =======================
-.. .. .. include:: SDM-SAD-Activities.rst
-..
-.. Multithreading
-.. =======================
-..
-.. .. include:: SDM-SAD-Thread.rst
-..
-.. Serialization
-.. =======================
-..
-.. .. include:: SDM-SAD-Serialization.rst
-..
-.. .. [TODO]Environment management
-.. .. ============================
-.. .. .. include:: SDM-SAD-Env.rst
-..
-.. .. [TODO]Binary packages
-.. .. =======================
-.. .. .. include:: SDM-SAD-bp.rst
-..
-.. .. [TODO]Memory management
-.. .. =======================
-.. .. .. include:: SDM-SAD-memory.rst
-..
-.. Medical patient folder
+.. .. include:: SDM-SAD-Activities.rst
+
+Multithreading
+=======================
+
+.. include:: SDM-SAD-Thread.rst
+
+Serialization
+=======================
+
+.. include:: SDM-SAD-Serialization.rst
+
+.. [TODO]Environment management
 .. ============================
-..
-.. .. include:: SDM-SAD-PatientFolder.rst
-..
-.. .. [TODO]Generic scene
-.. .. =======================
-.. .. .. include:: SDM-SAD-GenericScene.rst
-..
-.. Manager and updater services
-.. ==================================
-..
-.. .. include:: SDM-SAD-Manager.rst
-..
-.. .. [TODO]Progress bar
-.. .. =======================
-.. .. .. include:: SDM-SAD-ProgressBar.rst
-..
-.. .. [TODO]Software license
-.. .. ======================
-.. .. .. include:: SDM-SAD-License.rst
-..
-.. .. [TODO]Log
-.. .. =========
-.. .. .. include:: SDM-SAD-Log.rst
-..
-.. .. [TODO]Application and launcher
-.. .. ===============================
-.. .. .. include:: SDM-SAD-Application.rst
-..
-.. Component-based software
-.. ==============================
-..
-.. .. include:: SDM-SAD-Component.rst
-..
-.. Graphical User Interface
-.. ========================
-..
-.. .. include:: SDM-SAD-GUI.rst
-..
+.. .. include:: SDM-SAD-Env.rst
+
+.. [TODO]Binary packages
+.. =======================
+.. .. include:: SDM-SAD-bp.rst
+
+.. [TODO]Memory management
+.. =======================
+.. .. include:: SDM-SAD-memory.rst
+
+Medical patient folder
+============================
+
+.. include:: SDM-SAD-PatientFolder.rst
+
+.. [TODO]Generic scene
+.. =======================
+.. .. include:: SDM-SAD-GenericScene.rst
+
+Manager and updater services
+==================================
+
+.. include:: SDM-SAD-Manager.rst
+
+.. [TODO]Progress bar
+.. =======================
+.. .. include:: SDM-SAD-ProgressBar.rst
+
+.. [TODO]Software license
+.. ======================
+.. .. include:: SDM-SAD-License.rst
+
+.. [TODO]Log
+.. =========
+.. .. include:: SDM-SAD-Log.rst
+
+.. [TODO]Application and launcher
+.. ===============================
+.. .. include:: SDM-SAD-Application.rst
+
+Component-based software
+==============================
+
+.. include:: SDM-SAD-Component.rst
+
+Graphical User Interface
+========================
+
+.. include:: SDM-SAD-GUI.rst
+
