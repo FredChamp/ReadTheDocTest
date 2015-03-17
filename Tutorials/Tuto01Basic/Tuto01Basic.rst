@@ -6,7 +6,7 @@ Goal
 
 This tutorial explains how to create a basic application with a simple window. it contains only a title and an icon (cf. screenshot). 
 
-.. image:: media/simpleApp.jpeg
+.. image:: media/simpleApp.jpg
     :alt: Tuto01Basic screenshot
     :align: center
     
@@ -20,7 +20,7 @@ As our application is empty, we don't need specific data object.So we are going 
 As we have found all objects and services requested for our application, we just have to write the two configuration files (profile.xml and config.xml) to build the FW4SPL application.
 
 Tuto01Basic profile
-------------------
+--------------------
 
 The profile xml file is the first file read by the launcher in order to know bundles requested by the program (activate node). These bundles are listed with their id in this file. It also gives the name of the configuration file to use, the starting mode and the version of the application. An application built whith the FW4SPL framework, can run with the Qt library or WxWidgets library. This choice is done in the profile by using the right bundles. For example, the gui bundles is called guiQt for the Qt library and guiWx for the WxWidgets library.
 
@@ -86,7 +86,7 @@ The profile.xml for the application using Qt
     </profile>
 
 Tuto01Basic configuration
-------------------------
+--------------------------
 
 The file tutoBasicConfigFile.xml contains the configuration of our application. Let's call it tutoBasicConfig (notice that the name of the configuration is passed to the gui bundle in application profile). It allows to instantiate the datas requested by the application, but also create and configure all the services associated with each datas. However, as our application doesn't use data, we choose a generic data (superclass of datas, ::fwTools::Object).
 
