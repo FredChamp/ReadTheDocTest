@@ -39,18 +39,18 @@ Annexes
    configuration as a diagram.
 
 
-.. toctree::
-   :maxdepth: 2
-
-   SDM-SAD-ObjService
-   SDM-SAD-SigSlot
-   SDM-SAD-App-config
-   SDM-SAD-Thread
-   SDM-SAD-Serialization
-   SDM-SAD-PatientFolder
-   SDM-SAD-Manager
-   SDM-SAD-Component
-   SDM-SAD-GUI
+.. .. toctree::
+..    :maxdepth: 2
+..
+..    SDM-SAD-ObjService
+..    SDM-SAD-SigSlot
+..    SDM-SAD-App-config
+..    SDM-SAD-Thread
+..    SDM-SAD-Serialization
+..    SDM-SAD-PatientFolder
+..    SDM-SAD-Manager
+..    SDM-SAD-Component
+..    SDM-SAD-GUI
    
    
 ..    CodingStyle/coding-style-FW4SPL
