@@ -40,7 +40,7 @@ Annexes
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    SDM-SAD-ObjService
    SDM-SAD-SigSlot
