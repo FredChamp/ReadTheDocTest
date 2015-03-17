@@ -42,7 +42,7 @@ You must have knowledge in C++. Concerning the configuration files, the syntax i
 What are the BinPkgs?
 ================
 
-The BinPkgs (binary packages) contain all the extern libraries needed by fw4spl. For each BinPkg, a CMakeLists provides the OS specific instructions to build it . The can be download on https://github.com/fw4spl-org/fw4spl-deps
+The BinPkgs (binary packages) contain all the extern libraries needed by fw4spl. For each BinPkg, a CMakeLists provides the OS specific instructions to build it . They can be downloaded on https://github.com/fw4spl-org/fw4spl-deps
 
 Is it difficult to compile an application with fw4spl?
 ======================================================
@@ -57,38 +57,38 @@ The launcher is used to create the entry point of the application. It parses the
 How can I debug my program ?
 =============================
 
-Firstly, you can change thee log level of a sub-project in the CMake configuration.
+Firstly, you can change the log level of a sub-project in the CMake configuration.
 
-Where allowed values are : ['trace', 'debug', 'info', 'error', 'fatal', 'warning', 'disable']. the value 'trace' gives me the maximun of log, 'disable' disables log.
+The allowed values are : ['trace', 'debug', 'info', 'error', 'fatal', 'warning', 'disable']. the value 'trace' gives me the maximun of log, 'disable' disables log.
 
-    note a : Print many log messages ( by activating trace on all sub-projects for ex. ) can be very time consuming for the application.
+   **note a** : Printing many log messages ( by activating trace on all sub-projects for ex. ) can be very time consuming for the application.
 
-    note b : Under windows system, log messages are saved on filesystem in SLM.log file, in the working directory.
+    **note b** : Under windows system, log messages are saved on filesystem in SLM.log file, in the working directory.
 
-Secondly, you can use gdb (Linux/Mac) or Visual Studio (Windows) to debug your application in running with a program compiling in debug (racy DEBUG=full myApp).
+Secondly, you can debug your application using gdb (Linux/Mac) or Visual Studio (Windows) and compiling your application in Debug mode
 
-    note a : you can use gdb like this "LD_LIBRARY_PATH=./lib gdb -arg bin/launcher Bundles/myApp/myProfile.xml", and press "r" for run the program
+    **note a** : you can use gdb like this "LD_LIBRARY_PATH=./lib gdb -arg bin/launcher Bundles/myApp/myProfile.xml", and press "r" for run the program
 
-    note b : you can use under gdb the command "catch throw" hence gdb will stop near the error
-    note c : Documentation to learn using gdb : http://www.cs.tau.ac.il/lin-club/lecture-notes/GDB_Linux_telux.pdf
+    **note b** : you can use under gdb the command "catch throw" hence gdb will stop near the error
+    **note c** : Documentation to learn using gdb : http://www.cs.tau.ac.il/lin-club/lecture-notes/GDB_Linux_telux.pdf
     
 Thirdly, you can manage the program complexity by reducing the number of activated components (in profile.xml) and the number of created services (in config.xml) to better localize errors.
 
-Fourthly, verify that your profile.xml / config.xml and each bundle plugin.xml are well-formed, by using xmllint (command line tool provided by libxml2).
+Fourthly, verify that your profile.xml / plugin.xml and each bundle plugin.xml are well-formed, by using xmllint (command line tool provided by libxml2).
 
 I have an assertion/fatal message when I launch my program, any idea to correct the problem ?
 ===================================================================================================
 
 First, you can read the output message :) and try to solve the problem.
-In many cases, there are two kind of problems. The program fail:
-    - to create the service given in configuration In this case, four reasons are possibles :
+In many cases, there are two kind of problems. The program fails to :
+    - create the service given in configuration In this case, four reasons are possibles :
     
         - the name of service implementation in config.xml contains mistakes
         - the bundle that contains this service is not activated in the profile
         - the bundle plugin.xml, that contains this service, not declares the     service or the declaration contains mistakes.
         - the service is not register in the Service Factory (forget of macro REGISTER_SERVICE(...) in file .cpp) 
         
-    - to manage the configuration of service. In this case, the implementation code in .cpp file ( generally configuring() method of service ) does not correspond to description code in config.xml ( Missing arguments, or not well-formed, or mistakes string parameters ).
+    - manage the configuration of service. In this case, the implementation code in .cpp file ( generally configuring() method of service ) does not correspond to description code in config.xml ( Missing arguments, or not well-formed, or mistakes string parameters ).
 
 If I use fw4spl, do I need wrap all my data ?
 =============================================

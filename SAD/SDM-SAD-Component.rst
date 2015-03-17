@@ -1,3 +1,6 @@
+Component-based software
+==============================
+
 The FW4SPL is also a component-based architecture.
  
 Component-based software engineering (CBSE) (also known as component-based development (CBD)) is a

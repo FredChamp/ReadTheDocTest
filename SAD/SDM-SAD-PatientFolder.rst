@@ -1,3 +1,6 @@
+Medical patient folder
+============================
+
     DICOM is a software integration standard that is used in Medical Imaging. All modern medical imaging systems (aka Imaging Modalities) equipment like X-Rays,
     Ultrasounds, CT (Computed Tomography), and MRI (Magnetic Resonance Imaging) support DICOM and use it extensively. The core of DICOM is a file format and a networking protocol.
 
