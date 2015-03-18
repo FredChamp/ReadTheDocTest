@@ -254,4 +254,4 @@ Conclusion
 
 Accordingly, you have now the requirements to serialize data in the framework and a basic knowledge about the mechanism behind it. To conclude, this is a diagram of the serialization mechanism:
 
-.. image:: Images/serialization.png
+.. image:: ../media/serialization.png
