@@ -302,6 +302,9 @@ between objects and services. This class concept is very simple :
 
 This registry manages the object-service relationships and guarantees the non-destruction of an object while some services are still working on it.
 
+
+.. _Object-Service_example:
+
 Object-Service concept example
 ------------------------------
 
