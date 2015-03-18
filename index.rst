@@ -6,7 +6,7 @@ FW4SPL documentation
    :maxdepth: 2
 
    SAD/index
-   CodingStyle/coding-style-FW4SPL
+   CodingStyle/index
    Doxygen <http://fw4spl-org.github.io/fw4spl-dox/>
    FAQ/FAQ-FW4SPL
    Tutorials/index
