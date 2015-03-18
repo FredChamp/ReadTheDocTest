@@ -7,6 +7,6 @@ the selected data.
 
 .. figure:: ../media/activity.svg
 
-*::activities::action::SActivityLauncher* uses the selected data to generate the activity.
-*::guiQt::editor::DynamicView*  displays the activity in the application.
-*Vector* contains the set of selected data 
+* *::activities::action::SActivityLauncher* uses the selected data to generate the activity.
+* *::guiQt::editor::DynamicView*  displays the activity in the application.
+* *Vector* contains the set of selected data .
