@@ -33,7 +33,7 @@ communications.
         acm->destroy(); // Destroy all services and then data.
     }
 
-The following part correspond to the configuration XML file of the previous `Object-Service concept example`_.
+The following part correspond to the configuration XML file of the previous :ref:`Object-Service_example`.
 
 .. code:: xml
 
