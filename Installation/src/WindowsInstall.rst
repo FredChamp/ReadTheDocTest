@@ -1,3 +1,6 @@
+Installation for Windows
+======================
+
 Latest Release Version
 ------------------------
 The last releases of the project are:
@@ -107,7 +110,7 @@ After an successful compilation the application can be launched with the launche
 Therefore the profile.xml of the application in the build folder has to be passed as argument to the launcher call in the console. 
 Make sure that the external libraries directory is set to the path (set PATH=%PATH%;C:\FW4SPLBinPkgsInstallPath\Debug\bin;C:\FW4SPLBinPkgsInstallPath\Debug\x64\vc12\bin;). .
 
-.. image:: media/launchApp.png
+.. image:: ../media/launchApp.png
 
 Recommended software
 -------------------------
@@ -130,7 +133,7 @@ To use FW4SPL with the ConsoleZ or Console2 the following settings should be don
 
 - Join .bat files to the shell settings, to indicate specific settings like path extensions to the external libraries of FW4SPL (e.g. set PATH=%PATH%;C:\FW4SPLBinPkgsInstallPath\Debug\bin;C:\FW4SPLBinPkgsInstallPath\Debug\x64\vc12\bin;) 
 
-.. image:: media/ConsoleSettings.png
+.. image:: ../media/ConsoleSettings.png
    
 Release
 -------------------------

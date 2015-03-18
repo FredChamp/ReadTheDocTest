@@ -1,29 +1,18 @@
+Installation for MacOSX
+======================
 
 Prerequisites for Linux users
 --------------------------------
 
 If not already installed:
 
-1. Install `Mercurial <http://mercurial.selenic.com/wiki/>`_  (apt-get install mercurial)
+1. Install `Mercurial <http://mercurial.selenic.com/wiki/>`_ 
 
 2. Optionally you can install `TortoiseHg <http://tortoisehg.bitbucket.org/>`_ 
 
-3. Install `gcc <https://gcc.gnu.org/>`_ (apt-get install gcc)
+4. Install `Python 2.7 <https://www.python.org/downloads/>`_ 
 
-4. Install `clang <http://clang.llvm.org/>`_ (apt-get install clang)
-
-4. Install `Python 2.7 <https://www.python.org/downloads/>`_ (apt-get install python2.7)
-
-5. Install `CMake <http://www.cmake.org/download/>`_ (apt-get install cmake)
-
-6. Install `jom <https://mingw-and-ndk.googlecode.com/files/jom.7z>`_ (apt-get install jom)
-
-
-
-Qt is an external library used in FW4SPL. For the successful compilation of Qt with FW4SPL, please see the following requirements:
-
-- http://wiki.qt.io/Building_Qt_5_from_Git
-
+5. Install `CMake <http://www.cmake.org/download/>`_ 
 
 
 FW4SPL installation
@@ -65,13 +54,13 @@ For the third party libraries the three following repositories have to be `clone
 - `fw4spl-ext-deps <https://github.com/fw4spl-org/fw4spl-ext-deps.git>`_
 
 Update the cloned repositories to the used version. Call the cmake-gui or change the cmake arguments with the console from the BinPkgs build folder location. 
-Choose jom or nmake as build tool for cmake. The following arguments have to be changed:
+Choose make as build tool for cmake. The following arguments have to be changed:
 
 - *ADDITIONAL_PROJECTS*: set the source location of fw4spl-ar-deps and fw4spl-ext-deps
 
 - *CMAKE_INSTALL_PREFIX*: set the install location.
 
-Configure and generate the code. Compile the FW4SPL dependencies with jom or nmake in the console.
+Configure and generate the code. Compile the FW4SPL dependencies with make in the console.
 
 Source
 ~~~~~~~~~~~~~~~~~
@@ -85,7 +74,7 @@ For the FW4SPL source code the three following repositories have to be `cloned <
 - `fw4spl-ext <https://github.com/fw4spl-org/fw4spl-ext.git>`_
 
 Update the cloned repositories to the used version. Make sure that cmake is set as environment variable. Call the cmake-gui or change the cmake arguments with the console from the Dev build folder location. 
-Choose jom or nmake as build tool for cmake. The following arguments have to be changed:
+Choose make as build tool for cmake. The following arguments have to be changed:
 
 - *ADDITIONAL_PROJECTS*: set the source location of fw4spl-ar and fw4spl-ext
 
@@ -94,7 +83,7 @@ Choose jom or nmake as build tool for cmake. The following arguments have to be 
 - *EXTERNAL_LIBRARIES*: set the install path of the third part libraries.
 
 Make sure the arguments concerning the compiler (advanced arguments) point to the preferred compiler.
-Configure and generate the code. Compile the FW4SPL source code with jom or nmake in the console . 
+Configure and generate the code. Compile the FW4SPL source code with make in the console . 
 To develop applications with FW4SPL the source code can be imported and compiled with the preferred development environment. 
 
 
