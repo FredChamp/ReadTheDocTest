@@ -5,7 +5,7 @@ An activity represents a set of services. This set can be used as a sub part of 
 The SActivityLauncher service allows to launch an activity. Its role is to create the specific Activity associated with 
 the selectionned data.
 
-:: image : ../media/Activity.svg
+.. image:: ../media/Activity.svg
 
 where :
 
