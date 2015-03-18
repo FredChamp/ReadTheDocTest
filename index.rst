@@ -3,7 +3,7 @@ FW4SPL documentation
 *********************
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: -1
 
    SAD/index
    CodingStyle/coding-style-FW4SPL
