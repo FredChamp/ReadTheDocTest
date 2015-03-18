@@ -1,4 +1,4 @@
-C++ coding :
+C++ coding
 ============
 
 Source and files

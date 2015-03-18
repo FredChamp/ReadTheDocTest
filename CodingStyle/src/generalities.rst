@@ -1,4 +1,4 @@
-Generalities :
+Generalities
 ==============
 .. rule :: Preferred language
             

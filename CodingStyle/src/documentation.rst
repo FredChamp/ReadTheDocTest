@@ -3,7 +3,7 @@ Documentation
 
 .. rule :: Document the code
 
-    The code must be documented with ==Doxygen==, an automated tool to generate documentation.
+    The code must be documented with **Doxygen**, an automated tool to generate documentation.
 
 .. rule :: Location of the documentation
 
@@ -21,31 +21,31 @@ Example 1 : Bad documentation block
 
     .. code-block :: cpp
 
-        /==
-        = @brief        A very short description.
-        =
-        = A longer description, giving more details about the documented piece
-        = of code.
-        =============================================
-        = @param
-        =============================================
-        = @return
-        =============================================
-        = @exception
-        =============================================
-        = @todo
-        =============================================/
+        /**
+        * @brief        A very short description.
+        *
+        * A longer description, giving more details about the documented piece
+        * of code.
+        *********************************************
+        * @param
+        *********************************************
+        * @return
+        *********************************************
+        * @exception
+        *********************************************
+        * @todo
+        *********************************************
 
 Example 2 : Good documentation block
 
     .. code-block :: cpp
 
-        /==
-        = @brief        A very short description.
-        =
-        = A longer description, giving more details about the documented piece
-        = of code.
-        =/
+        /**
+        * @brief        A very short description.
+        *
+        * A longer description, giving more details about the documented piece
+        * of code.
+        */
 
 Example 3 : Function documentation
 
@@ -54,17 +54,17 @@ Example 3 : Function documentation
         class Sample
         {
         public:
-            /==
-            = Retrieve the thing.
-            =
-            = @return       The thing value.
-            =/
+            /**
+            * Retrieve the thing.
+            *
+            * @return       The thing value.
+            */
             const std::string& getThing( void ) const;
-            /==
-            = @brief        Set the thing.
-            =
-            = @param        thing   :  The new thing.
-            =/
+            /**
+            * @brief        Set the thing.
+            *
+            * @param        thing   :  The new thing.
+            */
             void setThing( const std::string& thing );
 
         private:
@@ -82,14 +82,14 @@ Example 3 : Function documentation
 
     .. code-block :: cpp
 
-        /==
-         = @verbatim
+        /**
+         * @verbatim
         <adaptor id="points" class="::namespace::SService">
             <config option1="default" option2="false"/>
         </adaptor>
          @endverbatim
-         = - \b option1 : first option.
-         = - \b option2(optional) : second option.
-        =/
+         * - \b option1 : first option.
+         * - \b option2(optional) : second option.
+        */
         NAMESPACE_API void configuring() throw(fwTools::Failed);
     
