@@ -6,10 +6,7 @@ The SActivityLauncher service allows to launch an activity. Its role is to creat
 the selected data.
 
 .. figure:: ../media/activity.svg
-    :align: center
 
-    *::activities::action::SActivityLauncher* uses the selected data to generate the activity.
-    
-    *::guiQt::editor::DynamicView*  displays the activity in the application.
-    
-    *Vector* contains the set of selected data 
+*::activities::action::SActivityLauncher* uses the selected data to generate the activity.
+*::guiQt::editor::DynamicView*  displays the activity in the application.
+*Vector* contains the set of selected data 
