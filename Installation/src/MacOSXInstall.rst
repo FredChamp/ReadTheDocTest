@@ -1,7 +1,7 @@
 Installation for MacOSX
 ======================
 
-Prerequisites for Linux users
+Prerequisites for MacOSX users
 --------------------------------
 
 If not already installed:

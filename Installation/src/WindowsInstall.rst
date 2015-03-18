@@ -1,12 +1,6 @@
 Installation for Windows
 ======================
 
-Latest Release Version
-------------------------
-The last releases of the project are:
-
-- `fw4spl_10.0.1 <https://code.google.com/p/fw4spl/>`_
-
 Prerequisites for Windows users
 --------------------------------
 
