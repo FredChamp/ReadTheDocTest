@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="41cm" height="18cm" viewBox="259 420 806 345" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="260" y="580" width="148.6" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="260" y="580" width="148.6" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="334.3" y="596">&lt;&lt;fwData::Vector&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="334.3" y="615">Vector</text>
+  </g>
+  <line style="fill: none; fill-opacity:0; stroke-width: 10; stroke: #000000" x1="520" y1="425.75" x2="520" y2="760"/>
+  <g>
+    <rect style="fill: #ffffff" x="581" y="579" width="351.2" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="581" y="579" width="351.2" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="756.6" y="598">::activities::action::SActivityLauncher</text>
+    <rect style="fill: #ffffff" x="581" y="607" width="351.2" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="581" y="607" width="351.2" height="8"/>
+    <rect style="fill: #ffffff" x="581" y="615" width="351.2" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="581" y="615" width="351.2" height="8"/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1210.05" y="185">
+    <tspan x="1210.05" y="185"></tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="300" y="640" width="210.2" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="300" y="640" width="210.2" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="405.1" y="656">&lt;&lt;fwMedData::ImageSeries&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="405.1" y="675">ImageSeries2</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="300" y="700" width="210.2" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="300" y="700" width="210.2" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="405.1" y="716">&lt;&lt;fwMedData::ModelSeries&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="405.1" y="735">ModelSeries1</text>
+  </g>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="260,624 260,662 300,662 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="260,624 260,722 300,722 "/>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #ff0000" points="756.6,579 756.6,560 566.313,560 566.313,528.499 "/>
+    <polygon style="fill: #ff0000" points="571.313,528.499 566.313,518.499 561.313,528.499 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #ff0000" points="571.313,528.499 566.313,518.499 561.313,528.499 "/>
+  </g>
+  <g>
+    <g>
+      <rect style="fill: #ffffff" x="566" y="462" width="273.5" height="28"/>
+      <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="566" y="462" width="273.5" height="28"/>
+      <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="702.75" y="481">::guiQt::editor::DynamicView</text>
+      <rect style="fill: #ffffff" x="566" y="490" width="273.5" height="8"/>
+      <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="566" y="490" width="273.5" height="8"/>
+      <rect style="fill: #ffffff" x="566" y="498" width="273.5" height="20"/>
+      <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="566" y="498" width="273.5" height="20"/>
+      <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="569" y="512"> receive(msg)</text>
+    </g>
+    <g>
+      <ellipse style="fill: #ffffff" cx="566.313" cy="508.687" rx="7.8125" ry="7.8125"/>
+      <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" cx="566.313" cy="508.687" rx="7.8125" ry="7.8125"/>
+      <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" cx="566.313" cy="508.687" rx="7.8125" ry="7.8125"/>
+    </g>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="154.75" y="63.5">
+    <tspan x="154.75" y="63.5"></tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="272.75" y="80">
+    <tspan x="272.75" y="80"></tspan>
+  </text>
+  <g>
+    <g>
+      <rect style="fill: #ffffff" x="881" y="438" width="183" height="102"/>
+      <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="881" y="438" width="183" height="102"/>
+    </g>
+    <g>
+      <ellipse style="fill: #ffffff" cx="912.712" cy="453.913" rx="7.8125" ry="7.8125"/>
+      <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" cx="912.712" cy="453.913" rx="7.8125" ry="7.8125"/>
+      <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" cx="912.712" cy="453.913" rx="7.8125" ry="7.8125"/>
+    </g>
+    <g>
+      <polyline style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #ff0000" points="902,485 902,484.572 918.136,484.572 "/>
+      <polygon style="fill: #ff0000" points="918.136,489.572 928.136,484.572 918.136,479.572 "/>
+      <polygon style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #ff0000" points="918.136,489.572 928.136,484.572 918.136,479.572 "/>
+    </g>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="938.5" y="457.5">
+      <tspan x="938.5" y="457.5">Slot</tspan>
+      <tspan x="938.5" y="473.5"></tspan>
+      <tspan x="938.5" y="489.5">Signal</tspan>
+      <tspan x="938.5" y="505.5"></tspan>
+      <tspan x="938.5" y="521.5">Add/Swap/remove</tspan>
+    </text>
+    <g>
+      <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0ed5ff" d="M 900,503 A 12.1106,12.1106 0 1 0 918.468,518.636"/>
+      <polygon style="fill: #0ed5ff" points="921.041,513.236 926.224,523.142 921.179,520.734 916.226,523.326 "/>
+      <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0ed5ff" points="921.041,513.236 926.224,523.142 921.179,520.734 916.226,523.326 "/>
+    </g>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1140" y="500">
+    <tspan x="1140" y="500"></tspan>
+  </text>
+  <text font-size="12.8" style="fill: #ff0000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:700" x="765" y="559">
+    <tspan x="765" y="559">activityLaunched</tspan>
+  </text>
+</svg>
