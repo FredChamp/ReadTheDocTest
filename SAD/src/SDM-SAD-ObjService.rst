@@ -76,7 +76,7 @@ Service
 -------
 
 A service represents a functionality which uses or modifies data. A service
-is always associated with a datum. For example, image data can have a reader
+is always associated with a data. For example, image data can have a reader
 service, a writer service, a visualization service or a processing operator.
 
 Service type
@@ -303,7 +303,6 @@ between objects and services. This class concept is very simple :
             std::string serviceType, std::string _implementationId)
 
 This registry manages the object-service relationships and guarantees the non-destruction of an object while some services are still working on it.
-
 
 .. _Object-Service_example:
 

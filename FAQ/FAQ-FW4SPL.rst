@@ -1,6 +1,6 @@
-*********************************
+*******************************
 Frequently Asked Questions (FAQ)
-*********************************
+*******************************
 
 What is fw4spl?
 ===============
@@ -12,35 +12,35 @@ What does fw4spl mean?
 
 FW4SPL means FrameWork for Software Production Line. It is also called F4S ("forces").
 
-What is the characteristics of fw4spl?
+What are the features of fw4spl?
 =======================================
 
-The framework is build around the notion of component (bundle). To build an application with FW4SPL there are no programming skills required. By writing a simple XML the users can design their own application.
+The framework is built around the notion of component (bundle). To build an application with FW4SPL there are no programming skills required. By writing a simple XML the users can design their own application.
 
-FW4SPL is built on component-based architecture composed of C++ libraries.
-There are three main concepts of the architecture:
+FW4SPL has a component-based architecture composed of C++ libraries.
+There are three main concepts in the architecture:
 - object-service concept
 - component approach
 - signal-slot communication
 
 
-What platforms does fw4spl run on?
+Which platforms does fw4spl run on?
 ===================================
 
 This framework can run under Windows, Linux and MacOS and we are working on the Android part.
 
 Where can I find applications developed with fw4spl ?
-======================================================
+===============================================
 
 Some tutorials are provided with the framework and you can also build VR-Render, a free visualization software.
 
-Which technology do you need to develop bundle?
+Which prerequiste do I need to develop bundle?
 ===============================================
 
-You must have knowledge in C++. Concerning the configuration files, the syntax is close to XML.
+You must have a good knowledge in C++. Concerning the configuration files, they are written in XML.
 
 What are the BinPkgs?
-======================
+================
 
 The BinPkgs (binary packages) contain all the extern libraries needed by fw4spl. For each BinPkg, a CMakeLists provides the OS specific instructions to build it . They can be downloaded on https://github.com/fw4spl-org/fw4spl-deps
 
@@ -57,7 +57,7 @@ The launcher is used to create the entry point of the application. It parses the
 How can I debug my program ?
 =============================
 
-Firstly, you can change the log level of a sub-project in the CMake configuration.
+First, you can change the log level of a sub-project in the CMake configuration.
 
 The allowed values are : ['trace', 'debug', 'info', 'error', 'fatal', 'warning', 'disable']. the value 'trace' gives me the maximun of log, 'disable' disables log.
 

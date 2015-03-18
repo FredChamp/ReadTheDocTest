@@ -241,7 +241,7 @@ Two functions are necessary to achieve this conversion:
 Serialize an Atoms object to JSON format
 ----------------------------------------
 
-When a fw4spl datum is converted into Atoms, it can be saved in JSON format. Both an Atom reader and Atom writer are available in the ``fwAtomsBoostIO``
+When a fw4spl data is converted into Atoms, it can be saved in JSON format. Both an Atom reader and Atom writer are available in the ``fwAtomsBoostIO``
 fw4spl library: simply instantiate one of these classes with an Atom object
 and call the read or write method.
 
