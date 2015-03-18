@@ -1,3 +1,6 @@
+Graphical User Interface
+========================
+
 Overview
 --------
 
