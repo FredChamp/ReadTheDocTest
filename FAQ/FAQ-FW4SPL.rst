@@ -1,6 +1,6 @@
-*******************************
+********************************
 Frequently Asked Questions (FAQ)
-*******************************
+********************************
 
 What is fw4spl?
 ===============
@@ -30,7 +30,7 @@ Which platforms does fw4spl run on?
 This framework can run under Windows, Linux and MacOS and we are working on the Android part.
 
 Where can I find applications developed with fw4spl ?
-===============================================
+======================================================
 
 Some tutorials are provided with the framework and you can also build VR-Render, a free visualization software.
 
@@ -40,7 +40,7 @@ Which prerequiste do I need to develop bundle?
 You must have a good knowledge in C++. Concerning the configuration files, they are written in XML.
 
 What are the BinPkgs?
-================
+======================
 
 The BinPkgs (binary packages) contain all the extern libraries needed by fw4spl. For each BinPkg, a CMakeLists provides the OS specific instructions to build it . They can be downloaded on https://github.com/fw4spl-org/fw4spl-deps
 
