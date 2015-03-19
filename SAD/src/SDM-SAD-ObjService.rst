@@ -215,7 +215,9 @@ is done by creating classes via a factory method, which is either specified in
 an interface (abstract class) and implemented in implementing classes (concrete
 classes) or implemented in a base class (optionally as a template method),
 which can be overridden when inherited in derivative classes; rather than by a
-constructor.
+constructor[#]_.
+
+.. [#] http://en.wikipedia.org/wiki/Factory_method_pattern
 
 Object factory
 ~~~~~~~~~~~~~~
