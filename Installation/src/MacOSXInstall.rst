@@ -45,10 +45,6 @@ To prepare the third party environment:
 
 - Create a install folder (BinPkgs\\Install)
 
-.. .. image:: Directories.png
-..   :scale: 50 %
-
-
 .. _build_tools:
 
 Build tools
@@ -89,7 +85,7 @@ Some CMake variables have to be change:
 
 .. image:: ../media/osx_cmake_binpkgs.png
 
-Press configure (*[c]*) and generate (*[g]*) makefiles. Then, compile the FW4SPL dependencies with make or ninja in the console.
+Press configure (*[c]*) and generate (*[g]*) makefiles. Then, compile the FW4SPL dependencies with make or ninja in a terminal.
 
 Source
 ~~~~~~~~~~~~~~~~~
@@ -113,40 +109,45 @@ Some CMake variables have to be change:
 
 .. image:: ../media/osx_cmake_fw4spl.png
 
-Press configure (*[c]*) and generate (*[g]*) makefiles. Then, build dependencies with make or ninja in the console.
+Press configure (**[c]**) and generate (**[g]**) makefiles. Then, build dependencies with make or ninja in a terminal.
 
 example:
-
-    ``make Qt``
-    
-    or
-    
-    ``ninja Qt``
+    ``make Qt`` or ``ninja Qt``
 
 
 Launch an application
 -------------------------
 
-To work with an specific application or several applications the cmake argument *PROJECTS_TO_BUILD* can be set. 
-After an successful compilation the application can be launched with the launcher program from FW4SPL. 
-Therefore the profile.xml of the application in the build folder has to be passed as argument to the launcher call in the console. (bin/launcher Bundles/MyApplicationAndVersion/profile.xml)
+To build a specific or several applications the CMake argument ``PROJECTS_TO_BUILD`` can be set.
 
-.. .. image:: launchApp.png
-..   :scale: 50 %
+.. tip::
+    Use ``;`` so separate each application name.
+    
+After an successful compilation the application can be launched with the launcher program from a terminal. 
+Therefore the profile.xml of the application in the build folder has to be passed as argument to the launcher:
 
-Recommended software
+.. code:: bash
+
+    bin/launcher Bundles/MyApplicationAndVersion/profile.xml)
+
+.. note:: 
+
+    To generate the projects in release, the following instruction has to be change:
+    
+- Change CMake argument ``CMAKE_BUILD_TYPE`` to release
+- Set the ``EXTERNAL_LIBRARIES`` to the release install folder of dependencies
+
+Recommended softwares
 -------------------------
 
 The following programs may be helpful for your developments:
 
-- Install `Eclipse CDT <https://eclipse.org/cdt/>`_. Eclipse is a multi-OS Integrated Development Environment (IDE) for computer programming. 
+- IDE:
+    - `Qt creator <http://www.qt.io/download-open-source/#section-6>`_
+    - `Eclipse CDT <https://eclipse.org/cdt/>`_.
 
-Release
--------------------------
+- Versioning tools:
+    - `TortoiseHg <http://tortoisehg.bitbucket.org/`_
+    - `SourceTree <http://www.sourcetreeapp.com/`_
 
-To generate the projects in release, the following instruction has to be added:
 
-
-- Change CMake argument CMAKE_BUILD_TYPE to release
-
-- Reference the EXTERNAL_LIBRARIES to the install folder of third part libraries compiled in release mode (for compiling the FW4SPL projects)
