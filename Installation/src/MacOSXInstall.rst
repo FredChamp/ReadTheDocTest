@@ -1,9 +1,3 @@
-.. role:: red
-
-.. role:: green
-
-.. role:: orange
-
 Installation for MacOSX
 ======================
 
@@ -19,6 +13,12 @@ If not already installed:
 4. Install `Python 2.7 <https://www.python.org/downloads/>`_ 
 
 5. Install `CMake <http://www.cmake.org/download/>`_ 
+
+
+.. tip::
+    1. You can also install `Ninja <https://github.com/martine/ninja/releases>`_ instead of using **make**.
+
+    2. For an easy install, you can use the `Hombrew project <http://brew.sh/>`_  to install missing packages.
 
 
 FW4SPL installation
@@ -48,6 +48,27 @@ To prepare the third party environment:
 .. .. image:: Directories.png
 ..   :scale: 50 %
 
+
+.. _build_tools:
+
+Build tools
+~~~~~~~~~~~~
+
+FW4SPL is a CMake project. That means, for each build target there is a CMakeLists that provides build parameters.
+To configure you project you can use the ``cmake`` command from the build folder with the sources as arguments:
+    
+.. code:: bash
+
+    ccmake /PATH/TO/fw4spl-deps
+
+if you want to use **Ninja** as build to tools, use the option ``-G Ninja``, as following:
+
+.. code:: bash
+
+    ccmake -G Ninja /PATH/TO/fw4spl-deps
+
+It is the same process for BinPkgs and FW4SPL sources.
+
 Dependencies
 ~~~~~~~~~~~~~~~~~
 
@@ -59,14 +80,16 @@ For the third party libraries the three following repositories have to be `clone
 
 - `fw4spl-ext-deps <https://github.com/fw4spl-org/fw4spl-ext-deps.git>`_
 
-Update the cloned repositories to the used version. Call the cmake-gui or change the cmake arguments with the console from the BinPkgs build folder location. 
-Choose make as build tool for cmake. The following arguments have to be changed:
+To build dependencies see :ref:`build_tools` instructions.
+Some CMake variables have to be change:
 
-- :red:`ADDITIONAL_PROJECTS`: set the source location of fw4spl-ar-deps and fw4spl-ext-deps
+- *ADDITIONAL_PROJECTS*: set the source location of fw4spl-ar-deps and fw4spl-ext-deps
 
-- :green:`CMAKE_INSTALL_PREFIX`: set the install location.
+- *CMAKE_INSTALL_PREFIX*: set the install location.
 
-Configure and generate the code. Compile the FW4SPL dependencies with make in the console.
+.. image:: ../media/osx_cmake_binpkgs.png
+
+Press configure (*[c]*) and generate (*[g]*) makefiles. Then, compile the FW4SPL dependencies with make or ninja in the console.
 
 Source
 ~~~~~~~~~~~~~~~~~
@@ -79,8 +102,8 @@ For the FW4SPL source code the three following repositories have to be `cloned <
 
 - `fw4spl-ext <https://github.com/fw4spl-org/fw4spl-ext.git>`_
 
-Update the cloned repositories to the used version. Make sure that cmake is set as environment variable. Call the cmake-gui or change the cmake arguments with the console from the Dev build folder location. 
-Choose make as build tool for cmake. The following arguments have to be changed:
+To build soruces see :ref:`build_tools` instructions.
+Some CMake variables have to be change:
 
 - *ADDITIONAL_PROJECTS*: set the source location of fw4spl-ar and fw4spl-ext
 
@@ -88,9 +111,17 @@ Choose make as build tool for cmake. The following arguments have to be changed:
 
 - *EXTERNAL_LIBRARIES*: set the install path of the third part libraries.
 
-Make sure the arguments concerning the compiler (advanced arguments) point to the preferred compiler.
-Configure and generate the code. Compile the FW4SPL source code with make in the console . 
-To develop applications with FW4SPL the source code can be imported and compiled with the preferred development environment. 
+.. image:: ../media/osx_cmake_fw4spl.png
+
+Press configure (*[c]*) and generate (*[g]*) makefiles. Then, build dependencies with make or ninja in the console.
+
+example:
+
+    ``make Qt``
+    
+    or
+    
+    ``ninja Qt``
 
 
 Launch an application
