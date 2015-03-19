@@ -1,3 +1,5 @@
+:css: css/style.css
+
 *********************
 FW4SPL documentation
 *********************

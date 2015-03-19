@@ -1,3 +1,9 @@
+.. role:: red
+
+.. role:: green
+
+.. role:: orange
+
 Installation for MacOSX
 ======================
 
@@ -56,9 +62,9 @@ For the third party libraries the three following repositories have to be `clone
 Update the cloned repositories to the used version. Call the cmake-gui or change the cmake arguments with the console from the BinPkgs build folder location. 
 Choose make as build tool for cmake. The following arguments have to be changed:
 
-- *ADDITIONAL_PROJECTS*: set the source location of fw4spl-ar-deps and fw4spl-ext-deps
+- :red:`ADDITIONAL_PROJECTS`: set the source location of fw4spl-ar-deps and fw4spl-ext-deps
 
-- *CMAKE_INSTALL_PREFIX*: set the install location.
+- :green:`CMAKE_INSTALL_PREFIX`: set the install location.
 
 Configure and generate the code. Compile the FW4SPL dependencies with make in the console.
 
