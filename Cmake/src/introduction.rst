@@ -74,12 +74,62 @@ Each project (apps, bundles, libs) have two "CMake" files:
 
 - CMakeLists.txt
 - Properties.cmake
+
+The CMakeLists.txt file
+^^^^^^^^^^^^^^^^^^^^^^^
+
+The CMakeLists.txt should contain at least the function *fwLoadProperties()* to load the Properties.cmake.
+But it can also contain others functions usefull to link with external libraries.
+
+Here is an example of CMakeLists.txt from guiQt Bundle :
+
+.. code:: cmake
+
+    fwLoadProperties()
+    fwUseForwardInclude(
+        fwActivities
+        fwGuiQt
+        fwRuntime
+        fwServices
+        fwTools
+
+        gui
+    )
+
+    find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
+
+
+    fwForwardInclude(
+        ${Qt5Core_INCLUDE_DIRS}
+        ${Qt5Gui_INCLUDE_DIRS}
+        ${Qt5Widgets_INCLUDE_DIRS}
+    )
+
+    fwLink(
+           ${Qt5Core_LIBRARIES}
+           ${Qt5Gui_LIBRARIES}
+           ${Qt5Widgets_LIBRARIES}
+    )
+
+    set_target_properties(${FWPROJECT_NAME} PROPERTIES AUTOMOC TRUE)
+
+The first line *fwLoadProperties()* will load the properties.cmake (see explanation in the next section).
+The *fwUseForwardInclude(...)* function will add the include directories of each argument to the target.
+
+The next lines are for the link with an external libraries (fw4spl-deps), in this example it is Qt.
+
+The first thing to do is to call *find_package(The_lib COMPONENTS The_component)*.
+
+The use *fwForwardInclude* to add includes directories to the target,
+and *fwLink* to link the libraries with your target.
+
+You can also add custom properties to your target with *set_target_properties*.
+
+
+The Properties.cmake file
+^^^^^^^^^^^^^^^^^^^^^^^^^
  
-
-
-The CMakeLists.txt must contain at least the fonction *fwLoadProperties()*
-
-Properties.cmake should contain informations like name, version, dependencies and requirements.
+Properties.cmake should contain informations like name, version, dependencies and requirements of the current target.
 
 Here is an example of Properties.cmake from fwData library:
 
@@ -91,7 +141,8 @@ Here is an example of Properties.cmake from fwData library:
  set( DEPENDENCIES fwCamp fwCom fwCore fwMath fwMemory fwTools )
  set( REQUIREMENTS  )
 
-
-
-
-
+- NAME: Name of the target
+- VERSION: Version of the target
+- TYPE: Type of the target (can be library, bundle or executable)
+- DEPENDENCIES: Link the target with the given libraries (see `target_link_libraries <http://www.cmake.org/cmake/help/v3.0/command/target_link_libraries.html?highlight=target_link_libraries>`_ )
+- REQUIREMENTS: Ensure that the depends are build before target (see `add_dependencies <http://www.cmake.org/cmake/help/v3.0/command/add_dependencies.html?highlight=add_dependencies>`_ )
