@@ -17,6 +17,7 @@ Each project has custom steps for download, update/patch, configure, build and i
 Here is a simple example from camp :
 
 .. code:: cmake
+
     cmake_minimum_required(VERSION 2.8)
 
     project(campBuilder)
@@ -54,7 +55,8 @@ The important parts are in the *ExternalProject_Add* fonction:
 - CMAKE_ARGS: CMake options for library which have a cmake build system
 - STEP_TARGETS: Custom command (in this example it will copy a script in the install folder)
 
-Note that in other script you can have much more options like :
+Note that in other script you can have much more options like:
+
 - PATCH_COMMAND
 - CONFIGURE_COMMAND
 - BUILD_COMMAND
