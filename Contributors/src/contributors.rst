@@ -27,7 +27,7 @@ Version 0.10.0 provides the notion of timeline to manage temporal data (IHU). Th
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | |IHU|_     |  Core, visualization, image processing, applications and tutorials (Team : Nicolas Philipps, Julien Waechter, Emilie Harquel)               |
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| |ALTRAN|_  |  Proof of concept on MIDAS integration                                                                                                      |
+| |ALTRAN|_  | Proof of concept on Kinect and Sofa integration :                                                                                                      |
 |            | * `Altran_200609_MAG10_FR.pdf`_ French document p12                                                                                         |
 |            | * `Altitude_17_20100407_FR.pdf`_ French document p26                                                                                        |
 |            | Proof of concept on MIDAS integration                                                                                                       |
@@ -52,11 +52,11 @@ Version 0.10.0 provides the notion of timeline to manage temporal data (IHU). Th
 .. |EHEALTH| image:: ../media/ehealth.gif
 .. _EHEALTH: http://ec.europa.eu/information_society/activities/health/index_en.htm
 
-.. |VP| image:: ../media/
+.. |VP| image:: ../media/VisiblePatient.png
 .. _VP: http://www.visiblepatient.com/en/
 
-.. _`Altran_200609_MAG10_FR.pdf` http://www.altran.com/fileadmin/medias/1.altran.com/files/Altitude_FR/Altran_200609_MAG10_FR.pdf
-.. _`Altitude_17_20100407_FR.pdf` http://www.altran.fr/fileadmin/medias/1.altran.com/files/Altitude_FR/Altitude_17_20100407_FR.pdf
-.. _`http://www.passport-liver.eu/` http://www.passport-liver.eu/ 
-.. _`http://www.vph-noe.eu/vph-repository/doc_download/154-passportppt` http://www.vph-noe.eu/vph-repository/doc_download/154-passportppt
-.. _`newsletter july 2010` http://www.vph-noe.eu/vph-repository/.../188-vph-noe-4th-newsletter-july-2010
+.. _Altran_200609_MAG10_FR.pdf http://www.altran.com/fileadmin/medias/1.altran.com/files/Altitude_FR/Altran_200609_MAG10_FR.pdf
+.. _Altitude_17_20100407_FR.pdf http://www.altran.fr/fileadmin/medias/1.altran.com/files/Altitude_FR/Altitude_17_20100407_FR.pdf
+.. _http://www.passport-liver.eu/ http://www.passport-liver.eu/ 
+.. _http://www.vph-noe.eu/vph-repository/doc_download/154-passportppt http://www.vph-noe.eu/vph-repository/doc_download/154-passportppt
+.. _newsletter july 2010 http://www.vph-noe.eu/vph-repository/.../188-vph-noe-4th-newsletter-july-2010
