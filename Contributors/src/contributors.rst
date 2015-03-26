@@ -55,8 +55,8 @@ Version 0.10.0 provides the notion of timeline to manage temporal data (IHU). Th
 .. |VP| image:: ../media/VisiblePatient.png
 .. _VP: http://www.visiblepatient.com/en/
 
-.. _Altran_200609_MAG10_FR.pdf http://www.altran.com/fileadmin/medias/1.altran.com/files/Altitude_FR/Altran_200609_MAG10_FR.pdf
-.. _Altitude_17_20100407_FR.pdf http://www.altran.fr/fileadmin/medias/1.altran.com/files/Altitude_FR/Altitude_17_20100407_FR.pdf
-.. _http://www.passport-liver.eu/ http://www.passport-liver.eu/ 
-.. _http://www.vph-noe.eu/vph-repository/doc_download/154-passportppt http://www.vph-noe.eu/vph-repository/doc_download/154-passportppt
-.. _newsletter july 2010 http://www.vph-noe.eu/vph-repository/.../188-vph-noe-4th-newsletter-july-2010
+.. _`Altran_200609_MAG10_FR.pdf` http://www.altran.com/fileadmin/medias/1.altran.com/files/Altitude_FR/Altran_200609_MAG10_FR.pdf
+.. _`Altitude_17_20100407_FR.pdf` http://www.altran.fr/fileadmin/medias/1.altran.com/files/Altitude_FR/Altitude_17_20100407_FR.pdf
+.. _`http://www.passport-liver.eu/` http://www.passport-liver.eu/ 
+.. _`http://www.vph-noe.eu/vph-repository/doc_download/154-passportppt` http://www.vph-noe.eu/vph-repository/doc_download/154-passportppt
+.. _`newsletter july 2010` http://www.vph-noe.eu/vph-repository/.../188-vph-noe-4th-newsletter-july-2010
