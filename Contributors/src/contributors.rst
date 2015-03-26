@@ -27,7 +27,7 @@ Version 0.10.0 provides the notion of timeline to manage temporal data (IHU). Th
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | |IHU|_     |  Core, visualization, image processing, applications and tutorials (Team : Nicolas Philipps, Julien Waechter, Emilie Harquel)               |
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| |ALTRAN|_  | Proof of concept on Kinect and Sofa integration :                                                                                                      |
+| |ALTRAN|_  | Proof of concept on Kinect and Sofa integration :                                                                                           |
 |            | * `Altran_200609_MAG10_FR.pdf`_ French document p12                                                                                         |
 |            | * `Altitude_17_20100407_FR.pdf`_ French document p26                                                                                        |
 |            | Proof of concept on MIDAS integration                                                                                                       |
