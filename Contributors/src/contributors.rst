@@ -23,7 +23,7 @@ Version 0.10.0 provides the notion of timeline to manage temporal data (IHU). Th
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 |            |                                                                                                                                             |
 +============+=============================================================================================================================================+
-| |IRCAD|_   | Core, visualization, image processing, applications and tutorials (Team : Pascal Monnier, Valentin Martinet, Arnaud Charnoz, Johan Moreau)  |
+| \|IRCAD\|_ | Core, visualization, image processing, applications and tutorials (Team : Pascal Monnier, Valentin Martinet, Arnaud Charnoz, Johan Moreau)  |
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | |IHU|_     | Core, visualization, image processing, applications and tutorials (Team : Nicolas Philipps, Julien Waechter, Emilie Harquel)                |
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------+
@@ -40,9 +40,6 @@ Version 0.10.0 provides the notion of timeline to manage temporal data (IHU). Th
 |            |   * `http://www.vph-noe.eu/vph-repository/doc_download/154-passportppt`_                                                                    |
 |            |   * `newsletter july 2010`_                                                                                                                 |
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-
-|ALTRAN|_ 
-
 
 .. |IRCAD| image:: ../media/ircad_france_couleur_petit.png
 .. _IRCAD: http://www.ircad.fr
