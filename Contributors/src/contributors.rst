@@ -20,7 +20,7 @@ This version supports msvc2010 and has also been used to evaluate the transition
 
 Version 0.10.0 provides the notion of timeline to manage temporal data (IHU). The SConspiracy construction system has been removed. 
 
-+==============+==================================================================================+
++--------------+----------------------------------------------------------------------------------+
 | |IRCAD|_     | Core, visualization, image processing, applications and tutorials                |
 |              |                                                                                  |
 |              | Team : Johan Moreau, Marc Schweitzer,  Frédéric CHAMP,                           |
