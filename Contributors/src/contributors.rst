@@ -20,30 +20,31 @@ This version supports msvc2010 and has also been used to evaluate the transition
 
 Version 0.10.0 provides the notion of timeline to manage temporal data (IHU). The SConspiracy construction system has been removed. 
 
-+--------------+--------------------------------------------------------------------------------------------------+
-|              |                                                                                                  |
-+==============+==================================================================================================+
-| |IRCAD|_     | Core, visualization, image processing, applications and tutorials                                |
-|              |                                                                                                  |
-|              | (Team : Johan Moreau, Marc Schweitzer,  Frédéric CHAMP, Flavien Bridault-Louchez, Pascal Monnier)|
-+--------------+--------------------------------------------------------------------------------------------------+
-| |IHU|_       | Core, visualization, image processing, applications and tutorials                                |
-|              |                                                                                                  |
-|              |(Team : Julien Waechter, Emilie Harquel, Jessica GROMER )                                         |
-+--------------+--------------------------------------------------------------------------------------------------+
-| |ALTRAN|_    | Proof of concept on Kinect and Sofa integration                                                  |
-|              |   * `Altran_200609_MAG10_FR.pdf`_ French document p12                                            |
-|              |   * `Altitude_17_20100407_FR.pdf`_ French document p26                                           |
-|              |                                                                                                  |
-|              | Proof of concept on MIDAS integration                                                            |
-+--------------+--------------------------------------------------------------------------------------------------+
-| |VP|_        | (Team :  Nicolas Philipps, Valentin Martinet, Arnaud Charnoz )                                   |
-+--------------+--------------------------------------------------------------------------------------------------+
-| |EHEALTH|_   |  This project has partly funded by the European Commission via PASSPORT project :                |
-|              |   * `http://www.passport-liver.eu/`_                                                             |
-|              |   * `http://www.vph-noe.eu/vph-repository/doc_download/154-passportppt`_                         |
-|              |   * `newsletter july 2010`_                                                                      |
-+--------------+--------------------------------------------------------------------------------------------------+
++--------------+----------------------------------------------------------------------------------+
+|              |                                                                                  |
++==============+==================================================================================+
+| |IRCAD|_     | Core, visualization, image processing, applications and tutorials                |
+|              |                                                                                  |
+|              | Team : Johan Moreau, Marc Schweitzer,  Frédéric CHAMP,                           |
+|              |        Flavien Bridault-Louchez, Pascal Monnier                                  |
++--------------+----------------------------------------------------------------------------------+
+| |IHU|_       | Core, visualization, image processing, applications and tutorials                |
+|              |                                                                                  |
+|              | Team : Julien Waechter, Emilie Harquel, Jessica GROMER                           |
++--------------+----------------------------------------------------------------------------------+
+| |ALTRAN|_    | Proof of concept on Kinect and Sofa integration                                  |
+|              |   * `Altran_200609_MAG10_FR.pdf`_ French document p12                            |
+|              |   * `Altitude_17_20100407_FR.pdf`_ French document p26                           |
+|              |                                                                                  |
+|              | Proof of concept on MIDAS integration                                            |
++--------------+----------------------------------------------------------------------------------+
+| |VP|_        | Team :  Nicolas Philipps, Valentin Martinet, Arnaud Charnoz                      |
++--------------+----------------------------------------------------------------------------------+
+| |EHEALTH|_   |  This project has partly funded by the European Commission via PASSPORT project :|
+|              |   * `http://www.passport-liver.eu/`_                                             |
+|              |   * `http://www.vph-noe.eu/vph-repository/doc_download/154-passportppt`_         |
+|              |   * `newsletter july 2010`_                                                      |
++--------------+----------------------------------------------------------------------------------+
 
 .. |IRCAD| image:: ../media/ircad_france_couleur_petit.png
 .. _IRCAD: http://www.ircad.fr
