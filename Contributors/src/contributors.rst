@@ -23,9 +23,11 @@ Version 0.10.0 provides the notion of timeline to manage temporal data (IHU). Th
 +--------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 |              |                                                                                                                                            |
 +==============+============================================================================================================================================+
-| |IRCAD|_     | Core, visualization, image processing, applications and tutorials (Team : Pascal Monnier, Valentin Martinet, Arnaud Charnoz, Johan Moreau) |
+| |IRCAD|_     | Core, visualization, image processing, applications and tutorials                                                                          |
+|              | (Team : Pascal Monnier, Valentin Martinet, Arnaud Charnoz, Johan Moreau)                                                                   |
 +--------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| |IHU|_       | Core, visualization, image processing, applications and tutorials (Team : Nicolas Philipps, Julien Waechter, Emilie Harquel)               |
+| |IHU|_       | Core, visualization, image processing, applications and tutorials                                                                          |
+|              |(Team : Nicolas Philipps, Julien Waechter, Emilie Harquel)                                                                                  |
 +--------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 | |ALTRAN|_    | Proof of concept on Kinect and Sofa integration                                                                                            |
 |              |   * `Altran_200609_MAG10_FR.pdf`_ French document p12                                                                                      |
