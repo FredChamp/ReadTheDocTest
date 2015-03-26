@@ -28,16 +28,17 @@ Version 0.10.0 provides the notion of timeline to manage temporal data (IHU). Th
 | |IHU|_     | Core, visualization, image processing, applications and tutorials (Team : Nicolas Philipps, Julien Waechter, Emilie Harquel)                |
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | |ALTRAN|_  | Proof of concept on Kinect and Sofa integration                                                                                             |
-|            | * `Altran_200609_MAG10_FR.pdf`_ French document p12                                                                                         |
-|            | * `Altitude_17_20100407_FR.pdf`_ French document p26                                                                                        |
+|            |   * `Altran_200609_MAG10_FR.pdf`_ French document p12                                                                                       |
+|            |   * `Altitude_17_20100407_FR.pdf`_ French document p26                                                                                      |
+|            |                                                                                                                                             |
 |            | Proof of concept on MIDAS integration                                                                                                       |
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| |VP|_      |                                                                                                                                             |
+| |VP|_      |  To come                                                                                                                                    |
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | |EHEALTH|_ |  This project has partly funded by the European Commission via PASSPORT project :                                                           |
-|            | * `http://www.passport-liver.eu/`_                                                                                                          |
-|            | * `http://www.vph-noe.eu/vph-repository/doc_download/154-passportppt`_                                                                      |
-|            | * `newsletter july 2010`_                                                                                                                   |
+|            |   * `http://www.passport-liver.eu/`_                                                                                                        |
+|            |   * `http://www.vph-noe.eu/vph-repository/doc_download/154-passportppt`_                                                                    |
+|            |   * `newsletter july 2010`_                                                                                                                 |
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. |IRCAD| image:: ../media/ircad_france_couleur_petit.png
