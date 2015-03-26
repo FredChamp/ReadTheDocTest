@@ -11,5 +11,6 @@ FW4SPL documentation
    Doxygen <http://fw4spl-org.github.io/fw4spl-dox/>
    FAQ/FAQ-FW4SPL
    CMake/index
+   Contributors/index
 
    
