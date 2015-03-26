@@ -1,3 +1,6 @@
+==============
+Contributors
+==============
 
 From 2004 to 2006, an advanced modular software for patient modeling (see publication page) has been designed and implemented by Guillaume Brocker, Johan Moreau, Jean-Baptiste Fasquel, Vincent Agnus and Nicolas Papier. This represented the basis of the component management system of FW4SPL, essentially conceived by Guillaume Brocker and Johan Moreau. This framework version (v0.1) was used to create 3 software tools in visualization and medical image processing in the Eureka project Odysseus (3DVPM, 3DDVP and MARNS software).
 
