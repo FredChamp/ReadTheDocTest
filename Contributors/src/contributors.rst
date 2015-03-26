@@ -41,6 +41,9 @@ Version 0.10.0 provides the notion of timeline to manage temporal data (IHU). Th
 |            |   * `newsletter july 2010`_                                                                                                                 |
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
+|ALTRAN|_ 
+
+
 .. |IRCAD| image:: ../media/ircad_france_couleur_petit.png
 .. _IRCAD: http://www.ircad.fr
 
