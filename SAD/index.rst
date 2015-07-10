@@ -16,3 +16,4 @@ Software Architecture Description (SAD)
    src/SDM-SAD-Manager
    src/SDM-SAD-Component
    src/SDM-SAD-GUI
+   src/SDM-SAD-GenericScene

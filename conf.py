@@ -39,7 +39,7 @@ sys.path.append(os.path.abspath('extensions'))
 extensions = ['axiom']
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = []
+templates_path = ['ytemplates']
 
 # The suffix(es) of source filenames.
 source_suffix = '.rst'

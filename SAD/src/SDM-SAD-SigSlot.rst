@@ -226,10 +226,7 @@ in the constructor:
 
       ThisClassHasSlots()
       {
-          GetValueSlotType::sptr slotGetValue
-                = ::fwCom::newSlot( &SlotsTestHasSlots::getValue, this );
-          HasSlots::m_slots("sum", &SlotsTestHasSlots::sum, this)
-                           ("getValue", slotGetValue );
+          newSlot("sum", &SlotsTestHasSlots::getValue, this);
       }
 
       int sum(int a, int b)
@@ -266,8 +263,7 @@ The class ``HasSignals`` provides mapping between a key (string defining the sig
 
       ThisClassHasSignals()
       {
-          SignalType::sptr signal = SignalType::New();
-          HasSignals::m_signals("sig", signal);
+          newSignal< SignalType >("sig");
       }
     };
 
@@ -292,7 +288,8 @@ class ``fwData::Object`` inherits from the ``HasSignals`` class as a basis to us
     class Object : public ::fwCom::HasSignals
     {
       /// Key in m_signals map of signal m_sigObjectModified
-      static const ::fwCom::Signals::SignalKeyType s_OBJECT_MODIFIED_SIG;
+      static const ::fwCom::Signals::SignalKeyType s_MODIFIED_SIG;
+      ...
 
       /// Type of signal m_sigObjectModified
       typedef ::fwCom::Signal< void ( CSPTR( ::fwServices::ObjectMsg ) ) >
@@ -303,8 +300,8 @@ class ``fwData::Object`` inherits from the ``HasSignals`` class as a basis to us
 
       Object()
       {
-          m_sigObjectModified = ObjectModifiedSignalType::New();
-          m_signals( s_OBJECT_MODIFIED_SIG,  m_sigObjectModified);
+          m_sigObjectModified = newSignal< ObjectModifiedSignalType >(s_MODIFIED_SIG);
+          ...
       }
     }
 
@@ -314,35 +311,76 @@ Moreover the abstract class ``fwService::IService`` inherits from the ``HasSlots
 
     class IService : public ::fwCom::HasSlots, public ::fwCom::HasSignals 
     {
-      /// Key in m_slots map of slot m_slotReceive
-      static const ::fwCom::Slots::SlotKeyType s_RECEIVE_SLOT;
+      typedef ::boost::shared_future< void > SharedFutureType;
+      
+      /// Key in m_slots map of slot m_slotUpdate
+      static const ::fwCom::Slots::SlotKeyType s_UPDATE_SLOT;
 
       /// Type of signal m_slotReceive
-      typedef ::fwCom::Slot<void(ObjectMsg::csptr)> ReceiveSlotType;
+      typedef ::fwCom::Slot<SharedFutureType()> UpdateSlotType;
 
       /// Slot to call receive method
-      ReceiveSlotType::sptr m_slotReceive;
+      UpdateSlotType::sptr m_slotReceive;
 
       IService()
       {
-          m_slotReceive  = ::fwCom::newSlot( &IService::receive   , this ) ;
-          ::fwCom::HasSlots::m_slots( s_RECEIVE_SLOT , m_slotReceive )
+          m_slotUpdate = newSlot( s_UPDATE_SLOT, &IService::update, this ) ;
       }
+      
+      ...
     }
 
-According to the design, the ``s_OBJECT_MODIFIED_SIG``
-object signal is connected to all ``s_RECEIVE_SLOT`` slots of its associated services (object service relation).
-When a service modifies its associated object, the service emits an ``s_OBJECT_MODIFIED_SIG``
-signal from the object in order to notify any service working on the modified
-object through the receive method.
+      
+To automatically connect object signals and service slots, it is possible to override the method
+``IService::getObjSrvConnections()``. Please note that to be effective the attribute "autoconnect" 
+of the service must be set to "yes" in the xml configuration (see :ref:`Object-Service_example`).
+The default implementation of this method connect the ``s_MODIFIED_SIG`` object signal to the 
+``s_UPDATE_SLOT`` slot.
 
-An other way to communicate between objects and services is
-to split each modification type into different signals and to
-create different slots in the services. In this case, the method
-``IService::getObjSrvConnections()`` and the helper
-``::fwServices::helper::SigSlotConnection`` provide few tools to
-connect/disconnect signals/slots between objects/services.
+.. code:: c++
 
+    IService::KeyConnectionsType IService::getObjSrvConnections() const
+    {
+        KeyConnectionsType connections;
+        connections.push_back( std::make_pair( ::fwData::Object::s_MODIFIED_SIG, s_UPDATE_SLOT ) );
+        return connections;
+    }
+
+Object signals
+------------------------
+
+Objects have signals that can be used to inform of modifications.
+The base class ``::fwData::Object`` has the following signals available.
+
+=============================== =====================================================================================================
+  Objects                       Available messages
+=============================== =====================================================================================================
+
+Object                          {``modified``, ``addedFields``, ``changedFields``, ``removedFields``}
+
+Thus all objects in FW4SPL can use the previous signals. Some object classes define extra signals.
+
+=============================== =====================================================================================================
+  Objects                       Available messages
+=============================== =====================================================================================================
+
+Composite                       {``addedObjects``, ``changedObjects``, ``removedObjects``}
+Graph                           {``updated``}
+Image                           {``bufferModified``, ``landmarkAdded``, ``landmarkRemoved``, ``landmarkDisplayed``, 
+                                 ``distanceAdded``, ``distanceRemoved``, ``distanceDisplayed``, ``sliceIndexModified``, 
+                                 `̀ sliceTypeModified``, ``visibilityModified``, `̀ transparencyModified``}
+Mesh                            {``vertexModified``, ``pointColorsModified``, ``cellColorsModified``, ``pointNormalsModified``, 
+                                 ``cellNormalsModified``, ``pointTexCoordsModified``, ``cellTexCoordsModified``}
+ModelSeries                     {``reconstructionsAdded``, ``reconstructionsRemoved``}
+PlaneList                       {``planeAdded``, ``planeRemoved``, ``visibilityModified``}
+Plane                           {``selected``}
+PointList                       {``pointAdded``, ``pointRemoved``}
+Reconstruction                  {``meshModified``, ``visibilityModified``}
+ResectionDB                     {``resectionAdded``, ``safePartAdded``}
+Resection                       {``reconstructionAdded``, ``pointTexCoordsModified``}
+Vector                          {``addedObjects``, `̀ removedObjects``}
+...                             ...
+=============================== =====================================================================================================
 
 Proxy
 -----
@@ -377,50 +415,3 @@ The following shows an example where one signal is connected to several slots:
 
     sig->emit(); // All slots are called
 
-Object messages
-------------------------
-
-The communication system called *communication channel system* used in the former versions of FW4SPL, was replaced by the signal slot communication system. As a result of this replacement, object messages were introduced. With each object modification, a message is sent informing
-services that an object modification has occurred.
-The signals and slots use a message parameter to store information about the object modification or to
-specialize the message from others. The library ``fwComEd`` contains all message
-structures which can be used to communicate object modifications. As shown in the table below,
-several messages are available for each object.
-
-=============================== =====================================================================================================
-  Objects                       Available messages
-=============================== =====================================================================================================
-Acquisition                     {``ADD_RECONSTRUCTION``, ``VISIBILITY``, ``NEW_RECONSTRUCTION_SELECTED``}
-Boolean                         {``VALUE_IS_MODIFIED``}
-Camera                          {``NEW_CAMERA``, ``CAMERA_MOVING``}
-Color                           {``VALUE_IS_MODIFIED``}
-Composite                       {``MODIFIED_FIELDS``, ``ADDED_FIELDS``, ``REMOVED_FIELDS``, ``SWAPPED_FIELDS``}
-Float                           {``VALUE_IS_MODIFIED``}
-Graph                           {``NEW_GRAPH``, ``ADD_NODE``, ``REMOVE_NODE``, ``ADD_EDGE``, ``REMOVE_EDGE``, ``SELECTED_NODE``,
-                                ``UNSELECTED_NODE``, ...}
-Image                           {``NEW_IMAGE``, ``BUFFER``, ``MODIFIED``, ``DIMENSION``, ``SPACING``, ``REGION``, ``PIXELTYPE``,
-                                ``TRANSFERTFUNCTION``, ...}
-Integer                         {``VALUE_IS_MODIFIED``}
-Interaction                     {``MOUSE_LEFT_UP``, ``MOUSE_RIGHT_UP``, ``MOUSE_MIDDLE_UP``, ``MOUSE_WHEELFORWARD_UP``,
-                                ``MOUSE_WHEELBACKWARD_UP``, ...}
-Location                        {``LOCATION_IS_MODIFIED``}
-Material                        {``MATERIAL_IS_MODIFIED``}
-Model                           {``NEW_MODEL``}
-PatientDB                       {``NEW_PATIENT``, ``ADD_PATIENT``, ``CLEAR_PATIENT``, ``NEW_IMAGE_SELECTED``, ``NEW_LOADED_PATIENT``,
-                                ``NEW_RESECTION_SELECTED``}
-Patient                         {``NEW_PATIENT``, ``NEW_MATERIAL_FOR_RECONSTRUCTION``}
-PlaneList                       {``ADD_PLANE``, ``REMOVE_PLANE``, ``PLANELIST_VISIBILITY``,
-                                ``PLANELIST_MODIFIED``, ``DESELECT_ALL_PLANES``}
-Plane                           {``PLANE_MODIFIED``, ``START_PLANE_INTERACTION``, ``DESELECT_PLANE``,
-                                ``WAS_SELECTED``, ``WAS_DESELECTED``}
-PointList                       {``ELEMENT_MODIFIED``, ``ELEMENT_ADDED``, ``ELEMENT_REMOVED``}
-Point                           {``POINT_IS_MODIFIED``, ``START_POINT_INTERACTION``}
-Reconstruction                  {``MESH``, ``VISIBILITY``}
-ResectionDB                     {``NEW_RESECTIONDB_SELECTED``, ``RESECTIONDB_SELECTED``, ``NEW_RESECTION_SELECTED``,
-                                ``NEW_SAFE_PART_SELECTED``, ...}
-Resection                       {``ADD_RECONSTRUCTION``, ``VISIBILITY``, ``NEW_RECONSTRUCTION_SELECTED``, ``MODIFIED``}
-Spline                          {``NEW_SPLINE``}
-String                          {``VALUE_IS_MODIFIED``}
-Tag                             {``TAG_IS_MODIFIED``}
-...                             ...
-=============================== =====================================================================================================

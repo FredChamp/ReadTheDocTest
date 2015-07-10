@@ -133,9 +133,8 @@ Therefore the profile.xml of the application in the build folder has to be passe
 .. note:: 
 
     To generate the projects in release, the following instruction has to be change:
-    
-- Change CMake argument ``CMAKE_BUILD_TYPE`` to release
-- Set the ``EXTERNAL_LIBRARIES`` to the release install folder of dependencies
+    - Change CMake argument ``CMAKE_BUILD_TYPE`` to release
+    - Set the ``EXTERNAL_LIBRARIES`` to the release install folder of dependencies
 
 Recommended softwares
 -------------------------
@@ -147,7 +146,7 @@ The following programs may be helpful for your developments:
     - `Eclipse CDT <https://eclipse.org/cdt/>`_.
 
 - Versioning tools:
-    - `TortoiseHg <http://tortoisehg.bitbucket.org/`_
-    - `SourceTree <http://www.sourcetreeapp.com/`_
+    - `TortoiseHg <http://tortoisehg.bitbucket.org/>`_
+    - `SourceTree <http://www.sourcetreeapp.com/>`_
 
 

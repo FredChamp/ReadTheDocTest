@@ -1,3 +1,5 @@
+.. _App-config:
+
 App-config
 =======================
 
@@ -34,6 +36,7 @@ communications.
         acm->stop(); // Stops services specified in config.
         acm->destroy(); // Destroy all services and then data.
     }
+
 
 The following part correspond to the configuration XML file of the previous :ref:`Object-Service_example`.
 

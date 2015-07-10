@@ -18,7 +18,7 @@ If not already installed:
 
 5. Install `CMake <http://www.cmake.org/download/>`_ (apt-get install cmake)
 
-6. Install `jom <https://mingw-and-ndk.googlecode.com/files/jom.7z>`_ (apt-get install jom)
+6. Install `ninja <https://github.com/martine/ninja>`_ (apt-get install ninja-build)
 
 
 
@@ -123,6 +123,6 @@ Release
 To generate the projects in release, the following instruction has to be added:
 
 
-- Change CMake argument CMAKE_BUILD_TYPE to release
+- Change CMake argument CMAKE_BUILD_TYPE to Release
 
 - Reference the EXTERNAL_LIBRARIES to the install folder of third part libraries compiled in release mode (for compiling the FW4SPL projects)
