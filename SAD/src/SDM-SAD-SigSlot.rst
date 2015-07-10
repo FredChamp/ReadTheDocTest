@@ -333,7 +333,7 @@ Moreover the abstract class ``fwService::IService`` inherits from the ``HasSlots
       
 To automatically connect object signals and service slots, it is possible to override the method
 ``IService::getObjSrvConnections()``. Please note that to be effective the attribute "autoconnect" 
-of the service must be set to "yes" in the xml configuration (see :ref:`Object-Service_example`).
+of the service must be set to "yes" in the xml configuration (see :ref:`App-config`).
 The default implementation of this method connect the ``s_MODIFIED_SIG`` object signal to the 
 ``s_UPDATE_SLOT`` slot.
 
@@ -355,15 +355,14 @@ The base class ``::fwData::Object`` has the following signals available.
 =============================== =====================================================================================================
   Objects                       Available messages
 =============================== =====================================================================================================
-
 Object                          {``modified``, ``addedFields``, ``changedFields``, ``removedFields``}
+=============================== =====================================================================================================
 
 Thus all objects in FW4SPL can use the previous signals. Some object classes define extra signals.
 
 =============================== =====================================================================================================
   Objects                       Available messages
 =============================== =====================================================================================================
-
 Composite                       {``addedObjects``, ``changedObjects``, ``removedObjects``}
 Graph                           {``updated``}
 Image                           {``bufferModified``, ``landmarkAdded``, ``landmarkRemoved``, ``landmarkDisplayed``, 
