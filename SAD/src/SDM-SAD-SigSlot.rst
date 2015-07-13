@@ -365,7 +365,7 @@ Thus all objects in FW4SPL can use the previous signals. Some object classes def
 =============================== =====================================================================================================
 Composite                       {``addedObjects``, ``changedObjects``, ``removedObjects``}
 Graph                           {``updated``}
-Image                           {``bufferModified``, ``landmarkAdded``, ``landmarkRemoved``, ``landmarkDisplayed``, ``distanceAdded``, ``distanceRemoved``, ``distanceDisplayed``, ``sliceIndexModified``, `̀ sliceTypeModified``, ``visibilityModified``, `̀ transparencyModified``}
+Image                           {``bufferModified``, ``landmarkAdded``, ``landmarkRemoved``, ``landmarkDisplayed``, ``distanceAdded``, ``distanceRemoved``, ``distanceDisplayed``, ``sliceIndexModified``, ``sliceTypeModified``, ``visibilityModified``, ``transparencyModified``}
 Mesh                            {``vertexModified``, ``pointColorsModified``, ``cellColorsModified``, ``pointNormalsModified``, ``cellNormalsModified``, ``pointTexCoordsModified``, ``cellTexCoordsModified``}
 ModelSeries                     {``reconstructionsAdded``, ``reconstructionsRemoved``}
 PlaneList                       {``planeAdded``, ``planeRemoved``, ``visibilityModified``}
