@@ -305,7 +305,7 @@ class ``fwData::Object`` inherits from the ``HasSignals`` class as a basis to us
       }
     }
 
-Moreover the abstract class ``fwService::IService`` inherits from the ``HasSlots`` class and the ``HasSignals`` class, as a basis to communicate through signals and slots. Actually, the methods ``start``, ``stop``, ``swap`` and ``update`` are all slots. Here is an extract with ``update``: 
+Moreover the abstract class ``fwService::IService`` inherits from the ``HasSlots`` class and the ``HasSignals`` class, as a basis to communicate through signals and slots. Actually, the methods ``start()``, ``stop()``, ``swap()`` and ``update()`` are all slots. Here is an extract with ``update()``: 
 
 .. code:: c++
 
