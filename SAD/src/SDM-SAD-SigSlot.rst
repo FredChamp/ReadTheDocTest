@@ -305,7 +305,7 @@ class ``fwData::Object`` inherits from the ``HasSignals`` class as a basis to us
       }
     }
 
-Moreover the abstract class ``fwService::IService`` inherits from the ``HasSlots`` class and the ``HasSignals`` class, as a basis to communicate through signals and slots:
+Moreover the abstract class ``fwService::IService`` inherits from the ``HasSlots`` class and the ``HasSignals`` class, as a basis to communicate through signals and slots. Actually, the methods ``start``, ``stop``, ``swap`` and ``update`` are all slots. Here is an extract with ``update``: 
 
 .. code:: c++
 
@@ -316,15 +316,17 @@ Moreover the abstract class ``fwService::IService`` inherits from the ``HasSlots
       /// Key in m_slots map of slot m_slotUpdate
       static const ::fwCom::Slots::SlotKeyType s_UPDATE_SLOT;
 
-      /// Type of signal m_slotReceive
+      /// Type of signal m_slotUpdate
       typedef ::fwCom::Slot<SharedFutureType()> UpdateSlotType;
 
-      /// Slot to call receive method
-      UpdateSlotType::sptr m_slotReceive;
+      /// Slot to call update method
+      UpdateSlotType::sptr m_slotUpdate;
 
       IService()
       {
+          ...
           m_slotUpdate = newSlot( s_UPDATE_SLOT, &IService::update, this ) ;
+          ...
       }
       
       ...
