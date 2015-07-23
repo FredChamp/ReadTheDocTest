@@ -1,5 +1,5 @@
 Installation for MacOSX
-======================
+=======================
 
 Prerequisites for MacOSX users
 --------------------------------
@@ -14,18 +14,16 @@ If not already installed:
 
 #. Install `CMake <http://www.cmake.org/download/>`_
 
+#. Install `Ninja <https://github.com/martine/ninja/releases>`_ : to use instead of **make**.
 
-
-
-.. tip::
-    1. You can also install `Ninja <https://github.com/martine/ninja/releases>`_ instead of using **make**.
-
-    2. For an easy install, you can use the `Hombrew project <http://brew.sh/>`_  to install missing packages.
+For an easy install, you can use the `Hombrew project <http://brew.sh/>`_  to install missing packages.
         
-        brew install git
-        brew install python
-        brew install cmake
-        brew install ninja
+.. code:: bash
+
+    $ brew install git
+    $ brew install python
+    $ brew install cmake
+    $ brew install ninja
 
 
 FW4SPL installation
@@ -39,25 +37,15 @@ To prepare the development environment:
 .. code:: bash
 
     $ mkdir Dev
-    $ cd Dev
 
-- Create a build folder (Dev/Build)
-
-.. code:: bash
-
-    $ mkdir Build
-
-- Create a source folder (Dev/Src)
+- Create the build, source and install folder 
+    - Dev/Build
+    - Dev/Src
+    - Dev/Install
 
 .. code:: bash
 
-    $ mkdir Src
-
-- Create a install folder (Dev/Install)
-
-.. code:: bash
-
-    $ mkdir Install
+    $ mkdir Dev/Build Dev/Src Dev/Install
 
 To prepare the third party environment:
 
@@ -66,25 +54,15 @@ To prepare the third party environment:
 .. code:: bash
 
     $ mkdir Deps
-    $ cd Deps
 
-- Create a build folder (Deps/Build)
-
-.. code:: bash
-
-    $ mkdir Build
-
-- Create a source folder (Deps/Src)
+- Create the build, source and install folder
+    - Dev/Deps/Build
+    - Dev/Deps/Src
+    - Dev/Deps/Install
 
 .. code:: bash
 
-    $ mkdir Src
-
-- Create a install folder (Deps/Install)
-
-.. code:: bash
-
-    $ mkdir Install
+    $ mkdir Dev/Deps/Build Dev/Deps/Src Dev/Deps/Install
     
 
 .. _build_tools:
@@ -116,7 +94,7 @@ For the third party libraries the following repository have to be `cloned <http:
 
 .. code:: bash
 
-    $ cd Src
+    $ cd ~/Dev/Deps/Src
     $ git clone https://github.com/fw4spl-org/fw4spl-deps.git fw4spl-deps
     $ cd fw4spl-deps
     $ git checkout fw4spl_0.10.2.1
@@ -125,7 +103,7 @@ To build the dependencies, you must configure the project with cmake into the Bu
 
 .. code:: bash
 
-    $ cd ../../Build
+    $ cd ~/Dev/Deps/Build
     $ cmake ../Src/fw4spl-deps -DCMAKE_INSTALL_PREFIX=../Install -DCMAKE_BUILD_TYPE=Debug
 
 Or open cmake gui editor, see :ref:`build_tools` instructions.
@@ -149,7 +127,8 @@ Then, compile the FW4SPL dependencies with make
 .. code:: bash
 
     $ make all
-
+    $ make install_tool
+    
 .. warning::
     Do NOT use ninja to compile the dependencies, it cause conflict with qt compilation.
 
@@ -163,20 +142,24 @@ For the FW4SPL source code the following repository have to be `cloned <http://g
 
 .. code:: bash
 
-    $ cd ../../Src
+    $ cd ~/Dev/Src
     $ git clone https://github.com/fw4spl-org/fw4spl.git fw4spl
     $ cd fw4spl
     $ git checkout fw4spl_0.10.2.1
 
+.. note::
+    For the source compilation we use ``ninja`` instead of ``make``. But if you prefer to use make, replace all the ``ninja`` command with ``make`` and remove ``-G Ninja`` in the cmake command.
 
 To build fw4spl, you must configure the project with cmake into the Build folder
 
 .. code:: bash
 
-    $ cd ../../Build
+    $ cd ~/Dev/Build
     $ cmake ../Src/fw4spl -DCMAKE_INSTALL_PREFIX=../Install -DCMAKE_BUILD_TYPE=Debug -DEXTERNAL_LIBRARIES=../Deps/Install -G Ninja
 
 Or open cmake gui editor, see :ref:`build_tools` instructions.
+
+.. code:: bash
 
     $ ccmake ../Src/fw4spl -G Ninja
 
@@ -195,12 +178,11 @@ You can re-edit cmake configuration :
     $ ccmake .
 
 - *PROJECT_TO_BUILD* set the name of the application to build (See Dev\Src\Apps)
-
-.. note:: If PROJECT_TO_BUILD is empty, all application will be compile
-
 - *PROJECT_TO_INSTALL* set the name of the application to install
 
-.. note:: If PROJECT_TO_BUILD is empty, all application will be compile
+.. note:: 
+    - If PROJECT_TO_BUILD is empty, all application will be compiled
+    - If PROJECT_TO_INSTALL is empty, no aplication will be installed
 
 .. image:: ../media/osx_cmake_fw4spl.png
 
@@ -218,28 +200,28 @@ Launch an application
 -------------------------
 
 To build a specific or several applications the CMake argument ``PROJECTS_TO_BUILD`` can be set.
-
-.. tip::
-    Use ``;`` so separate each application name.
+Use ``;`` so separate each application name.
 
 After an successful compilation the application can be launched with the launcher program from a terminal.
 Therefore the profile.xml of the application in the build folder has to be passed as argument to the launcher:
 
 .. code:: bash
 
-    bin/launcher Bundles/MyApplication_Version/profile.xml
+    $ bin/launcher Bundles/MyApplication_Version/profile.xml
     
 Example: 
 
 .. code:: bash
 
-    bin/launcher Bundles/VRRender_0-9/profile.xml
+    $ cd ~/Dev/Build
+    $ bin/launcher Bundles/VRRender_0-9/profile.xml
 
 .. note::
 
-    To generate the projects in release, the following instruction has to be change:
-    - Change CMake argument ``CMAKE_BUILD_TYPE`` to ``Release`` for fw4spl and the deps
-    - Do NOT compile debug and release in the same Build and Install folder
+    To generate the projects in release, change CMake argument ``CMAKE_BUILD_TYPE`` to ``Release`` for fw4spl and fw4spl-deps
+    
+.. warning::
+    Do NOT compile debug and release in the same Build and Install folder
     
     
 Extension
@@ -259,7 +241,7 @@ If you want to use this extension, you need to clone the deps repositories:
 
 .. code:: bash
 
-    $ cd Deps/Src
+    $ cd ~/Dev/Deps/Src
     $ git clone https://github.com/fw4spl-org/fw4spl-ext-deps.git fw4spl-ext-deps
     $ cd fw4spl-ext-deps
     $ git checkout fw4spl_0.10.2.1
@@ -268,16 +250,16 @@ If you want to use this extension, you need to clone the deps repositories:
 
 .. code:: bash
 
-    $ cd Deps/Src
+    $ cd ~/Dev/Deps/Src
     $ git clone https://github.com/fw4spl-org/fw4spl-ar-deps.git fw4spl-ar-deps
     $ cd fw4spl-ar-deps
     $ git checkout fw4spl_0.10.2.1
 
-You must re-edit cmake configuration :
+You must re-edit cmake configuration to add this repository:
 
 .. code:: bash
 
-    $ cd ../../Build
+    $ cd ~/Dev/Deps/Build
     $ ccmake .
 
 Modify *ADDITIONAL_DEPS*: set the source location of fw4spl-ar-deps and fw4spl-ext-deps separated by ';'
@@ -289,7 +271,7 @@ Modify *ADDITIONAL_DEPS*: set the source location of fw4spl-ar-deps and fw4spl-e
 Source
 ~~~~~~
 
-If you want to use fw4spl extension, you need the repositories: 
+If you want to use fw4spl extension, you need this repositories: 
 
 - `fw4spl-ext <https://github.com/fw4spl-org/fw4spl-ext.git>`_: extension of fw4spl repository, contains additional functionalities and proofs of concept
 
