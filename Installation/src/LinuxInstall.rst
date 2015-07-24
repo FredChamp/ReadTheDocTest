@@ -6,13 +6,9 @@ Prerequisites for Linux users
 
 If not already installed:
 
-1. Install git (apt-get install git)
+1. Install `git <https://git-scm.com/>`_
 
-3. Install `gcc <https://gcc.gnu.org/>`_ The minimal version required is 4.8
-
-    or
-
-3. Install `clang <http://clang.llvm.org/>`_ The minimal version required is 3.5
+3. Install `gcc <https://gcc.gnu.org/>`_ The minimal version required is 4.8 or `clang <http://clang.llvm.org/>`_ The minimal version required is 3.5
 
 4. Install `Python 2.7 <https://www.python.org/downloads/>`_
 
@@ -20,7 +16,7 @@ If not already installed:
 
 6. Install `Ninja <https://martine.github.io/ninja/>`_
 
-Depending on which linux distribution you use, for example on Debian like you can do:
+Depending on which linux distribution you use, for example on Debian you can do:
 
 .. code:: bash
 
@@ -238,8 +234,8 @@ Example:
     $ cd /Dev/Build
     $ bin/launcher Bundles/VRRender_0-9/profile.xml
 
-Extension
----------
+Extensions
+----------
 
 **fw4spl** has two extension repositories:
 
