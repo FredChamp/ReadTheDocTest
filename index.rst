@@ -5,6 +5,7 @@ FW4SPL documentation
 .. toctree::
    :maxdepth: 1
 
+   Introduction/index
    Installation/index
    SAD/index
    CodingStyle/index
