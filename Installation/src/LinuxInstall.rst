@@ -6,15 +6,15 @@ Prerequisites for Linux users
 
 If not already installed:
 
-1. Install `git <https://git-scm.com/>`_
+#. Install `git <https://git-scm.com/>`_
 
-3. Install `gcc <https://gcc.gnu.org/>`_ The minimal version required is 4.8 or `clang <http://clang.llvm.org/>`_ The minimal version required is 3.5
+#. Install `gcc <https://gcc.gnu.org/>`_ The minimal version required is 4.8 or `clang <http://clang.llvm.org/>`_ The minimal version required is 3.5
 
-4. Install `Python 2.7 <https://www.python.org/downloads/>`_
+#. Install `Python 2.7 <https://www.python.org/downloads/>`_
 
-5. Install `CMake <http://www.cmake.org/download/>`_ The minimal version required is 3.0
+#. Install `CMake <http://www.cmake.org/download/>`_ The minimal version required is 3.0
 
-6. Install `Ninja <https://martine.github.io/ninja/>`_
+#. Install `Ninja <https://martine.github.io/ninja/>`_
 
 Depending on which linux distribution you use, for example on Debian you can do:
 
