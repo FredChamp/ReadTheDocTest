@@ -21,7 +21,7 @@ Features
 ------------
 Application
 ------------
-**VRRender** is an application an application containing all the features.
+**VRRender** is an application containing all the previous features.
 
 .. figure:: ../media/SDB.png
     :align: center
