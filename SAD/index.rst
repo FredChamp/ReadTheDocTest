@@ -17,3 +17,4 @@ Software Architecture Description (SAD)
    src/SDM-SAD-Component
    src/SDM-SAD-GUI
    src/SDM-SAD-GenericScene
+   src/SDM-SAD-DataMigration
