@@ -6,26 +6,25 @@ Data file migration
 Overview
 -----------
 
-The data migration system consits to convert the data to another version. It is used to read data files from older software and vice versa.
+The data migration system consists on converting the data to another version. It allows us to adapt any version of data to any version of software, and thus ensuring compatibility between data and software independently of their version.
 
-The migration is applied on the reading of files serialized using ``fwAtoms`` just before the conversion to ``::fwData::Objects`` in the ``ioAtoms::SReader``. It is also applied on the writing just after the conversion to ``fwAtoms::Base`` in the ``ioAtoms::SWriter``.
+Migration process is applied on two different steps. Firstly, in ``ioAtoms::Sreader`` while reading data files, previously serialized with ``fwAtoms``, right before converting said data to ``::fwData::Objects``. Secondly in ``ioAtoms::Swriter`` after data is converted to ``fwAtoms::Base``.
 
 Definitions
 ------------
 
 Context
-    It represents a complex data: for example the `medical patient folder`_ (called **MedicalData**), the sofware preference file, ... 
+    It represents a complex chunk of data. For example, the `medical patient folder`_, the software preference file, etc. Hereafter we will consider a medical patient folder which we will call **MedicalData**.
 
 Structural patch
-    This patch affects only one data regardless of the context (ex: add or remove attribute, type, ...), see 
-    :ref:`StructuralPatch`.
+    This sort of patch affects only one data of the serialized data regardless of the context (ex: add or remove attribute, type, ...), see :ref:`StructuralPatch`.
 
 Semantic patch
-    This patch is applied in a given context to migrate to a specified version without changing the data structure.
+    This sort of patch is applied on a context to migrate to a given version without changing the data structure.
     (These patches are sometimes called contextual patches), see :ref:`SemanticPatch`.
 
 Patcher
-    Defines the methods to parse the data and applied the structural and semantic patches, see :ref:`Patcher`.
+    A patcher defines the methods to parse the data and applies the structural and semantic patches, see :ref:`Patcher`.
 
 .. _medical patient folder: SDM-SAD-PatientFolder.html
 
@@ -35,7 +34,7 @@ Patcher
 Data Version
 -------------
 
-After the conversion from ``::fwData::Object`` to ``::fwAtoms::Object``, each data as a version number. It is defined in the camp serialisation source files (see Serialization_). Each modification of the data structure involve the increments of the data version.
+After the conversion from ``::fwData::Object`` to ``::fwAtoms::Object``, each data is assigned a version number. Said number is defined in the camp serialization source files (see Serialization_). Each data structure modification causes an incrementation of the data version.
 
 .. _Serialization: SDM-SAD-Serialization.html
 
@@ -62,9 +61,9 @@ Example of data declaration for introspection (used to convert to ``fwAtoms``):
 Context version
 ----------------
 
-The context version must be incremented after a data version changed. A context version can concern several data changed. 
+The context version must be incremented after a data version modification. Different data can share the same context version. 
 
-The context version is described in a ``.versions`` file. It defines the version of the context and of each associated data. 
+The ``.versions`` file contains a detailed description of the context version, and the version of each data.
 
 Example of ``V1.versions``:
 
@@ -109,7 +108,7 @@ Example of ``V2.versions``:
 Migration
 ----------
 
-The migration is applied on a given context. It is described in a ``.graphlink`` file. It defines how to migrate from a context version to another. 
+The migration is applied on a given context. It is described in the ``.graphlink`` file. It defines how to migrate from a context version to another. 
 
 
 Example of ``V1ToV2.graphlink``:
@@ -124,7 +123,7 @@ Example of ``V1ToV2.graphlink``:
         "links" : [
             {
                 "::fwData::Patient" : "1",
-                "::fwMedData::Patient" : "1"
+                "::fwMedData::Pa ient" : "1"
             },
             {
                 "::fwData::Image" : "1",
@@ -133,16 +132,15 @@ Example of ``V1ToV2.graphlink``:
         ]
     }
 
-The ``links`` represents the data version changes, so the associated patches could be applied.
+The ``links`` tag represents the data version modifications, by doing so, associated patches can be applied.
 
 .. warning::
 
-    The two ``.versions`` files must have been defined (V1.versions and V2.versions).
+    Two ``.versions`` files must be defined, one for each version (V1.versions and V2.versions).
     
 .. note::
     
-    The ``links`` that define the simple incrementation of a data version (without renaming) are optional. 
-    The patching system can deduce the change with only the ``.versions`` files.
+	It is not necessary to specify a simple data version incrementation on the ``links`` tag, the patching system establishes this information the number of ``.versions`` files.
     
 
 .. _Graph:
@@ -150,15 +148,15 @@ The ``links`` represents the data version changes, so the associated patches cou
 Graph
 --------
 
-The ``.graphlink`` and ``.versions`` files are parse and the information are stored in the ``::fwAtoms::VersionsManager``. Each context defines a graph.
+The ``.graphlink`` and ``.versions`` files are parsed and the information is stored in the ``::fwAtoms::VersionsManager``. Each context defines a graph.
 
 Example of graph:
 
 .. image:: ../media/patchGraph.png
 
-The graph is used to find migration path from initial version to target version.
-In the example, it is possible to migrate from V1 to V5, the date is converted to V2, V4 then V5.
-If several path are possible, the shortest pah is used.
+The graph is used to find the migration path from an initial version to a target version.
+In our example, it is possible to migrate from V1 to V5, the date is converted to V3, V4 then V5.
+If several paths are possible, the shortest path is used.
 
 
 .. _Structure:
@@ -175,11 +173,11 @@ PatchingManager
     the patcher on each version.
 
 patcher::IPatcher 
-    Base class for patcher. 
+    Base class for patchers. 
     
 patcher::DefaultPatcher
-    Patcher use by default. It performs the date migration in two pass: first applies the structural patches
-    recursivly on each sub-objects, then applies the semantic patches.
+    Patcher used by default. It performs the date migration in two steps: first it applies the structural patches
+    recursivly on each sub-object and then applies the semantic patches.
 
 IPatch
     Base class for structural and semantic patches. It provides an ``apply()`` method that must be implemented in 
@@ -192,7 +190,7 @@ IStructuralPatch
     Base class for structural patches.
 
 IStructuralCreator
-    Base class for creators. It provides an ``create()`` method that must be implemented in sub-classes. 
+    Base class for creators. It provides a ``create()`` method that must be implemented in sub-classes. 
     
 SemanticPatchDB
     Singleton used to register all the semantic patches.
@@ -214,7 +212,7 @@ The ``fwStructuralPatch`` library contains the structural patches for ``fwData``
 
 The ``fwMDSemanticPatch`` library contains the semantic patches for ``fwData`` and ``fwMedData`` conversion in the ``MedicalData`` context.
 
-The ``patchMedicalData`` bundle must be activated in your application to allows migration in ``MedicalData`` context. 
+The ``patchMedicalData`` bundle must be activated in your application to allow migration in ``MedicalData`` context. 
     
     
 .. _StructuralPatch:
@@ -222,9 +220,9 @@ The ``patchMedicalData`` bundle must be activated in your application to allows 
 Structural patch
 ~~~~~~~~~~~~~~~~~
 
-The structural patches are registered in the ``::fwAtomsPatch::StructuralPatchDB`` singleton. The structural patch provides a method ``apply`` that perfoms the structure conversion. The constructor defines the classname and versions of the origin and target objects as described in the ``.graphlink`` links section.
+The structural patches are registered in the ``::fwAtomsPatch::StructuralPatchDB`` singleton. A structural patch provides a method ``apply`` that performs the structure conversion. The constructor defines the classname and versions of the origin and target objects as described in the ``.graphlink`` links section.
 
-Example of structural patch to convert the ``fwData::Image`` from version 1 to 2. It adds three attributes.
+Example of structural patch to convert the ``fwData::Image`` from version 1 to 2. We add three attributes related to medical imaging: the number of components ``nb_components``, the window center ``window_center`` and the windows width ``window_width``.
 
 .. code-block:: cpp
 
@@ -285,10 +283,10 @@ Example of structural patch to convert the ``fwData::Image`` from version 1 to 2
 Creator
 ~~~~~~~~
 
-The creator provides a method ``create`` that allows to create a new object with the default attribute initialization. The creator are used in structural patches to create new sub-objects. 
-The creator are registered in the ``::fwAtomsPatch::StructuralCreatorDB`` singleton.
+The creator provides a method ``create`` that allows to create a new object with the default attribute initialization. The creator is used in structural patches to create new sub-objects. 
+Creators are registered in the ``::fwAtomsPatch::StructuralCreatorDB`` singleton.
 
-This is used if we need to add an attribute that is a non-null object.
+Creators are useful for adding an attribute that is a non-null object.
 
 Example of creator for the ``::fwMedData::Patient`` :
 
@@ -341,12 +339,12 @@ Example of creator for the ``::fwMedData::Patient`` :
 Semantic patch
 ~~~~~~~~~~~~~~
 
-The semantic are registered in the ``::fwAtomsPatch::SemanticPatchDB`` singleton.
-The structural patch provides a method ``apply`` that perfoms the structure conversion. The constructor 
-defines the origin classname and versions of the objects and the origin and taget context version as 
+The semantic patches are registered in the ``::fwAtomsPatch::SemanticPatchDB`` singleton.
+The structural patch provides a method ``apply`` that performs the structure conversion. The constructor 
+defines the origin classname, the versions of the objects, the origin and the target context version as 
 described in the ``.graphlink``.
 
-The semantic patch is used if we need several object to perform the object migration.
+The semantic patch is used when we need several objects to perform the object migration.
 
 Example of semantic patch :
 
@@ -416,35 +414,34 @@ This patch changed the attribute ``nb_components`` in the image copied from arra
 Patcher
 ~~~~~~~~
 
-The patcher defines the methods to parse the data and applied the structural and semantic patches. It must inherit from ``fwAtomsPatch::patcher::IPatcher`` and implements the ``transformObject()`` method. 
+The patcher defines the methods to parse the data and applies the structural and semantic patches. It must inherit from ``fwAtomsPatch::patcher::IPatcher`` and implements the ``transformObject()`` method. 
 
-We usually used the ``DefaultPatcher``. The conversion is processed in two pass: first it applies the structural patches recursivly on each sub-objects, then it applies the sementic patches recursivly on each sub-objects.
+We usually use the ``DefaultPatcher``. The conversion is processed in two steps: first it applies the structural patches recursivly on each sub-objects, then it applies the semantic patches recursively on each sub-objects.
 
 
 Rules
 ~~~~~~
 
-A changes in data (fwData, fwMedData, ...) involve the incrementation of the data version and the context version
-and the creation of structural and/or semantic patch.
+A change in data (fwData, fwMedData, ...) involves the incrementation of the data version and the context version
+and thus, the creation of structural and/or semantic patch.
 
-A creator patch of a data must create a ``fwAtoms::Object`` equal as if we create the data (with a ``New()``) 
-and convert it to ``fwAtoms``.
+The creator patch creates the ``fwAtoms::Object`` and converts it to ``fwAtoms``. The ``::fwAtoms::Object`` created must be the same as the data created with a ``New()``.
 
 The *buffer object* (converted as BLOB in fwAtoms) is just reused (without copy) during the migration. If its 
-structure is modified, you should clone the buffer before to applies the patch. 
+structure is modified, you should clone the buffer before applying the patch. 
 
 
 Usage
 --------
 
-If you have to modify data, you don't have to reimplemetent all the migration system, but there is step to perform :
+If you have to modify data, you don't have to re-implement all the migration system, but there are steps to perform :
 
 step 1
     Increment the data version in camp declaration (and update the declaration of the attribute if needed). See
     :ref:`DataVersion`.
     
 step 2
-    Increment the context version: create a new ``.versions`` files (with the associated data version). See
+    Increment the context version: create new ``.versions`` files (with the associated data version). See
     :ref:`ContextVersion`.
     
 step 3
@@ -457,7 +454,7 @@ step 5
     Create the structural patch. See :ref:`StructuralPatch`.
     
 step 6 (optional)
-    Create the semantic patch if you need other objects to update the current object. See :ref:`SemanticPatch`.
+    Create the semantic patch if you need other objects to update the current one. See :ref:`SemanticPatch`.
     
     
 .. note::
