@@ -3,21 +3,26 @@ Data file migration
 
 .. contents:: :depth: 2
 
+
 Overview
 -----------
 
 The data migration system consists on converting the data to another version. It allows us to adapt any version of data to any version of software, and thus ensuring compatibility between data and software independently of their version.
 
-Migration process is applied on two different steps. Firstly, in ``ioAtoms::Sreader`` while reading data files, previously serialized with ``fwAtoms``, right before converting said data to ``::fwData::Objects``. Secondly in ``ioAtoms::Swriter`` after data is converted to ``fwAtoms::Base``.
+Migration process is applied on two different steps :
+ 
+ - in ``::ioAtoms::SReader`` while reading data files, previously serialized with ``fwAtoms``, right before converting said data to ``::fwData::Objects``. 
+ - in ``::ioAtoms::SWriter`` after data is converted to ``fwAtoms::Base``.
+
 
 Definitions
 ------------
 
 Context
-    It represents a complex chunk of data. For example, the `medical patient folder`_, the software preference file, etc. Hereafter we will consider a medical patient folder which we will call **MedicalData**.
+    It represents a complex chunk of data. For example, the `medical patient folder`_, the software preference file, etc. Hereafter we will consider a medical patient folder which is called **MedicalData**.
 
 Structural patch
-    This sort of patch affects only one data of the serialized data regardless of the context (ex: add or remove attribute, type, ...), see :ref:`StructuralPatch`.
+    This sort of patch affects only one object of the serialized data regardless of the context (ex: add or remove attribute, type, ...), see :ref:`StructuralPatch`.
 
 Semantic patch
     This sort of patch is applied on a context to migrate to a given version without changing the data structure.
@@ -55,6 +60,7 @@ Example of data declaration for introspection (used to convert to ``fwAtoms``):
             .property("mySimpleClass" , &::fwData::ComplexClass::m_mySimpleClass)
             ;
     }
+
 
 .. _ContextVersion:
 
@@ -103,6 +109,7 @@ Example of ``V2.versions``:
         }
     }
 
+
 .. _Migration:
 
 Migration
@@ -123,7 +130,7 @@ Example of ``V1ToV2.graphlink``:
         "links" : [
             {
                 "::fwData::Patient" : "1",
-                "::fwMedData::Pa ient" : "1"
+                "::fwMedData::Patient" : "1"
             },
             {
                 "::fwData::Image" : "1",
@@ -140,7 +147,7 @@ The ``links`` tag represents the data version modifications, by doing so, associ
     
 .. note::
     
-	It is not necessary to specify a simple data version incrementation on the ``links`` tag, the patching system establishes this information the number of ``.versions`` files.
+	It is not necessary to specify a simple data version incrementation on the ``links`` tag, the patching system establishes this information from the data version defines in the ``.versions`` files.
     
 
 .. _Graph:
@@ -155,7 +162,7 @@ Example of graph:
 .. image:: ../media/patchGraph.png
 
 The graph is used to find the migration path from an initial version to a target version.
-In our example, it is possible to migrate from V1 to V5, the date is converted to V3, V4 then V5.
+In our example, it is possible to migrate from V1 to V5, the data is converted to V3, V4 then V5.
 If several paths are possible, the shortest path is used.
 
 
@@ -176,8 +183,8 @@ patcher::IPatcher
     Base class for patchers. 
     
 patcher::DefaultPatcher
-    Patcher used by default. It performs the date migration in two steps: first it applies the structural patches
-    recursivly on each sub-object and then applies the semantic patches.
+    Patcher used by default. It performs the data migration in two steps: first it applies the structural patches
+    recursivly on each sub-object and then applies the semantic patches recursivly on each sub-object .
 
 IPatch
     Base class for structural and semantic patches. It provides an ``apply()`` method that must be implemented in 
@@ -222,7 +229,7 @@ Structural patch
 
 The structural patches are registered in the ``::fwAtomsPatch::StructuralPatchDB`` singleton. A structural patch provides a method ``apply`` that performs the structure conversion. The constructor defines the classname and versions of the origin and target objects as described in the ``.graphlink`` links section.
 
-Example of structural patch to convert the ``fwData::Image`` from version 1 to 2. We add three attributes related to medical imaging: the number of components ``nb_components``, the window center ``window_center`` and the windows width ``window_width``.
+Example of structural patch to convert the ``fwData::Image`` from version 1 to 2. We add three attributes related to medical imaging: the number of components ``nb_components``, the window center ``window_center`` and the window width ``window_width``.
 
 .. code-block:: cpp
 
@@ -341,7 +348,7 @@ Semantic patch
 
 The semantic patches are registered in the ``::fwAtomsPatch::SemanticPatchDB`` singleton.
 The structural patch provides a method ``apply`` that performs the structure conversion. The constructor 
-defines the origin classname, the versions of the objects, the origin and the target context version as 
+defines the origin classname, the origin version of the object, and the origin and the target context version as 
 described in the ``.graphlink``.
 
 The semantic patch is used when we need several objects to perform the object migration.
@@ -425,7 +432,7 @@ Rules
 A change in data (fwData, fwMedData, ...) involves the incrementation of the data version and the context version
 and thus, the creation of structural and/or semantic patch.
 
-The creator patch creates the ``fwAtoms::Object`` and converts it to ``fwAtoms``. The ``::fwAtoms::Object`` created must be the same as the data created with a ``New()``.
+The creator patch creates the ``fwAtoms::Object`` representing the data object. The ``::fwAtoms::Object`` created must be the same as the data created with a ``New()`` and converted to ``fwAtoms``.
 
 The *buffer object* (converted as BLOB in fwAtoms) is just reused (without copy) during the migration. If its 
 structure is modified, you should clone the buffer before applying the patch. 
