@@ -8,7 +8,11 @@ Overview
 
 The data migration system consists on converting the data to another version. It allows us to adapt any version of data to any version of software, and thus ensuring compatibility between data and software independently of their version.
 
-Migration process is applied on two different steps. Firstly, in ``ioAtoms::Sreader`` while reading data files, previously serialized with ``fwAtoms``, right before converting said data to ``::fwData::Objects``. Secondly in ``ioAtoms::Swriter`` after data is converted to ``fwAtoms::Base``.
+Migration process is applied on two independent steps : 
+
+- In ``ioAtoms::SReader`` while reading data files, previously serialized with ``fwAtoms``, right before converting said data to ``::fwData::Objects``. 
+
+- In ``ioAtoms::SWriter`` after data is converted to ``fwAtoms::Base``.
 
 Definitions
 ------------
@@ -61,7 +65,12 @@ Example of data declaration for introspection (used to convert to ``fwAtoms``):
 Context version
 ----------------
 
-The context version must be incremented after a data version modification. Different data can share the same context version. 
+The context version must be incremented after a data version modification. 
+
+.. note::
+    
+	- If several data versions are modified simultaneously, only one incrementation of the context version is necessary.
+	- A single context version can contain data with different versions (see the example below).
 
 The ``.versions`` file contains a detailed description of the context version, and the version of each data.
 
@@ -123,7 +132,7 @@ Example of ``V1ToV2.graphlink``:
         "links" : [
             {
                 "::fwData::Patient" : "1",
-                "::fwMedData::Pa ient" : "1"
+                "::fwMedData::Patient" : "1"
             },
             {
                 "::fwData::Image" : "1",
