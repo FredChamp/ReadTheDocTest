@@ -433,13 +433,21 @@ We usually use the ``DefaultPatcher``. The conversion is processed in two steps:
 Rules
 ~~~~~~
 
-A change in data (fwData, fwMedData, ...) involves the incrementation of the data version and the context version
-and thus, the creation of structural and/or semantic patch.
+Rule 1
+    A change in data (fwData, fwMedData, ...) involves the incrementation of the data version and the context version 
+    and thus, the creation of structural and/or semantic patch.
 
-The creator patch creates the ``fwAtoms::Object`` representing the data object. The ``::fwAtoms::Object`` created must be the same as the data created with a ``New()`` and converted to ``fwAtoms``.
+Rule 2
+    The creator patch creates the ``fwAtoms::Object`` representing the data object. The ``::fwAtoms::Object`` created 
+    must be the same as the data created with a ``New()`` and converted to ``fwAtoms``.
 
-The *buffer object* (converted as BLOB in fwAtoms) is just reused (without copy) during the migration. If its 
-structure is modified, you should clone the buffer before applying the patch. 
+Rule 3
+    The *buffer object* (converted as BLOB in fwAtoms) is just reused (without copy) during the migration. If its
+    structure is modified, you should clone the buffer before applying the patch. 
+
+Rule 4
+    If an object is contained in the ``fwAtoms::Object`` to migrate but is not present in the current context version 
+    (in the ``.versions`` file), this object will be erased from the ``fwAtoms::Object``.
 
 
 Usage
