@@ -53,7 +53,7 @@ To prepare the third party environment:
 
 .. code:: bash
 
-    $ mkdir Deps
+    $ mkdir Dev/Deps
 
 - Create the build, source and install folder
     - Dev/Deps/Build

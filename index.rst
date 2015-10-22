@@ -13,5 +13,6 @@ FW4SPL documentation
    FAQ/FAQ-FW4SPL
    CMake/index
    Contributors/index
+   Tutorials/index
 
    

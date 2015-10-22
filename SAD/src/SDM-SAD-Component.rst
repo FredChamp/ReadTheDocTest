@@ -1,3 +1,5 @@
+.. _Component:
+
 Component-based software
 ==============================
 
@@ -66,7 +68,7 @@ component, and the Extension by the class that it inherits from the abstract cla
 One example is the service concept. The component description file
 of servicesReg introduces the concept of service and incorporates the class IService into the dynamic library:
 
-.. code:: xml
+.. code-block:: xml
 
  <plugin id="serviceReg">
 
@@ -79,7 +81,7 @@ of servicesReg introduces the concept of service and incorporates the class ISer
 And in another component, a new service is proposed in the dynamic library and
 the information is shared in the description file.
 
-.. code:: xml
+.. code-block:: xml
 
  <plugin id="myBundle">
 

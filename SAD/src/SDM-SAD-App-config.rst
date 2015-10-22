@@ -14,11 +14,11 @@ Then FW4SPL architecture provides a dynamic management of configurations to allo
 Dynamic program with application configuration
 ----------------------------------------------
 
-In the ``fwService`` library, an application configuration parser
+In the ``fwServices`` library, an application configuration parser
 allows to parse XML files then creates and manages objects, services and
 communications.
 
-.. code:: c++
+.. code-block:: c++
 
     // The parser
     void main (int argc , char * argv [])
@@ -40,7 +40,7 @@ communications.
 
 The following part correspond to the configuration XML file of the previous :ref:`Object-Service_example`.
 
-.. code:: xml
+.. code-block:: xml
 
     <object uid="image" type ="::fwData::MyData">
 

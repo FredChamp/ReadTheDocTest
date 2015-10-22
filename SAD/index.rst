@@ -13,8 +13,8 @@ Software Architecture Description (SAD)
    src/SDM-SAD-Thread
    src/SDM-SAD-Serialization
    src/SDM-SAD-PatientFolder
-   src/SDM-SAD-Manager
    src/SDM-SAD-Component
+   src/SDM-SAD-Manager
    src/SDM-SAD-GUI
    src/SDM-SAD-GenericScene
    src/SDM-SAD-DataMigration
