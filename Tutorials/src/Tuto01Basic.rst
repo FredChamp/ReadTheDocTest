@@ -1,3 +1,5 @@
+.. _tuto01:
+
 *********************************************
 Tuto01Basic : How to create an application ?
 *********************************************
@@ -42,7 +44,7 @@ This line allows to load Properties.cmake file.
 Properties.cmake
 ~~~~~~~~~~~~~~~~~
 
-This file describe the project information and requirements :
+This file describes the project information and requirements :
 
 .. code-block:: cmake
 
@@ -50,21 +52,24 @@ This file describe the project information and requirements :
     set( VERSION 0.1 ) # Version of the application
     set( TYPE APP ) # Type APP represent "Application"
     set( DEPENDENCIES  ) # For an application we have no dependencies (libraries to link)
-    set( REQUIREMENTS 
-        dataReg
-        servicesReg
-        gui
-        guiQt
-        launcher
-        appXml
-    ) # The bundles used by this application
+    set( REQUIREMENTS # List of the bundles used by this application
+        dataReg # to load the data registry
+        servicesReg # to load the service registry
+        gui # to load gui
+        guiQt # to load the Qt implementation of gui
+        launcher # executable of the application
+        appXml # to parse the application configuration
+    ) 
 
     # Set the configuration to use : 'tutoBasicConfig'
     bundleParam(appXml PARAM_LIST config PARAM_VALUES tutoBasicConfig) 
     
+This file contains the minimal requirements to launch an application with a Qt user interface.
 
-The Properties.cmake file of the application is used by CMake_ to compile the application but also to generate the
-``profile.xml``: the file used to launch the application. 
+.. note::
+
+    The Properties.cmake file of the application is used by CMake_ to compile the application but also to generate the
+    ``profile.xml``: the file used to launch the application. 
     
 
 plugin.xml
@@ -117,3 +122,13 @@ The ``::fwServices::registry::AppConfig`` extension defines the configuration of
      * <start> tags are after <service> tags
     
     There are others tags that will be described in the next tutorials.
+
+
+Run
+----
+
+To run the application, you must call the following line in the install or build directory:
+
+.. code::
+
+    bin/launcher Bundles/Tuto01Basic_0-1/profile.xml
