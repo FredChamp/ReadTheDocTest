@@ -7,3 +7,4 @@ Tutorials
 
    src/Tuto01Basic
    src/Tuto02DataServiceBasic
+   src/Tuto03DataService

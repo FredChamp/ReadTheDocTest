@@ -78,7 +78,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
                         Description service of the GUI:
                         The ::gui::frame::DefaultFrame service automatically positions the various containers in the 
                         application main window. 
-                        Here, it declare a container for the 3D rendering service.
+                        Here, it declares a container for the 3D rendering service.
                     -->
                     <service uid="myFrame" impl="::gui::frame::DefaultFrame" type="::fwGui::IFrameSrv" >
                         <gui>
@@ -140,7 +140,7 @@ For this tutorial, we have only one object ``::fwData::Image`` and three service
  * ``::vtkSimpleNegato::RendererService``: render for 3D image
  
 .. note::
-    To avoid the ``<start uid="myRendering" />``, the frame service can automatically start the rendering service: just add the attribute ``start="yes"`` in the <view> tag. 
+    To avoid the ``<start uid="myRendering" />``, the frame service can automatically start the rendering service: you just need to add the attribute ``start="yes"`` in the <view> tag. 
 
 Run
 ----

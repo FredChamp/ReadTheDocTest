@@ -127,7 +127,7 @@ The ``::fwServices::registry::AppConfig`` extension defines the configuration of
 Run
 ----
 
-To run the application, you must call the following line in the install or build directory:
+To run the application, you must call the following line into the install or build directory:
 
 .. code::
 
