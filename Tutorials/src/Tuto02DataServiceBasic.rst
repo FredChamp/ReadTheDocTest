@@ -15,9 +15,6 @@ Prerequisites
 --------------
 
 Before to read this tutorial, you should have seen :
- * :ref:`Object-service concept<Object-Service_example>`
- * :ref:`App-config`
- * :ref:`Component`
  * :ref:`tuto01`
  
 

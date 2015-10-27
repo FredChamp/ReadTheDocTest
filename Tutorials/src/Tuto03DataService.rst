@@ -15,10 +15,8 @@ Prerequisites
 --------------
 
 Before to read this tutorial, you should have seen :
- * :ref:`Object-service concept<Object-Service_example>`
- * :ref:`App-config`
- * :ref:`Component`
  * :ref:`tuto02`
+ * :ref:`GUI`
 
 
 Structure
@@ -67,8 +65,6 @@ This file is in the ``rc/`` directory of the application. It defines the service
 .. code-block:: xml
 
     <plugin id="Tuto03DataService" version="@DASH_VERSION@">
-
-    <plugin id="Tuto03DataService" version="@DASH_VERSION@" >
         <requirement id="servicesReg" />
 
         <extension implements="::fwServices::registry::AppConfig">

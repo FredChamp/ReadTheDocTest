@@ -1,3 +1,5 @@
+.. _SigSlot:
+
 Signal-slot communication
 =========================
 
