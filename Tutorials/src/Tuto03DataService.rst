@@ -165,7 +165,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
                         Tuto02DataServiceBasic), so the selector will not be displayed.
                         When the service was chosen, it is started, updated and stopped, so the data is read.
                     -->
-                    <service uid="myReaderPathFile" impl="::uiIO::editor::IOSelectorService" />
+                    <service uid="myReaderPathFile" impl="::uiIO::editor::SIOSelector" />
 
                     <!--
                         3D visualization service of medical images:

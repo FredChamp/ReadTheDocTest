@@ -42,7 +42,7 @@ and containers:
 
 For instance, consider the following C++ class:
 
-.. code:: cpp
+.. code-block:: cpp
 
     class SimpleClass
     {
@@ -58,7 +58,7 @@ For instance, consider the following C++ class:
 
 It's Atom equivalent is (simplified code):
 
-.. code:: cpp
+.. code-block:: cpp
 
     fwAtoms::Object
     {
@@ -108,7 +108,7 @@ allow this conversion, some work must be done.
 
 The first thing is to update the header file of the structure and add these lines :
 
-.. code:: cpp
+.. code-block:: cpp
 
     // Before all namespace
     fwCampAutoDeclareDataMacro((<namespace elem>)
@@ -132,7 +132,7 @@ This can be illustrated by taking the previous class and creating these two file
 
 Header file of the newly created class: ComplexClass.hpp
 
-.. code:: cpp
+.. code-block:: cpp
 
     // Reference class
 
@@ -153,7 +153,7 @@ Header file of the newly created class: ComplexClass.hpp
 
 Header file of serialization class :
 
-.. code:: cpp
+.. code-block:: cpp
 
     // hpp binding file
     #include <fwCamp/macros.hpp>
@@ -165,7 +165,7 @@ Header file of serialization class :
 
 Source file of serialization class :
 
-.. code:: cpp
+.. code-block:: cpp
 
     // cpp binding file
     // include previous cpp file
@@ -201,7 +201,7 @@ describe the object to bind.
 
 Most of the work is completed when the header file of the relevant class has been updated and a binding class created.  The last step is to register the binding class in the conversion system using the following line in the library containing binding classes:
 
-.. code:: cpp
+.. code-block:: cpp
 
     localDeclarefwDataComplexClass();
 
@@ -229,7 +229,7 @@ The requirements to convert an ``fwData::Object`` into an ``fwAtoms::Object`` ar
 
 Two functions are necessary to achieve this conversion:
 
-.. code:: cpp
+.. code-block:: cpp
 
      //Convert a fwData::Object into fwAtoms::Object
      SPTR(::fwAtoms::Object) convert( const SPTR(::fwData::Object) &data );

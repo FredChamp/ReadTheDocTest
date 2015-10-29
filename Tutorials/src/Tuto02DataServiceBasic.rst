@@ -73,7 +73,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
 
                     <!--
                         Description service of the GUI:
-                        The ::gui::frame::DefaultFrame service automatically positions the various
+                        The ::gui::frame::SDefaultFrame service automatically positions the various
                         containers in the application main window.
                         Here, it declares a container for the 3D rendering service.
                     -->

@@ -57,7 +57,7 @@ implementation creates a loop in a new thread. Some tasks can be posted on the
 worker and will be executed on the managed thread. When the worker is stopped,
 it waits for the last task to be processed and stops the loop.
 
-.. code:: cpp
+.. code-block:: cpp
 
     ::fwThread::Worker::sptr worker = ::fwThread::Worker::New();
 
@@ -74,7 +74,7 @@ The Timer class provides single-shot or repetitive timers. A Timer triggers a
 function once after a delay, or periodically, inside the worker loop. The delay
 or the period is defined by the duration attribute.
 
-.. code:: cpp
+.. code-block:: cpp
 
     ::fwThread::Worker::sptr worker = ::fwThread::Worker::New();
 
@@ -108,7 +108,7 @@ Currently, FW4SPL uses Boost Thread library which allows the use of multiple
 execution threads with shared data, keeping the C++ code portable.
 ``fwCore::mt`` defines a few typedef over Boost:
 
-.. code:: cpp
+.. code-block:: cpp
 
     namespace fwCore
     {
@@ -163,7 +163,7 @@ asynchronous requests can not be satisfied without specifying a worker.
 
 Setting worker example:
 
-.. code:: cpp
+.. code-block:: cpp
 
     ::fwCom::Slot< int (int, int) >::sptr slotSum
             = ::fwCom::newSlot( &sum );
@@ -178,7 +178,7 @@ Setting worker example:
 ``asyncRun`` method returns a boost::shared_future< void >, that makes it possible
 to wait for end-of-execution.
 
-.. code:: cpp
+.. code-block:: cpp
 
     ::boost::future< void > future = slotStart->asyncRun();
     // do something else ...
@@ -187,7 +187,7 @@ to wait for end-of-execution.
 ``asyncCall`` method returns a ``boost::shared_future< R >`` where R is the return
 type. This allows facilitates waiting for end-of-execution and retrieval of the computed value.
 
-.. code:: cpp
+.. code-block:: cpp
 
     ::boost::future< int > future = slotSum->asyncCall();
     // do something else ...
@@ -208,7 +208,7 @@ Asynchronous emit
 As slots can work asynchronously, triggering a Signal with asyncEmit results in
 the execution of connected slots in their worker :
 
-.. code:: cpp
+.. code-block:: cpp
 
     sig2->asyncEmit(21, 42);
 
@@ -228,7 +228,7 @@ The architecture allows the writing of thread safe functions which manipulate ob
 easily. Objects have their own mutex (inherited from ``fwData::Object``) to
 control concurrent access from different threads. This mutex is available using the following method:
 
-.. code:: cpp
+.. code-block:: cpp
 
     ::fwCore::mt::ReadWriteMutex & getMutex();
 
@@ -241,7 +241,7 @@ multithreading:
 
 The following example illustrates how to use these helpers:
 
-.. code:: cpp
+.. code-block:: cpp
 
     ::fwData::String::sptr m_data = ::fwData::String::New();
     {
@@ -290,7 +290,7 @@ cycle can be managed in a separate thread.
 Since services are designed to be managed in an associated worker, the worker
 can be set/updated by using the inherited method :
 
-.. code:: cpp
+.. code-block:: cpp
 
     // Initializes m_associatedWorker and associates
     // this worker to all service slots

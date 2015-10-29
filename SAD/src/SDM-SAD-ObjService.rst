@@ -273,7 +273,7 @@ The FW4SPL architecture is standardized thanks to:
 In an application, one of the problems is managing the life cycle of a large number of object instances and their services. This problem is solved by the class ``fwServices::registry::ObjectService`` which maintains the relationship
 between objects and services. This class concept is very simple :
 
-.. code:: cpp
+.. code-block:: cpp
 
     // OSR is a singleton
     class ObjectService
@@ -306,7 +306,7 @@ Object-Service concept example
 To conclude, the generic object-service concept is illustrated with this
 example:
 
-.. code:: cpp
+.. code-block:: cpp
 
     // Create an object
     ::fwData::Object::sptr obj = ::fwData::factory::New("::fwData::Image");

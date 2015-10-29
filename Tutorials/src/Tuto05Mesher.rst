@@ -22,6 +22,83 @@ Before to read this tutorial, you should have seen :
 Structure
 =============
 
+Composite
+----------
+
+A ``::fwData::Composite`` is an object that contains a map of ``fwData::Object`` associated to a key (``std::string``).
+
+
+Using Composite in C++
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: cpp
+    
+    // Create a Composite
+    ::fwData::Composite::sptr composite = ::fwData::Composite::New();
+
+    ::fwData::Image::sptr image = ::fwData::Image::New();
+    ::fwData::Mesh::sptr mesh = ::fwData::Mesh::New();
+
+    // Add an image and a mesh
+    composite->getContainer()["myImage"] = image;
+    composite->getContainer()["myMesh"] = mesh;
+
+
+.. code-block:: cpp
+
+    ::fwData::Composite::sptr composite = ::fwData::Composite::New();
+
+    // Get the image
+    ::fwData::Image::sptr image = composite->at< ::fwData::Image >("myImage");
+
+    // Get the mesh
+    ::fwData::Mesh::sptr mesh = composite->at< ::fwData::Mesh >("myMesh");
+
+
+.. code-block:: cpp
+
+    ::fwData::Composite::sptr composite = ::fwData::Composite::New();
+
+    // Check if the image exists into the composite
+    ::fwData::Composite::iterator iter = composite->find("myImage");
+    if (iter != composite->end())
+    {
+        // Image is found
+        ::fwData::Image::sptr image = ::fwData::Image::dynamicCast(iter->second);
+    }
+    else
+    {
+        // Image is not found
+    }
+    
+Using Composite in XML
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: xml
+
+    <object type="::fwData::Composite">
+    
+        <!-- Composite services -->
+    
+        <item key="myImage">
+            <object uid="myImageUID" type="::fwData::Image">
+            
+                <!-- Image services -->
+            
+            </object>
+        </item>
+        
+        <item key="myMesh">
+            <object uid="myMeshUID" type="::fwData::Mesh">
+            
+                <!-- Mesh services -->
+            
+            </object>
+        </item>
+        
+    </object>
+
+
 Properties.cmake
 ------------------
 
@@ -66,7 +143,6 @@ This file is in the ``rc/`` directory of the application. It defines the service
 
 .. code-block:: xml
 
-
     <plugin id="Tuto05Mesher" version="@DASH_VERSION@">
 
         <requirement id="servicesReg" />
@@ -76,7 +152,10 @@ This file is in the ``rc/`` directory of the application. It defines the service
             <config>
 
 
-                <!-- The main data object is ::fwData::Composite. -->
+                <!--
+                    The main data object is ::fwData::Composite.
+                    A Composite, can contains sub-objects associated to a key.
+                -->
                 <object type="::fwData::Composite">
 
                     <!-- Frame & View -->
@@ -170,11 +249,6 @@ This file is in the ``rc/`` directory of the application. It defines the service
 
                     <service uid="actionQuit" impl="::gui::action::SQuit" />
 
-                    <!--
-                        Service associated to the Composite data :
-                        menu services creation.
-                        Actions in relationship with images and meshes
-                    -->
                     <service uid="actionOpenImageFile" impl="::gui::action::SStarter">
                         <start uid="readerPathImageFile" />
                     </service>
@@ -192,18 +266,15 @@ This file is in the ``rc/`` directory of the application. It defines the service
                     </service>
 
                     <service uid="actionCreateVTKMesh" impl="::opVTKMesh::action::SMeshCreation">
-                        <image uid="myImage" />
-                        <mesh uid="myMesh" />
+                        <image uid="myImageUID" />
+                        <mesh uid="myMeshUID" />
                         <percentReduction value="0" />
                     </service>
 
 
-                    <!--
-                        Image object creation Services contained between the tags <object> and </object>
-                        are associated to the Image data.
-                    -->
+                    <!-- Image object associated to the key 'myImage' -->
                     <item key="myImage">
-                        <object uid="myImage" type="::fwData::Image">
+                        <object uid="myImageUID" type="::fwData::Image">
 
                             <!--
                                 Services associated to the Image data :
@@ -211,23 +282,20 @@ This file is in the ``rc/`` directory of the application. It defines the service
                             -->
                             <service uid="RenderingImage" impl="::vtkSimpleNegato::SRendererService" autoConnect="yes" />
 
-                            <service uid="readerPathImageFile" impl="::uiIO::editor::IOSelectorService">
+                            <service uid="readerPathImageFile" impl="::uiIO::editor::SIOSelector">
                                 <type mode="reader" />
                             </service>
 
-                            <service uid="writerImageFile" impl="::uiIO::editor::IOSelectorService">
+                            <service uid="writerImageFile" impl="::uiIO::editor::SIOSelector">
                                 <type mode="writer" />
                             </service>
 
                         </object>
                     </item>
 
-                    <!--
-                        Mesh object creation. Services contained between the tags <object> and </object> are
-                        associated to the Mesh data.
-                    -->
+                    <!-- Mesh object associated to the key 'myMesh' -->
                     <item key="myMesh">
-                        <object uid="myMesh" type="::fwData::Mesh">
+                        <object uid="myMeshUID" type="::fwData::Mesh">
 
                             <!--
                                 Services associated to the Mesh data :
@@ -235,11 +303,11 @@ This file is in the ``rc/`` directory of the application. It defines the service
                             -->
                             <service uid="RenderingMesh" impl="::vtkSimpleMesh::SRendererService" autoConnect="yes" />
 
-                            <service uid="readerPathMeshFile" impl="::uiIO::editor::IOSelectorService">
+                            <service uid="readerPathMeshFile" impl="::uiIO::editor::SIOSelector">
                                 <type mode="reader" />
                             </service>
 
-                            <service uid="writerMeshFile" impl="::uiIO::editor::IOSelectorService">
+                            <service uid="writerMeshFile" impl="::uiIO::editor::SIOSelector">
                                 <type mode="writer" />
                             </service>
 
@@ -252,8 +320,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
 
             </config>
         </extension>
-    </plugin>    
-    
+    </plugin>
 
 
 Run

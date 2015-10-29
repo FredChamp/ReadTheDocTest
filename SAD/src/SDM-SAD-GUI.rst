@@ -22,7 +22,7 @@ the chosen gui bundle must be activated and started in the profile.xml of the ap
 main gui bundle for any application is ``guiQt``. The ``gui`` bundle must be activated regardless
 of the chosen backend.
 
-.. code:: xml
+.. code-block:: xml
 
     <activate id="gui" version="0-1" />
     <activate id="guiQt" version="0-1" />
@@ -50,7 +50,7 @@ The DefaultFrame service is configurable with different parameters :
 * GUI elements (toolbar, menubar, aso.)
 
 
-.. code:: xml
+.. code-block:: xml
 
     <service uid="mainFrame" type="::fwGui::IFrameSrv" 
         impl="::gui::frame::DefaultFrame" autoConnect="no" >
@@ -80,7 +80,7 @@ The menu bar is used to organize application action groups. The main service use
 
 The configuration is used to associate a menu label with the service representing the menu.
 
-.. code:: xml
+.. code-block:: xml
 
     <service uid="menuBar" type="::fwGui::IMenuBarSrv"
         impl="::gui::aspect::DefaultMenuBarSrv" autoConnect="no" >
@@ -102,7 +102,7 @@ The main service used to display a menu is ``::fwGui::IMenuSrv``. The service ``
 The configuration is used to associate an action name and the service performing the action. An action can be configured with a shortcut, a style (default, check, radio) and/or an icon. Several special actions can also be
 specified (QUIT, ABOUT, aso.).
 
-.. code:: xml
+.. code-block:: xml
 
     <service uid="myMenu" type="::fwGui::IMenuSrv"
         impl="::gui::aspect::DefaultMenuSrv" autoConnect="no" >
@@ -141,7 +141,7 @@ Several types of layout can be used :
 
 Every layout can be configured with a set of parameters (orientation, alignment, aso.).
 
-.. code:: xml
+.. code-block:: xml
 
     <service uid="subView" type="::gui::view::IView"
         impl="::gui::view::DefaultView" autoConnect="no" >
@@ -164,7 +164,7 @@ Multi-threading
 
 The ``fwGui`` library has been designed to support multi-thread application. When a GUI component needs to be accessed, the function call must be encapsulated in a lambda declaration as shown in this example:
 
-.. code:: cpp
+.. code-block:: cpp
 
         ::fwGui::registry::Worker::get()->postTask<void>(
         [&] {

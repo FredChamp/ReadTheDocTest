@@ -146,7 +146,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
 
                     <service uid="actionQuit" impl="::gui::action::SQuit" type="::fwGui::IActionSrv" />
 
-                    <service uid="myReaderPathFile" impl="::uiIO::editor::IOSelectorService">
+                    <service uid="myReaderPathFile" impl="::uiIO::editor::SIOSelector">
                         <type mode="reader" /><!-- mode is optional (by default it is "reader") -->
                     </service>
 

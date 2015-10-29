@@ -72,7 +72,7 @@ It defines two scenarios, each of them belonging to the ``<update>`` XML tag:
 
 Updater configuration example:
 
-.. code:: xml
+.. code-block:: xml
 
     <object id="model_uid" type="::fwMedData::ModelSeries" />
 
@@ -110,7 +110,7 @@ In this configuration, the manager updates the services attached to the ``rec`` 
 
 Manager configuration example
 
-.. code:: xml
+.. code-block:: xml
 
     <object type="::fwData::Composite">
       <service uid="manager_uid" impl="::ctrlSelection::manager::SwapperSrv"
