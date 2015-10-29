@@ -79,9 +79,9 @@ This file is in the ``rc/`` directory of the application. It defines the service
  
 .. code-block:: xml
 
-    <!-- Application name and version (the version is automatically replaced by CMake 
+    <!-- Application name and version (the version is automatically replaced by CMake
          using the version defined in the Properties.cmake) -->
-    <plugin id="Tuto01Basic" version="@DASH_VERSION@" >
+    <plugin id="Tuto01Basic" version="@DASH_VERSION@">
 
         <!-- Defines the App-config -->
         <extension implements="::fwServices::registry::AppConfig">
@@ -90,7 +90,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
                 <object type="::fwData::Image"><!-- Main object -->
 
                     <!-- Frame service -->
-                    <service uid="myFrame" type="::fwGui::IFrameSrv" impl="::gui::frame::DefaultFrame">
+                    <service uid="myFrame" impl="::gui::frame::SDefaultFrame">
                         <gui>
                             <frame>
                                 <name>tutoBasicApplicationName</name>
@@ -106,6 +106,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
             </config>
         </extension>
     </plugin>
+    
     
 
 The ``::fwServices::registry::AppConfig`` extension defines the configuration of an application. 

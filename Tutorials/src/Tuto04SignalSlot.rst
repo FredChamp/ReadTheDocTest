@@ -1,7 +1,7 @@
 .. _tuto04:
 
 **********************************************
-Tuto04SignalSlot: Signal-slot communication
+Tuto04SignalSlot: signal-slot communication
 **********************************************
 
 The fourth tutorial explain the communication mechanism with signals and slots.
@@ -73,10 +73,10 @@ This file is in the ``rc/`` directory of the application. It defines the service
             <id>tutoSignalSlotConfig</id>
             <config>
 
-                <!-- In tutoComChannel, the main data object type is ::fwData::Mesh. -->
+                <!-- The main data object is ::fwData::Mesh. -->
                 <object type="::fwData::Mesh">
 
-                    <service uid="myFrame" impl="::gui::frame::DefaultFrame" type="::fwGui::IFrameSrv">
+                    <service uid="myFrame" impl="::gui::frame::SDefaultFrame">
                         <gui>
                             <frame>
                                 <name>tutoSignalSlot</name>
@@ -91,7 +91,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
                         </registry>
                     </service>
 
-                    <service uid="myMenuBar" impl="::gui::aspect::DefaultMenuBarSrv" type="::fwGui::IMenuBarSrv">
+                    <service uid="myMenuBar" impl="::gui::aspect::SDefaultMenuBar">
                         <gui>
                             <layout>
                                 <menu name="File" />
@@ -111,7 +111,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
                         Each <view> declared into the <layout> tag, must have its associated <view> into the <registry> tag.
                         A minimum window height and a width are given to the two non-central views.
                     -->
-                    <service uid="myDefaultView" impl="::gui::view::DefaultView" type="::gui::view::IView">
+                    <service uid="myDefaultView" impl="::gui::view::SDefaultView">
                         <gui>
                             <layout type="::fwGui::CardinalLayoutManager">
                                 <view caption="Rendering 1" align="center" />
@@ -126,7 +126,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
                         </registry>
                     </service>
 
-                    <service uid="myMenuFile" impl="::gui::aspect::DefaultMenuSrv" type="::fwGui::IMenuSrv">
+                    <service uid="myMenuFile" impl="::gui::aspect::SDefaultMenu">
                         <gui>
                             <layout>
                                 <menuItem name="Open file" shortcut="Ctrl+O" />
@@ -140,13 +140,13 @@ This file is in the ``rc/`` directory of the application. It defines the service
                         </registry>
                     </service>
 
-                    <service uid="actionOpenFile" impl="::gui::action::StarterActionService" type="::fwGui::IActionSrv">
+                    <service uid="actionOpenFile" impl="::gui::action::SStarter">
                         <start uid="myReaderPathFile" />
                     </service>
 
-                    <service uid="actionQuit" impl="::gui::action::QuitAction" type="::fwGui::IActionSrv" />
+                    <service uid="actionQuit" impl="::gui::action::SQuit" type="::fwGui::IActionSrv" />
 
-                    <service uid="myReaderPathFile" impl="::uiIO::editor::IOSelectorService" type="::gui::editor::IDialogEditor">
+                    <service uid="myReaderPathFile" impl="::uiIO::editor::IOSelectorService">
                         <type mode="reader" /><!-- mode is optional (by default it is "reader") -->
                     </service>
 
@@ -155,17 +155,17 @@ This file is in the ``rc/`` directory of the application. It defines the service
                         We have three rendering service representing a 3D scene displaying the loaded mesh. The scene are
                         shown in the windows defines in 'view' service.
                     -->
-                    <service uid="myRendering1" impl="::vtkSimpleMesh::RendererService" type="::fwRender::IRender" autoConnect="yes" />
-                    <service uid="myRendering2" impl="::vtkSimpleMesh::RendererService" type="::fwRender::IRender" autoConnect="yes" />
-                    <service uid="myRendering3" impl="::vtkSimpleMesh::RendererService" type="::fwRender::IRender" autoConnect="yes" />
+                    <service uid="myRendering1" impl="::vtkSimpleMesh::SRendererService" autoConnect="yes" />
+                    <service uid="myRendering2" impl="::vtkSimpleMesh::SRendererService" autoConnect="yes" />
+                    <service uid="myRendering3" impl="::vtkSimpleMesh::SRendererService" autoConnect="yes" />
 
                     <!--
-                        Each 3D scene owns its 3D camera that can be moved by the user on clicking in the scene.
+                        Each 3D scene owns a 3D camera that can be moved by the user on clicking in the scene.
                         - When the camera moved, a signal 'camUpdated' is emitted with the new camera information (position,
-                          focal, view up).
+                        focal, view up).
                         - To update the camera without clicking, you could called the slot 'updateCamPosition'
-                    
-                        Here, we connect each rendering service signal 'camUpdated' to the others service slot 
+
+                        Here, we connect each rendering service signal 'camUpdated' to the others service slot
                         'updateCamPosition', so the cameras are synchronized in each scene.
                     -->
                     <connect>
@@ -193,6 +193,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
         </extension>
 
     </plugin>
+    
 
 You can use **proxy** instead of the <connect> tag: it allows to connect all the signals to all the slots for a given channel name.
 

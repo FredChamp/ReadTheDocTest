@@ -9,3 +9,4 @@ Tutorials
    src/Tuto02DataServiceBasic
    src/Tuto03DataService
    src/Tuto04SignalSlot
+   src/Tuto05Mesher

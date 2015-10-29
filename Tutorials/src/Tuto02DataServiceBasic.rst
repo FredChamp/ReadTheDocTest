@@ -73,11 +73,11 @@ This file is in the ``rc/`` directory of the application. It defines the service
 
                     <!--
                         Description service of the GUI:
-                        The ::gui::frame::DefaultFrame service automatically positions the various containers in the 
-                        application main window. 
+                        The ::gui::frame::DefaultFrame service automatically positions the various
+                        containers in the application main window.
                         Here, it declares a container for the 3D rendering service.
                     -->
-                    <service uid="myFrame" impl="::gui::frame::DefaultFrame" type="::fwGui::IFrameSrv" >
+                    <service uid="myFrame" impl="::gui::frame::SDefaultFrame">
                         <gui>
                             <frame>
                                 <name>tutoDataServiceBasic</name>
@@ -86,17 +86,17 @@ This file is in the ``rc/`` directory of the application. It defines the service
                             </frame>
                         </gui>
                         <registry>
-                            <!-- Associate the container for the rendering service.-->
+                            <!-- Associate the container for the rendering service. -->
                             <view sid="myRendering" />
                         </registry>
                     </service>
 
                     <!--
-                        Reading service: 
-                        The <file> tag defines the path of the image to load. Here, it is a relative path from the 
-                        repository in which you launch the application.
+                        Reading service:
+                        The <file> tag defines the path of the image to load. Here, it is a relative 
+                        path from the repository in which you launch the application.
                     -->
-                    <service uid="myReaderPathFile" impl="::ioVTK::ImageReaderService" type="::io::IReader">
+                    <service uid="myReaderPathFile" impl="::ioVTK::SImageReader">
                         <file>./TutoData/patient1.vtk</file>
                     </service>
 
@@ -104,7 +104,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
                         Visualization service of a 3D medical image:
                         This service will render the 3D image.
                     -->
-                    <service uid="myRendering" impl="::vtkSimpleNegato::RendererService" type="::fwRender::IRender" />
+                    <service uid="myRendering" impl="::vtkSimpleNegato::SRendererService" />
 
                     <!--
                         Definition of the starting order of the different services:
@@ -115,7 +115,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
                     <start uid="myReaderPathFile" />
                     <start uid="myRendering" />
 
-                    <!--  
+                    <!--
                         Definition of the service to update:
                         The reading service load the data on the update.
                         The render update must be called after the reading of the image.
@@ -134,7 +134,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
 For this tutorial, we have only one object ``::fwData::Image`` and three service:
  * ``::gui::frame::DefaultFrame``: frame service
  * ``::ioVTK::ImageReaderService``: reader for 3D VTK image
- * ``::vtkSimpleNegato::RendererService``: render for 3D image
+ * ``::vtkSimpleNegato::SRendererService``: render for 3D image
  
 .. note::
     To avoid the ``<start uid="myRendering" />``, the frame service can automatically start the rendering service: you just need to add the attribute ``start="yes"`` in the <view> tag. 

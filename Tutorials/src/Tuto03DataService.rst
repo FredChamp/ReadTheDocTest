@@ -79,7 +79,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
                         In this tutorial, the gui services will automatically start the services they register using the
                         'start="yes"' attribute.
                     -->
-                    <service uid="myFrame" impl="::gui::frame::DefaultFrame" type="::fwGui::IFrameSrv" >
+                    <service uid="myFrame" impl="::gui::frame::SDefaultFrame">
                         <gui>
                             <frame>
                                 <name>tutoDataService</name>
@@ -102,7 +102,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
                         The <layout> tags defines the displayed information, whereas the <registry> tags defines the
                         services information.
                     -->
-                    <service uid="myMenuBar" impl="::gui::aspect::DefaultMenuBarSrv" type="::fwGui::IMenuBarSrv" >
+                    <service uid="myMenuBar" impl="::gui::aspect::SDefaultMenuBar">
                         <gui>
                             <layout>
                                 <menu name="File" />
@@ -125,7 +125,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
                         impact, but on Mac OS, this value installs the menuItem in the system menu bar, and on Linux this
                         value installs the default 'Quit' system icon in the menuItem.
                     -->
-                    <service uid="myMenu" impl="::gui::aspect::DefaultMenuSrv" type="::fwGui::IMenuSrv" >
+                    <service uid="myMenu" impl="::gui::aspect::SDefaultMenu">
                         <gui>
                             <layout>
                                 <menuItem name="Open file" shortcut="Ctrl+O" />
@@ -134,17 +134,17 @@ This file is in the ``rc/`` directory of the application. It defines the service
                             </layout>
                         </gui>
                         <registry>
-                            <menuItem sid="action_openFile" start="yes" />
-                            <menuItem sid="action_quit" start="yes" />
+                            <menuItem sid="actionOpenFile" start="yes" />
+                            <menuItem sid="actionQuit" start="yes" />
                         </registry>
                     </service>
 
                     <!--
                         Quit action:
-                        The action service (::gui::action::QuitAction) is a generic action that will close the application
+                        The action service (::gui::action::SQuit) is a generic action that will close the application
                         when the user click on the menuItem "Quit".
                     -->
-                    <service uid="action_quit" impl="::gui::action::QuitAction" type="::fwGui::IActionSrv" />
+                    <service uid="actionQuit" impl="::gui::action::SQuit" />
 
                     <!--
                         Open file action:
@@ -152,7 +152,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
                         services given in the configuration when the user clicks on the action.
                         Here, the reader selector will be called when the actions is clicked.
                     -->
-                    <service uid="action_openFile" impl="::gui::action::StarterActionService" type="::fwGui::IActionSrv" >
+                    <service uid="actionOpenFile" impl="::gui::action::SStarter">
                         <start uid="myReaderPathFile" />
                     </service>
 
@@ -165,14 +165,14 @@ This file is in the ``rc/`` directory of the application. It defines the service
                         Tuto02DataServiceBasic), so the selector will not be displayed.
                         When the service was chosen, it is started, updated and stopped, so the data is read.
                     -->
-                    <service uid="myReaderPathFile" impl="::uiIO::editor::IOSelectorService" type="::gui::editor::IDialogEditor" />
+                    <service uid="myReaderPathFile" impl="::uiIO::editor::IOSelectorService" />
 
-                    <!-- 
-                        3D visualization service of medical images: 
+                    <!--
+                        3D visualization service of medical images:
                         Here, the service attribute 'autoConnect="yes"' allows the rendering to listen the modification of
                         the data image. So, when the image is loaded, the visualization will be updated.
                     -->
-                    <service uid="myRendering" impl="::vtkSimpleNegato::RendererService" type="::fwRender::IRender" autoConnect="yes" />
+                    <service uid="myRendering" impl="::vtkSimpleNegato::SRendererService" autoConnect="yes" />
 
                     <!--
                         Here, we only start the frame because all the others services are managed by the gui service:
@@ -187,7 +187,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
             </config>
         </extension>
     </plugin>
-
+    
 
 The framework provides some gui services:
 

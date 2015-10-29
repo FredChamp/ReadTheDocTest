@@ -46,20 +46,20 @@ Examples :
 A slot wrapping the function sum, which is a function with
 the signature int (int, int) :
 
-.. code:: c++
+.. code-block:: c++
 
     ::fwCom::Slot< int (int, int) >::sptr slotSum = ::fwCom::newSlot( &sum );
 
 A slot wrapping the function start with signature void() of
 the object ``a`` which class type is ``A`` :
 
-.. code:: c++
+.. code-block:: c++
 
     ::fwCom::Slot< void() >::sptr slotStart = ::fwCom::newSlot(&A::start, &a);
 
 Execution of the slots using the run method :
 
-.. code:: c++
+.. code-block:: c++
 
     slotSum->run(40,2);
     slotStart->run();
@@ -67,14 +67,14 @@ Execution of the slots using the run method :
 Execution of the slots using the method call, which returns the result
 of the execution :
 
-.. code:: c++
+.. code-block:: c++
 
     int result = slotSum->call(40,2);
     slotStart->call();
 
 A slot declaration and execution, through a SlotBase :
 
-.. code:: c++
+.. code-block:: c++
 
     ::fwCom::Slot< size_t (std::string) > slotLen
             = ::fwCom::Slot< size_t (std::string) >::New( &len );
@@ -99,20 +99,20 @@ Examples:
 
 The following instruction declares a signal with a void signature.
 
-.. code:: c++
+.. code-block:: c++
 
     ::fwCom::Signal< void() >::sptr sig = ::fwCom::Signal< void() >::New();
 
 The connection between a signal and a slot of the same information type:
 
-.. code:: c++
+.. code-block:: c++
 
     sig->connect(slotStart);
 
 The following instruction will trigger the execution of all
 slots connected to this signal:
 
-.. code:: c++
+.. code-block:: c++
 
     sig->emit();
 
@@ -125,7 +125,7 @@ by passing the right arguments.
 In the following example a signal is declared of type void(int, int). The signal is connected
 to two different types of slot, void (int) and int (int, int).
 
-.. code:: c++
+.. code-block:: c++
 
     using namespace fwCom;
     Signal< void(int, int) >::sptr sig2 = Signal< void(int, int) >::New();
@@ -158,7 +158,7 @@ A disconnection assumes a signal slot connection. Once a signal slot connection 
 cannot be triggered by this signal. Both connection and disconnection of a signal slot connection can be 
 done at any time.
 
-.. code:: c++
+.. code-block:: c++
 
     sig2->disconnect(slot1);
     sig2->emit(21, 42); // do not trigger slot1 anymore
@@ -171,7 +171,7 @@ Connection handling
 
 The connection between a slot and a signal returns a connection handler:
 
-.. code:: c++
+.. code-block:: c++
 
     ::fwCom::Connection connection = signal->connect(slot);
 
@@ -179,7 +179,7 @@ Each connection handler provides a mechanism which allows a
 signal slot connection to be disabled temporarily. The slot stays connected to the signal, but it will
 not be triggered while the connection is blocked :
 
-.. code:: c++
+.. code-block:: c++
 
     ::fwCom::Connection::Blocker lock(connection);
     signal->emit();
@@ -189,7 +189,7 @@ not be triggered while the connection is blocked :
 Connection handlers can also be used to disconnect a slot and a signal
 :
 
-.. code:: c++
+.. code-block:: c++
 
     connection.disconnect();
     // slot is not connected anymore
@@ -220,7 +220,7 @@ and a slot. ``HasSlots`` allows the management of many slots using a map. To use
 this helper in a class, the class must inherit from ``HasSlots`` and must register the slots
 in the constructor:
 
-.. code:: c++
+.. code-block:: c++
 
     struct ThisClassHasSlots : public HasSlots
     {
@@ -244,7 +244,7 @@ in the constructor:
 
 Then, slots can be used as below :
 
-.. code:: c++
+.. code-block:: c++
 
     ThisClassHasSlots obj;
     obj.slot("sum")->call<int>(5,9);
@@ -257,7 +257,7 @@ The class ``HasSignals`` provides mapping between a key (string defining the sig
 ``HasSignals`` allows the management of many signals using a map, similar to ``HasSlots``. To use this helper in a class, the class must inherit from
 ``HasSignals`` as seen below and must register signals in the constructor:
 
-.. code:: c++
+.. code-block:: c++
 
     struct ThisClassHasSignals : public HasSignals
     {
@@ -271,7 +271,7 @@ The class ``HasSignals`` provides mapping between a key (string defining the sig
 
 Then, signals can be used as below:
 
-.. code:: c++
+.. code-block:: c++
 
     ThisClassHasSignals obj;
     Slot< void()>::sptr slot = ::fwCom::newSlot(&anyFunction)
@@ -285,13 +285,13 @@ Signals and slots used in objects and services
 Slots are used in both objects and services, whereas signals are only used in services. The abstract
 class ``fwData::Object`` inherits from the ``HasSignals`` class as a basis to use signals :
 
-.. code:: c++
+.. code-block:: c++
 
     class Object : public ::fwCom::HasSignals
     {
       /// Key in m_signals map of signal m_sigObjectModified
       static const ::fwCom::Signals::SignalKeyType s_MODIFIED_SIG;
-      ...
+      //...
 
       /// Type of signal m_sigObjectModified
       typedef ::fwCom::Signal< void ( CSPTR( ::fwServices::ObjectMsg ) ) >
@@ -303,13 +303,13 @@ class ``fwData::Object`` inherits from the ``HasSignals`` class as a basis to us
       Object()
       {
           m_sigObjectModified = newSignal< ObjectModifiedSignalType >(s_MODIFIED_SIG);
-          ...
+          //...
       }
     }
 
 Moreover the abstract class ``fwService::IService`` inherits from the ``HasSlots`` class and the ``HasSignals`` class, as a basis to communicate through signals and slots. Actually, the methods ``start()``, ``stop()``, ``swap()`` and ``update()`` are all slots. Here is an extract with ``update()``: 
 
-.. code:: c++
+.. code-block:: c++
 
     class IService : public ::fwCom::HasSlots, public ::fwCom::HasSignals 
     {
@@ -326,12 +326,12 @@ Moreover the abstract class ``fwService::IService`` inherits from the ``HasSlots
 
       IService()
       {
-          ...
+          //...
           m_slotUpdate = newSlot( s_UPDATE_SLOT, &IService::update, this ) ;
-          ...
+          //...
       }
       
-      ...
+      //...
     }
 
       
@@ -341,7 +341,7 @@ of the service must be set to "yes" in the xml configuration (see :ref:`App-conf
 The default implementation of this method connect the ``s_MODIFIED_SIG`` object signal to the 
 ``s_UPDATE_SLOT`` slot.
 
-.. code:: c++
+.. code-block:: c++
 
     IService::KeyConnectionsType IService::getObjSrvConnections() const
     {
@@ -394,7 +394,7 @@ useful to create multiple connections or when the slots/signals have not yet bee
 
 The following shows an example where one signal is connected to several slots:
 
-.. code:: c++
+.. code-block:: c++
 
     const std::string CHANNEL = "myChannel";
 
