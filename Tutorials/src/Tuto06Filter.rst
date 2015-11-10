@@ -1,8 +1,8 @@
 .. _tuto06:
 
-*************
-Tuto06Filter
-*************
+********************************************
+[*Tuto06Filter*] apply a filter on an image
+********************************************
 
 This tutorial explains how to perform a filter on an image. Here, the filter applied on the image is a threshold.
 

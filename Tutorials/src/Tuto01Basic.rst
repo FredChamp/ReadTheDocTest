@@ -1,8 +1,8 @@
 .. _tuto01:
 
-*********************************************
-Tuto01Basic : How to create an application ?
-*********************************************
+***************************************
+[*Tuto01Basic*] Create an application
+***************************************
 
 The first tutorial represents a basic application that launch a simple empty frame. 
 

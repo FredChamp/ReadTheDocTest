@@ -1,7 +1,7 @@
 .. _tuto02:
 
 *********************************************
-Tuto02DataServiceBasic: display an image
+[*Tuto02DataServiceBasic*] Display an image
 *********************************************
 
 The secons tutorial represents a basic application that display a medical 3D image. 

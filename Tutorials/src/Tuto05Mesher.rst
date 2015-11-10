@@ -1,8 +1,8 @@
 .. _tuto05:
 
-*************
-Tuto05Mesher
-*************
+**********************************************
+[*Tuto05Mesher*] Create a mesh from an image
+**********************************************
 
 The fifth tutorial explains how to use several object in an application. 
 This application provides an action to creates a mesh from an image.

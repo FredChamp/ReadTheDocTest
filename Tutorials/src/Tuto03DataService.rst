@@ -1,8 +1,8 @@
 .. _tuto03:
 
-**********************************************
-Tuto03DataService: display an image with menu
-**********************************************
+*************************************************
+[*Tuto03DataService*] Display an image with menu
+*************************************************
 
 The third tutorial is similar to the previous application, but we add gui service like menus.
 

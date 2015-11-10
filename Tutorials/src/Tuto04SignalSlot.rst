@@ -1,8 +1,8 @@
 .. _tuto04:
 
-**********************************************
-Tuto04SignalSlot: signal-slot communication
-**********************************************
+***********************************************
+[*Tuto04SignalSlot*] Signal-slot communication
+***********************************************
 
 The fourth tutorial explains the communication mechanism with signals and slots.
 
