@@ -4,7 +4,7 @@
 Tuto04SignalSlot: signal-slot communication
 **********************************************
 
-The fourth tutorial explain the communication mechanism with signals and slots.
+The fourth tutorial explains the communication mechanism with signals and slots.
 
 .. figure:: ../media/tuto04SignalSlot.png
     :scale: 80

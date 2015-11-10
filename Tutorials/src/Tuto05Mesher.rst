@@ -4,7 +4,7 @@
 Tuto05Mesher
 *************
 
-The fifth tutorial explain how to use several object in an application. 
+The fifth tutorial explains how to use several object in an application. 
 This application provides an action to creates a mesh from an image.
 
 .. figure:: ../media/tuto05Mesher.png
@@ -330,4 +330,4 @@ To run the application, you must call the following line into the install or bui
 
 .. code::
 
-    bin/launcher Bundles/Tuto04SignalSlot_0-1/profile.xml
+    bin/launcher Bundles/Tuto05Mesher_0-1/profile.xml
