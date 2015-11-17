@@ -172,7 +172,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
                         Here, the service attribute 'autoConnect="yes"' allows the rendering to listen the modification of
                         the data image. So, when the image is loaded, the visualization will be updated.
                     -->
-                    <service uid="myRendering" impl="::vtkSimpleNegato::SRendererService" autoConnect="yes" />
+                    <service uid="myRendering" impl="::vtkSimpleNegato::SRenderer" autoConnect="yes" />
 
                     <!--
                         Here, we only start the frame because all the others services are managed by the gui service:

@@ -280,7 +280,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
                                 Services associated to the Image data :
                                 Visualization, reading and writing service creation.
                             -->
-                            <service uid="RenderingImage" impl="::vtkSimpleNegato::SRendererService" autoConnect="yes" />
+                            <service uid="RenderingImage" impl="::vtkSimpleNegato::SRenderer" autoConnect="yes" />
 
                             <service uid="readerPathImageFile" impl="::uiIO::editor::SIOSelector">
                                 <type mode="reader" />
@@ -301,7 +301,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
                                 Services associated to the Mesh data :
                                 Visualization, reading and writing service creation.
                             -->
-                            <service uid="RenderingMesh" impl="::vtkSimpleMesh::SRendererService" autoConnect="yes" />
+                            <service uid="RenderingMesh" impl="::vtkSimpleMesh::SRenderer" autoConnect="yes" />
 
                             <service uid="readerPathMeshFile" impl="::uiIO::editor::SIOSelector">
                                 <type mode="reader" />

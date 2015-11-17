@@ -155,9 +155,9 @@ This file is in the ``rc/`` directory of the application. It defines the service
                         We have three rendering service representing a 3D scene displaying the loaded mesh. The scene are
                         shown in the windows defines in 'view' service.
                     -->
-                    <service uid="myRendering1" impl="::vtkSimpleMesh::SRendererService" autoConnect="yes" />
-                    <service uid="myRendering2" impl="::vtkSimpleMesh::SRendererService" autoConnect="yes" />
-                    <service uid="myRendering3" impl="::vtkSimpleMesh::SRendererService" autoConnect="yes" />
+                    <service uid="myRendering1" impl="::vtkSimpleMesh::SRenderer" autoConnect="yes" />
+                    <service uid="myRendering2" impl="::vtkSimpleMesh::SRenderer" autoConnect="yes" />
+                    <service uid="myRendering3" impl="::vtkSimpleMesh::SRenderer" autoConnect="yes" />
 
                     <!--
                         Each 3D scene owns a 3D camera that can be moved by the user on clicking in the scene.

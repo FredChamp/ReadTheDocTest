@@ -104,7 +104,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
                         Visualization service of a 3D medical image:
                         This service will render the 3D image.
                     -->
-                    <service uid="myRendering" impl="::vtkSimpleNegato::SRendererService" />
+                    <service uid="myRendering" impl="::vtkSimpleNegato::SRenderer" />
 
                     <!--
                         Definition of the starting order of the different services:
@@ -134,7 +134,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
 For this tutorial, we have only one object ``::fwData::Image`` and three service:
  * ``::gui::frame::DefaultFrame``: frame service
  * ``::ioVTK::ImageReaderService``: reader for 3D VTK image
- * ``::vtkSimpleNegato::SRendererService``: render for 3D image
+ * ``::vtkSimpleNegato::SRenderer``: render for 3D image
  
 .. note::
     To avoid the ``<start uid="myRendering" />``, the frame service can automatically start the rendering service: you just need to add the attribute ``start="yes"`` in the <view> tag. 

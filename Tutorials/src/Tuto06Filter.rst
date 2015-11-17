@@ -1,7 +1,7 @@
 .. _tuto06:
 
 ********************************************
-[*Tuto06Filter*] apply a filter on an image
+[*Tuto06Filter*] Apply a filter on an image
 ********************************************
 
 This tutorial explains how to perform a filter on an image. Here, the filter applied on the image is a threshold.
@@ -173,7 +173,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
                     -->
                     <item key="myImage1">
                         <object uid="myImage1" type="::fwData::Image">
-                            <service uid="RenderingImage1" impl="::vtkSimpleNegato::SRendererService" autoConnect="yes" />
+                            <service uid="RenderingImage1" impl="::vtkSimpleNegato::SRenderer" autoConnect="yes" />
                             <service uid="readerPathImageFile" impl="::uiIO::editor::SIOSelector">
                                 <type mode="reader" />
                             </service>
@@ -186,7 +186,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
                     -->
                     <item key="myImage2">
                         <object uid="myImage2" type="::fwData::Image">
-                            <service uid="RenderingImage2" impl="::vtkSimpleNegato::SRendererService" autoConnect="yes" />
+                            <service uid="RenderingImage2" impl="::vtkSimpleNegato::SRenderer" autoConnect="yes" />
                         </object>
                     </item>
 
