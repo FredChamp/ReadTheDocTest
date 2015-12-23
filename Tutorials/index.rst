@@ -11,3 +11,4 @@ Tutorials
    src/Tuto04SignalSlot
    src/Tuto05Mesher
    src/Tuto06Filter
+   src/Tuto08GenericScene

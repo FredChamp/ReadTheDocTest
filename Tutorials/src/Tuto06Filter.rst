@@ -205,7 +205,7 @@ Filter service
 Here, the filter service is inherited from ::fwGui::IActionSrv but you can inherit from another type (like 
 ``::arServices::IOperator`` in fw4spl-ar repository).
 
-For an action, the ``updating()``method is called by the click on the button. This method retrieves the two images and 
+For an action, the ``updating()`` method is called by the click on the button. This method retrieves the two images and 
 applies the threshold algorithm.
 
 The ``::fwData::Image`` contains a buffer for pixel values, it is stored as a ``void *`` to allows several types of 

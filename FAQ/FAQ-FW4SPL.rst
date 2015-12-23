@@ -81,27 +81,50 @@ I have an assertion/fatal message when I launch my program, any idea to correct 
 
 First, you can read the output message :) and try to solve the problem.
 In many cases, there are two kind of problems. The program fails to :
-    - create the service given in configuration In this case, four reasons are possibles :
-    
-        - the name of service implementation in config.xml contains mistakes
-        - the bundle that contains this service is not activated in the profile
-        - the bundle plugin.xml, that contains this service, not declares the     service or the declaration contains mistakes.
-        - the service is not register in the Service Factory (forget of macro REGISTER_SERVICE(...) in file .cpp) 
-        
-    - manage the configuration of service. In this case, the implementation code in .cpp file ( generally configuring() method of service ) does not correspond to description code in config.xml ( Missing arguments, or not well-formed, or mistakes string parameters ).
+
+- create the service given in configuration In this case, four reasons are possibles :
+    - the name of service implementation in config.xml contains mistakes
+    - the bundle that contains this service is not activated in the profile
+    - the bundle plugin.xml, that contains this service, not declares the     service or the declaration contains mistakes.
+    - the service is not register in the Service Factory (forget of macro REGISTER_SERVICE(...) in file .cpp) 
+- manage the configuration of service. In this case, the implementation code in .cpp file ( generally configuring() method of service ) does not correspond to description code in config.xml ( Missing arguments, or not well-formed, or mistakes string parameters ).
 
 If I use fw4spl, do I need wrap all my data ?
 =============================================
 
 The first question is to know if the data is on center of application:
 
-    - Need you to shared data between few bundles ?
-    - Need you to attach services on this data ?
+- Need you to shared data between few bundles ?
+- Need you to attach services on this data ?
 
-        - If the answer is no, you don't need to wrap your data. 
-        - Otherwise, you need to have an object that inherits of ::fwData::Object.
+    - If the answer is no, you don't need to wrap your data. 
+    - Otherwise, you need to have an object that inherits of ::fwData::Object.
 
-    In this last case, do you need shared this object between different services which use different libraries, ex for Object Image : itk::Image vs vtkImage ?
+In this last case, do you need shared this object between different services which use different libraries, ex for Object Image : itk::Image vs vtkImage ?
 
-        - If the answer is yes, you need create a new object like fwData::Image and a wrapping with fwData::Image<=>itk::Image and fwData::Image<=>vtkImage.
-        - Otherwise, you can just encapsulated an itk::Image in fwData::Image and create an accessor on it. ( however, this kind of choice implies that all applications that use fwData::Image need itk library for running. )
+    - If the answer is yes, you need create a new object like fwData::Image and a wrapping with fwData::Image<=>itk::Image and fwData::Image<=>vtkImage.
+    - Otherwise, you can just encapsulated an itk::Image in fwData::Image and create an accessor on it. ( however, this kind of choice implies that all applications that use fwData::Image need itk library for running. )
+
+
+What is a sesh@ path ?
+======================
+
+A sesh@ path is a path  used to browse an object (and sub-object) using the introspection (see fwDataCamp and :ref:`Serialization`). The path begins 
+with a '@' or a '!'.
+- ``@`` : the returned string is the fwID of the sub-object defined by the path.
+- ``!`` : the returned string is the value of the sub-object, it works only on String, Integer, Float and  Boolean object.
+  
+Example:
+---------
+
+To get the fwID of an image contained in a Composite with the key "myImage"
+
+.. code:: xml
+     
+     @values.myImage
+
+To get the fwID of the first reconstruction of a ModelSeries contained in a Composite with the key "myModel"
+
+.. code:: xml
+
+     @values.myModel.reconstruction_db.0

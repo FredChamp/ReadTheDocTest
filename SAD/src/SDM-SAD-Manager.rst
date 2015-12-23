@@ -51,62 +51,60 @@ Implementation
 Updater
 ~~~~~~~
 
-An updater implementation must inherit from the ``::ctrlSelection::IUpdaterSrv``
-service.
+An updater implementation must inherit from the ``::ctrlSelection::IUpdaterSrv`` service.
 
-In the example below, an updater is used to manage a
-``::fwData::Reconstruction`` object identified with the ``reconstruction`` key in a selection composite. This ``::fwData::Reconstruction`` is stored in a
-``::fwMedData::ModelSeries`` and we used a specific updater to listen events
-and manage the structure.
+In the example below, an updater is used to manage a ``::fwData::Reconstruction`` object identified with 
+the ``reconstruction`` key in a selection composite. This ``::fwData::Reconstruction`` is stored in a
+``::fwMedData::ModelSeries`` and we used a specific updater to listen signals and manage the structure.
 
-It defines two scenarios, each of them belonging to the ``<update>`` XML tag:
+The updater provites slots to react on object/service signals.
 
-- when the updater receives a ``NEW_RECONSTRUCTION_SELECTED`` event from the
-  ``::fwMedData::ModelSeries`` object with uid ``model_uid``, it adds or swaps
-  the ``rec`` object of the selection composite with the object from which it
-  received the event.
-- when the updater receives a ``REMOVED_RECONSTRUCTIONS`` event from the
-  ``::fwMedData::ModelSeries`` object with uid ``model_uid``, it removes the
-  ``rec`` object of the selection composite if it is present.
 
+Example
+********
+
+For example, the updater ``::ctrlSelection::SObjFromSlots`` provides the following slots :
+
+- ``add(object)``: add the given object in the composite with the configured key
+- ``swapObj(object)``: swap the given object in the composite with the configured key
+- ``addOrSwap(object)``: if the configured key exists in the composote, the object is swapped, else it is added
+- ``remove()``: remove the object with the configured key from the composite
+- ``removeIfPresent()``: remove the object if the configured key exists in the composite
 
 Updater configuration example:
 
 .. code-block:: xml
 
-    <object id="model_uid" type="::fwMedData::ModelSeries" />
-
-    <object type="::fwData::Composite">
-
-      <service uid="updater_uid"
-        impl="::ctrlSelection::updater::SReconstructionFromModelSeriesUpdater"
-        type="::ctrlSelection::IUpdaterSrv">
-        <update compositeKey="rec"
-            onEvent="NEW_RECONSTRUCTION_SELECTED"
-            fromUID="model_uid"
-            actionType="ADD_OR_SWAP"
-            />
-        <update compositeKey="rec"
-            onEvent="REMOVED_RECONSTRUCTIONS"
-            fromUID="model_uid"
-            actionType="REMOVE_IF_PRESENT"
-            />
-      </service>
-
+    <object id="model_uid" type="::fwMedData::ModelSeries">
+        <service uid="${GENERIC_UID}_listOrganEditor" impl="::uiMedData::editor::SModelSeriesList" 
+            type="::gui::editor::IEditor" autoConnect="yes" />
     </object>
 
-    <!-- connect updater to listen the model series -->
+    <object type="::fwData::Composite">
+        <service uid="myUpdater" impl="::ctrlSelection::updater::SObjFromSlot" type="::ctrlSelection::IUpdaterSrv">
+            <compositeKey>reconstruction</compositeKey><!-- key of the updated object -->
+        </service>
+    </object>
+
+    <!-- connect updater to listen the reconstruction selection -->
     <connect>
-        <signal>model_uid/objectModified</signal>
-        <slot>updater_uid/receive</slot>
+        <signal>listOrganEditor/reconstructionSelected</signal>
+        <slot>myUpdater/addOrSwap</slot>
     </connect>
+
 
 Manager
 ~~~~~~~
 
-Managers inherit from ``::ctrlSelection::IManagerSrv``. As explained earlier, they manage tasks or services on objects which appear or disappear from the composite on which they are working. For instance, the XML configuration below manages a GUI to configure rendering options of a reconstruction from a reconstruction list thanks to the ``::ctrlSelection::manager::SwapperSrv`` service.
+Managers inherit from ``::ctrlSelection::IManagerSrv``. As explained earlier, they manage tasks or services on objects 
+which appear or disappear from the composite on which they are working. 
 
-In this configuration, the manager updates the services attached to the ``rec`` object each time it is added, removed or swapped.
+Example
+********
+
+For instance, the XML configuration below manages a GUI to configure rendering options of a reconstruction from a 
+reconstruction list thanks to the ``::ctrlSelection::manager::SwapperSrv`` service. In this configuration, the manager
+updates the services attached to the ``rec`` object each time it is added, removed or swapped.
 
 Manager configuration example
 
@@ -114,21 +112,97 @@ Manager configuration example
 
     <object type="::fwData::Composite">
       <service uid="manager_uid" impl="::ctrlSelection::manager::SwapperSrv"
-            type="::ctrlSelection::IManagerSrv"
-            autoConnect="yes" >
+            type="::ctrlSelection::IManagerSrv" autoConnect="yes" >
             <mode type="dummy" />
             <config>
                 <object id="rec" type="::fwData::Reconstruction">
-                    <service uid="organMaterialEditor"
-                        impl="::uiReconstruction::OrganMaterialEditor" />
-                    <service uid="representationEditor"
-                        impl="::uiReconstruction::RepresentationEditor" />
+                    <service uid="organMaterialEditor" impl="::uiReconstruction::OrganMaterialEditor" 
+                        type="::gui::editor::IEditor" />
+                    <service uid="representationEditor" impl="::uiReconstruction::RepresentationEditor" 
+                        type="::gui::editor::IEditor" />
                 </object>
         </config>
       </service>
     </object>
 
-.. note::
-    Manager mode is *dummy* (``<mode type="dummy">``). With this configuration,     if the ``::fwData::Reconstruction`` object is not present in the selection      composite when the manager starts, it will instantiate a new one. In *stop*     mode, the manager starts services when the object is present in the             selection composite. In *startAndUpdate* mode, the manager exhibits the         same behavior as in *stop* mode but also updates services.
+
+mode 
+    The mode must be "stop", "dummy" or "startAndUpdate". 
+    The mode "stop", used by default, starts the services when their attached object is added in the compsite 
+    and stop and unregister the services when the object is deleted.
+    The mode "dummy" doesn't stop the services when its attached object is deleted but swap it on a dummy object. 
+    The mode "startAndUpdate" start and update the services when its attached object is added in the composite.
+    
+object
+    It defines the objects and their services to manage.
+    
+    * **id**: the key of the object in the composite
+    * **type**: the type of the object
+    
+    The services are declared as same as in the AppConfig.
+    
+
+connect (optional): 
+    It allows to connect a signal to one or more slot(s). The signal and slots must be compatible.
+    The signal uid is optional, if it is not defines, the signal is from the current managed object.
+    
+.. code-block:: xml
+
+    <object type="::fwData::Composite">
+        <service uid="manager_uid" impl="::ctrlSelection::manager::SwapperSrv"
+            type="::ctrlSelection::IManagerSrv" autoConnect="yes" >
+            <mode type="dummy" />
+            <config>
+                <object id="rec" type="::fwData::Reconstruction">
+                
+                    <!--  ....  services ....    -->
+                
+                    <connect>
+                        <signal>object_uid/signal_name</signal>
+                        <slot>service_uid/slot_name</slot>
+                    </connect>
+
+                    <connect>
+                        <signal>signal_name</signal><!-- signal from recontruction "rec" -->
+                        <slot>service_uid/slot_name</slot>
+                    </connect>
+                </object>
+            </config>
+        </service>
+    <object>
+
+
+proxy (optional):
+    It allows to connect one or more signal(s) to one or more slot(s). The signals and slots must be compatible. 
+    The signal uid is optional, if it is not defines, the signal is from the current managed object.
+    
+    channel:
+        Name of the channel use for the proxy. 
+
+.. code-block:: xml
+     
+     <object type="::fwData::Composite">
+         <service uid="manager_uid" impl="::ctrlSelection::manager::SwapperSrv"
+             type="::ctrlSelection::IManagerSrv" autoConnect="yes" >
+             <mode type="dummy" />
+             <config>
+                 <object id="rec" type="::fwData::Reconstruction">
+                 
+                     <!--  ....  services ....    -->
+                 
+                     <proxy channel="myChannel">
+                         <signal>object_uid/signal_name</signal>
+                         <slot>service_uid/slot_name</slot>
+                     </proxy>
+
+                     <proxy channel="myOtherChannel">
+                         <signal>signal_name</signal><!-- signal from recontruction "rec" -->
+                         <slot>service_uid/slot_name</slot>
+                     </proxy>
+                 </object>
+             </config>
+         </service>
+     <object>
+     
 
 

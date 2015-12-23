@@ -61,11 +61,9 @@ Tuto01Basic                     Basic application
 Tuto02DataServiceBasic          Simple image reading and rendering
 Tuto02DataServiceBasicCtrl      Simple image reading and rendering without XML configuration
 Tuto03DataService               Image reading and rendering with signal communication
-Tuto03DataServiceBis            Mesh reading and rendering with signal communication
-Tuto04ComChannel                Scene point of view synchronisation with signal communication
+Tuto04SignalSlot                Scene point of view synchronisation with signal communication
 Tuto05Mesher                    Simple mesher from a 3D image
 Tuto06Filter                    Simple image filter
-Tuto07LoaderForExternalData     Example of reader for external data
 Tuto08GenericScene              Scene with multi-object rendering
 Tuto09MesherWithGenericScene    Scene with multi-object rendering and simple mesher
 Tuto10MatrixTransformInGS       Example of matrix transformation
