@@ -97,7 +97,7 @@ For the third party libraries the following repository have to be `cloned <http:
     $ cd ~/Dev/Deps/Src
     $ git clone https://github.com/fw4spl-org/fw4spl-deps.git fw4spl-deps
     $ cd fw4spl-deps
-    $ git checkout fw4spl_0.10.2.1
+    $ git checkout fw4spl_0.10.2.2
 
 To build the dependencies, you must configure the project with cmake into the Build folder
 
@@ -145,7 +145,7 @@ For the FW4SPL source code the following repository have to be `cloned <http://g
     $ cd ~/Dev/Src
     $ git clone https://github.com/fw4spl-org/fw4spl.git fw4spl
     $ cd fw4spl
-    $ git checkout fw4spl_0.10.2.1
+    $ git checkout fw4spl_0.10.2.2
 
 .. note::
     For the source compilation we use ``ninja`` instead of ``make``. But if you prefer to use make, replace all the ``ninja`` command with ``make`` and remove ``-G Ninja`` in the cmake command.
@@ -244,7 +244,7 @@ If you want to use this extension, you need to clone the deps repositories:
     $ cd ~/Dev/Deps/Src
     $ git clone https://github.com/fw4spl-org/fw4spl-ext-deps.git fw4spl-ext-deps
     $ cd fw4spl-ext-deps
-    $ git checkout fw4spl_0.10.2.1
+    $ git checkout fw4spl_0.10.2.2
 
 - `fw4spl-ar-deps <https://github.com/fw4spl-org/fw4spl-ar-deps.git>`_: contains the scripts to compile the external libraries used by fw4spl-ar
 
@@ -253,7 +253,7 @@ If you want to use this extension, you need to clone the deps repositories:
     $ cd ~/Dev/Deps/Src
     $ git clone https://github.com/fw4spl-org/fw4spl-ar-deps.git fw4spl-ar-deps
     $ cd fw4spl-ar-deps
-    $ git checkout fw4spl_0.10.2.1
+    $ git checkout fw4spl_0.10.2.2
 
 You must re-edit cmake configuration to add this repository:
 
@@ -280,7 +280,7 @@ If you want to use fw4spl extension, you need this repositories:
     $ cd Dev/Src
     $ git clone https://github.com/fw4spl-org/fw4spl-ext.git fw4spl-ext
     $ cd fw4spl-ext
-    $ git checkout fw4spl_0.10.2.1
+    $ git checkout fw4spl_0.10.2.2
 
 - `fw4spl-ar <https://github.com/fw4spl-org/fw4spl-ar.git>`_: another extension of fw4spl, contains functionalities for augmented reality (video tracking)
 

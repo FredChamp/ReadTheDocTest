@@ -1,0 +1,6 @@
+gui
+====
+
+::gui::action::SBooleanSlotCaller
+----------------------------------
+

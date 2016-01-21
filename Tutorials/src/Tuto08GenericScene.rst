@@ -274,9 +274,6 @@ This file is in the ``rc/`` directory of the application. It defines the service
                                 <type mode="reader" />
                             </service>
 
-                            <!-- This service convert a simple fwData::Image to medical Image -->
-                            <service uid="medicalImageConverter" impl="::ctrlSelection::MedicalImageSrv" autoConnect="yes" />
-
                             <!--
                                 Generic editor representing a menu button.
                                 It send signal with the current selected item.
@@ -433,9 +430,8 @@ selected
     The value of the item selected by default 
 
 
-
-
- signal is ``selected(int selection)``. It sends the value of the selected item.
+When the user select an item, a signal is emitted: the signal is ``selected(int selection)``. It sends the value of 
+the selected item.
     
 In our case, we want to change the number of image slices displayed in the scene. So, we need to connect this signal to
 the image adaptor slot ``updateSliceMode(int nbSlice)``.

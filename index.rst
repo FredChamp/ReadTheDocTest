@@ -14,5 +14,6 @@ FW4SPL documentation
    CMake/index
    Contributors/index
    Tutorials/index
+   Services/index
 
    

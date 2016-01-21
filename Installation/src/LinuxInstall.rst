@@ -6,15 +6,15 @@ Prerequisites for Linux users
 
 If not already installed:
 
-1. Install `git <https://git-scm.com/>`_
+#. Install `git <https://git-scm.com/>`_
 
-3. Install `gcc <https://gcc.gnu.org/>`_ The minimal version required is 4.8 or `clang <http://clang.llvm.org/>`_ The minimal version required is 3.5
+#. Install `gcc <https://gcc.gnu.org/>`_ The minimal version required is 4.8 or `clang <http://clang.llvm.org/>`_ The minimal version required is 3.5
 
-4. Install `Python 2.7 <https://www.python.org/downloads/>`_
+#. Install `Python 2.7 <https://www.python.org/downloads/>`_
 
-5. Install `CMake <http://www.cmake.org/download/>`_ The minimal version required is 3.0
+#. Install `CMake <http://www.cmake.org/download/>`_ The minimal version required is 3.0
 
-6. Install `Ninja <https://martine.github.io/ninja/>`_
+#. Install `Ninja <https://martine.github.io/ninja/>`_
 
 Depending on which linux distribution you use, for example on Debian you can do:
 
@@ -107,7 +107,7 @@ Dependencies
 
 .. code:: bash
     $ cd fw4spl-deps
-    $ git checkout fw4spl_0.10.2.1
+    $ git checkout fw4spl_0.10.2.2
 
 - Get into your Build directory (Debug or Release) : here an example if you want to compile in DEBUG
 
@@ -170,7 +170,7 @@ Source
 .. code:: bash
 
     $ cd fw4spl
-    $ git checkout fw4spl_0.10.2.1
+    $ git checkout fw4spl_0.10.2.2
 
 - Get into your Build directory (Debug or Release) : here an example if you want to compile in DEBUG
 
@@ -183,11 +183,13 @@ Source
 To use make :
 
 .. code:: bash
+
     $ ccmake ../../Src/fw4spl
 
 To use ninja :
 
 .. code:: bash
+
     $ ccmake -G Ninja ../../Src/fw4spl
 
 - Change the following cmake arguments
@@ -254,7 +256,7 @@ If you want to use this extension, you need to clone the deps repositories:
     $ cd ~/Dev/Deps/Src
     $ git clone https://github.com/fw4spl-org/fw4spl-ext-deps.git fw4spl-ext-deps
     $ cd fw4spl-ext-deps
-    $ git checkout fw4spl_0.10.2.1
+    $ git checkout fw4spl_0.10.2.2
 
 - `fw4spl-ar-deps <https://github.com/fw4spl-org/fw4spl-ar-deps.git>`_: contains the scripts to compile the external libraries used by fw4spl-ar
 
@@ -263,7 +265,7 @@ If you want to use this extension, you need to clone the deps repositories:
     $ cd ~/Dev/Deps/Src
     $ git clone https://github.com/fw4spl-org/fw4spl-ar-deps.git fw4spl-ar-deps
     $ cd fw4spl-ar-deps
-    $ git checkout fw4spl_0.10.2.1
+    $ git checkout fw4spl_0.10.2.2
 
 You must re-edit cmake configuration to add this repository:
 
@@ -290,7 +292,7 @@ If you want to use fw4spl extension, you need this repositories:
     $ cd Dev/Src
     $ git clone https://github.com/fw4spl-org/fw4spl-ext.git fw4spl-ext
     $ cd fw4spl-ext
-    $ git checkout fw4spl_0.10.2.1
+    $ git checkout fw4spl_0.10.2.2
 
 - `fw4spl-ar <https://github.com/fw4spl-org/fw4spl-ar.git>`_: another extension of fw4spl, contains functionalities for augmented reality (video tracking)
 

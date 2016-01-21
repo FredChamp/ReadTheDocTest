@@ -183,5 +183,5 @@ parameter:
         Name of the parameter as defined in the AppConfig
     by: 
         Defines the string that will replace the parameter name. It should be a simple string (ex.
-        frontal) or define a sesh@ path (ex. @values.myImage). The root object of the sesh@ path if the
+        frontal) or define a sesh@ path (ex. @values.myImage). The root object of the sesh@ path is the
         composite contained in the ActivitySeries.
