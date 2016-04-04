@@ -20,7 +20,7 @@ class AxiomDirective(Directive):
 
         def run(self):
 
-            if self.content:
+            # if self.content:
                 text = '\n'.join(self.content)
                 definition = nodes.definition(text)
 
@@ -50,17 +50,17 @@ class AxiomDirective(Directive):
                 def_list.append(def_item)
 
                 return [def_list]
-            else:
-                return []
+            # else:
+            #     return []
 
 class Rule(AxiomDirective):
 
-    tag_name = "rule"
+    tag_name = "Rule"
     count = 1
 
 class Recommendation(AxiomDirective):
 
-    tag_name = "recommendation"
+    tag_name = "Recommendation"
     count = 1
     
     
