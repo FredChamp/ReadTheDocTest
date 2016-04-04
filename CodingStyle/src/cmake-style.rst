@@ -31,7 +31,7 @@ CMakeLists coding
 
     In the past, CMake enforced to specify the label or expression in block ending, for instance :
 
-.. code-block :: cmake
+    .. code-block :: cmake
 
         function(name arg1 arg2)
             ...
@@ -45,7 +45,7 @@ CMakeLists coding
 
     This is no longer needed in latest CMake versions, and we recommend to use this possibility for the sake of simplicity.
 
-.. code-block :: cmake
+    .. code-block :: cmake
 
         function(name arg1 arg2)
             ...

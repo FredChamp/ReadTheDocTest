@@ -55,12 +55,12 @@ class AxiomDirective(Directive):
 
 class Rule(AxiomDirective):
 
-    tag_name = "Rule"
+    tag_name = "rule"
     count = 1
 
 class Recommendation(AxiomDirective):
 
-    tag_name = "Recommendation"
+    tag_name = "recommendation"
     count = 1
     
     
