@@ -27,27 +27,30 @@ class AxiomDirective(Directive):
                 self.state.nested_parse(self.content, self.content_offset, definition)
 
                 def_list = nodes.definition_list()
-                # def_item = nodes.definition_list_item()
-                #
-                # term = nodes.term()
-                # def_text = nodes.Text( self.tag_name + str(" %d") % self.__class__.count)
-                # self.__class__.count = self.__class__.count + 1
-                # term.append(def_text)
-                #
-                # iFirst = definition.first_child_matching_class(nodes.paragraph)
-                #
-                # iText = definition[iFirst].first_child_matching_class(nodes.Text)
-                # text_child=definition[iFirst].children[iText]
-                #
-                # definition.remove(definition[iFirst])
-                #
-                # classifier = nodes.classifier()
-                # classifier.append(text_child)
-                #
-                # def_item.append(term)
-                # def_item.append(classifier)
-                # def_item.append(definition)
-                # def_list.append(def_item)
+                def_item = nodes.definition_list_item()
+                
+                lineno = self.state_machine.abs_line_number() - 1
+                def_item.line = lineno
+                
+                term = nodes.term()
+                def_text = nodes.Text( self.tag_name + str(" %d") % self.__class__.count)
+                self.__class__.count = self.__class__.count + 1
+                term.append(def_text)
+
+                iFirst = definition.first_child_matching_class(nodes.paragraph)
+
+                iText = definition[iFirst].first_child_matching_class(nodes.Text)
+                text_child=definition[iFirst].children[iText]
+
+                definition.remove(definition[iFirst])
+
+                classifier = nodes.classifier()
+                classifier.append(text_child)
+
+                def_item.append(term)
+                def_item.append(classifier)
+                def_item.append(definition)
+                def_list.append(def_item)
 
                 return [def_list]
             else:
