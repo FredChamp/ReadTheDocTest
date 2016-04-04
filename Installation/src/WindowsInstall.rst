@@ -1,5 +1,5 @@
 Installation for Windows
-======================
+=========================
 
 Prerequisites for Windows users
 --------------------------------

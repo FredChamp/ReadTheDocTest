@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="39cm" height="19cm" viewBox="-101 238 762 363" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffce" x="292.876" y="260" width="367.124" height="340"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="292.876" y="260" width="367.124" height="340"/>
+    <rect style="fill: #ffffce" x="292.876" y="240" width="81" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="292.876" y="240" width="81" height="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="294.876" y="254">visuOgreQt</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="324.48" y="500" width="316.25" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="324.48" y="500" width="316.25" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="482.605" y="519">RenderWindowInteractorManager</text>
+    <rect style="fill: #ffffff" x="324.48" y="528" width="316.25" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="324.48" y="528" width="316.25" height="8"/>
+    <rect style="fill: #ffffff" x="324.48" y="536" width="316.25" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="324.48" y="536" width="316.25" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #c3e8ff" x="-100" y="372.994" width="374.491" height="227.005"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-100" y="372.994" width="374.491" height="227.005"/>
+    <rect style="fill: #c3e8ff" x="-100" y="352.994" width="96.4" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-100" y="352.994" width="96.4" height="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-98" y="366.994">fwRenderOgre</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="40.543" y="395.01" width="86.25" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="40.543" y="395.01" width="86.25" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="83.668" y="414.01">SRender</text>
+    <rect style="fill: #ffffff" x="40.543" y="423.01" width="86.25" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="40.543" y="423.01" width="86.25" height="8"/>
+    <rect style="fill: #ffffff" x="40.543" y="431.01" width="86.25" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="40.543" y="431.01" width="86.25" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="-80" y="500" width="322.2" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-80" y="500" width="322.2" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="81.1" y="519">IRenderWindowInteractorManager</text>
+    <rect style="fill: #ffffff" x="-80" y="528" width="322.2" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-80" y="528" width="322.2" height="8"/>
+    <rect style="fill: #ffffff" x="-80" y="536" width="322.2" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-80" y="536" width="322.2" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="83.668,465.186 83.668,495.11 83.4939,495.11 83.1433,499.049 "/>
+    <polygon style="fill: #ffffff" points="83.668,440.015 88.468,454.015 83.668,468.015 78.868,454.015 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="83.668,440.015 88.468,454.015 83.668,468.015 78.868,454.015 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="83.581" y="491.11"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="94.668" y="452.015"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="87.1433" y="495.049">1</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="434.802" y="283.248" width="95.4" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="434.802" y="283.248" width="95.4" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="482.502" y="302.248">QWindow</text>
+    <rect style="fill: #ffffff" x="434.802" y="311.248" width="95.4" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="434.802" y="311.248" width="95.4" height="8"/>
+    <rect style="fill: #ffffff" x="434.802" y="319.248" width="95.4" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="434.802" y="319.248" width="95.4" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="482.605,473.823 482.605,459.097 482.802,459.097 482.802,433.2 "/>
+    <polygon style="fill: #ffffff" points="482.605,498.994 477.805,484.994 482.605,470.994 487.405,484.994 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="482.605,498.994 477.805,484.994 482.605,470.994 487.405,484.994 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="482.703" y="455.097"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="493.605" y="494.994"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="486.802" y="445.2">1</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="482.502,346.49 482.502,365.721 482.802,365.721 482.802,387.188 "/>
+    <polygon style="fill: #ffffff" points="490.502,346.49 482.502,330.49 474.502,346.49 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="490.502,346.49 482.502,330.49 474.502,346.49 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="261.446,522 260.21,522 322.47,522 323.47,522 "/>
+    <polygon style="fill: #ffffff" points="261.446,514 245.446,522 261.446,530 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="261.446,514 245.446,522 261.446,530 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffc0cb" x="-99.9576" y="259.71" width="374.511" height="82.9884"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-99.9576" y="259.71" width="374.511" height="82.9884"/>
+    <rect style="fill: #ffc0cb" x="-99.9576" y="239.71" width="40" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-99.9576" y="239.71" width="40" height="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-97.9576" y="253.71">Ogre</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="9.16524" y="282.636" width="146.55" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="9.16524" y="282.636" width="146.55" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="82.4402" y="301.636">RenderWindow</text>
+    <rect style="fill: #ffffff" x="9.16524" y="310.636" width="146.55" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="9.16524" y="310.636" width="146.55" height="8"/>
+    <rect style="fill: #ffffff" x="9.16524" y="318.636" width="146.55" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="9.16524" y="318.636" width="146.55" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="441.902" y="388.194" width="81.8" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="441.902" y="388.194" width="81.8" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="482.802" y="407.194">Window</text>
+    <rect style="fill: #ffffff" x="441.902" y="416.194" width="81.8" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="441.902" y="416.194" width="81.8" height="8"/>
+    <rect style="fill: #ffffff" x="441.902" y="424.194" width="81.8" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="441.902" y="424.194" width="81.8" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="416.73,402.194 329.144,402.194 329.144,304.636 156.719,304.636 "/>
+    <polygon style="fill: #ffffff" points="441.902,402.194 427.902,406.994 413.902,402.194 427.902,397.394 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="441.902,402.194 427.902,406.994 413.902,402.194 427.902,397.394 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="331.144" y="349.415"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="409.902" y="398.194"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="160.719" y="300.636"> 1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="160.719" y="316.636"/>
+  </g>
+</svg>

@@ -19,7 +19,7 @@ Components
 Manager
 ~~~~~~~~
 
-The VtkRenderService is the manager service of the VTK scene. This service works on an object of type
+The SRender is the manager service of the VTK scene. This service works on an object of type
 `fwData::Composite` that contains all objects to display.
 
 The manager retrieves its specified container. The VTK context (vtkRender and vtkRenderWindow) is installed in the
@@ -35,12 +35,12 @@ Adaptor
 ~~~~~~~~
 
 An adaptor (inherited from ``::fwRenderVTK::IVtkAdaptorService``) is a service to manipulate or display a FW4SPL data.
-Services representing an adaptor are managed by a generic scene (VtkRenderService).
+Services representing an adaptor are managed by a generic scene (SRender).
 The adaptors are the gateway between FW4SPL objects and VTK objects.
 To respect the principles of the framework, adaptors are kept as generic as possible.
 Therefore they are reusable in further applications or even adaptors.
 
-An adaptor is a specific service that need to implements the methods ``doStart``, ``doStop``, ``doUpdate`` and
+An adaptor is a specific service that need to implements the methods ``doStart``, ``doStop``, ``doUpdate``, `doConfigure`` and
 ``doSwap`` instead of the usual ``starting``, ``updating``, ...
 
 
@@ -77,7 +77,7 @@ Configuration
 
 .. code-block:: xml
 
-    <service uid="generiSceneUID" impl="::fwRenderVTK::VtkRenderService" type="::fwRender::IRender">
+    <service uid="generiSceneUID" impl="::fwRenderVTK::SRender" type="::fwRender::IRender">
         <scene renderMode="auto|timer|none" offScreen="imageKey" width="1920" height="1080">
             <renderer id="myRenderer" layer="0" background="0.0" />
             <vtkObject id="transform" class="vtkTransform" />
@@ -154,6 +154,7 @@ adaptor
    - **class** (mandatory): the classname of the adaptor service
    - **uid** (optional): the fwID to specify for the adaptor service
    - **objectId** (mandatory): the key of the adaptor's object in the scene's composite.
+   - **autoConnect** (optional, "yes" by default): if "yes" the service slot are automatically connected to the object signals.
    - **config**: adaptor's configuration. It is parsed in the adaptor's configuring() method.
 
 .. note::

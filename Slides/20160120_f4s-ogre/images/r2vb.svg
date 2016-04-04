@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="50cm" height="22cm" viewBox="-151 -112 987 433" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #90ee90" x="380" y="-110" width="260" height="310"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="380" y="-110" width="260" height="310"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="510" y="48.9">
+      <tspan x="510" y="48.9"></tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #c3e8ff" x="110" y="-110" width="260" height="310"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="110" y="-110" width="260" height="310"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="240" y="48.9">
+      <tspan x="240" y="48.9"></tspan>
+    </text>
+  </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="836" y="309.5">
+    <tspan x="836" y="309.5"></tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="190" y="0" width="111.15" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="190" y="0" width="111.15" height="38"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="245.575" y="22.9">
+      <tspan x="245.575" y="22.9">Vertex shader</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="455.975" y="0" width="131.05" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="455.975" y="0" width="131.05" height="38"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="521.5" y="22.9">
+      <tspan x="521.5" y="22.9">Vertex shader</tspan>
+    </text>
+  </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="400" y="290">
+    <tspan x="400" y="290"></tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffce" x="-140" y="250" width="238.4" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-140" y="250" width="238.4" height="38"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-20.8" y="272.9">
+      <tspan x="-20.8" y="272.9">::fwRenderOgre::R2VBRenderable</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="120" y="-100" width="242.05" height="34.7"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="120" y="-100" width="242.05" height="34.7"/>
+    <text font-size="10.1598" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="241.025" y="-79.55">
+      <tspan x="241.025" y="-79.55">::Ogre::RenderQueue::processVisibleObject</tspan>
+    </text>
+  </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="241.025" y="-82.65">
+    <tspan x="241.025" y="-82.65"></tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="390" y="-100" width="243" height="34.7"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="390" y="-100" width="243" height="34.7"/>
+    <text font-size="10.1598" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="511.5" y="-79.55">
+      <tspan x="511.5" y="-79.55">::Ogre::SceneManager::RenderSingleObject</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffce" x="-74.625" y="-30" width="107.65" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-74.625" y="-30" width="107.65" height="38"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-20.8" y="-7.1">
+      <tspan x="-20.8" y="-7.1">::Ogre::Entity</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffce" x="-86.825" y="60" width="132.05" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-86.825" y="60" width="132.05" height="38"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-20.8" y="82.9">
+      <tspan x="-20.8" y="82.9">::Ogre::SubEntity</tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-20.8,133.819 -20.8,143.99 -20.8,100.01 -20.8,99.0098 "/>
+    <polygon style="fill: #ffffff" points="-20.8,158.99 -25.6,144.99 -20.8,130.99 -16,144.99 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-20.8,158.99 -25.6,144.99 -20.8,130.99 -16,144.99 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-16.8" y="111.01">1</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-20.8,223.819 -20.8,233.99 -20.8,200.01 -20.8,199.01 "/>
+    <polygon style="fill: #ffffff" points="-20.8,248.99 -25.6,234.99 -20.8,220.99 -16,234.99 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-20.8,248.99 -25.6,234.99 -20.8,220.99 -16,234.99 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-20.8,34.1813 -20.8,24.0098 -20.8,57.9902 -20.8,58.9902 "/>
+    <polygon style="fill: #ffffff" points="-20.8,9.00977 -16,23.0098 -20.8,37.0098 -25.6,23.0098 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-20.8,9.00977 -16,23.0098 -20.8,37.0098 -25.6,23.0098 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-16.8" y="54.9902">N</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="455.975" y="140" width="131.05" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="455.975" y="140" width="131.05" height="38"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="521.5" y="162.9">
+      <tspan x="521.5" y="162.9">Fragment shader</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="454.6" y="70" width="133.8" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="454.6" y="70" width="133.8" height="38"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="521.5" y="92.9">
+      <tspan x="521.5" y="92.9">Geometry shader</tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ff7070" points="45.225,79 140,79 140,19 184.539,19 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ff7070" points="176.775,24 186.775,19 176.775,14 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="245.811" y1="38.9609" x2="246.549" y2="101.304"/>
+    <polygon style="fill: #000000" points="246.637,108.803 241.519,98.863 246.549,101.304 251.519,98.7447 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="246.637,108.803 241.519,98.863 246.549,101.304 251.519,98.7447 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ff7070" points="80,180 420,180 420,19 450.505,19 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ff7070" points="442.741,24 452.741,19 442.741,14 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="521.5" y1="39.0028" x2="521.5" y2="60.2639"/>
+    <polygon style="fill: #000000" points="521.5,67.7639 516.5,57.7639 521.5,60.2639 526.5,57.7639 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="521.5,67.7639 516.5,57.7639 521.5,60.2639 526.5,57.7639 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="521.5" y1="109.004" x2="521.5" y2="129.26"/>
+    <polygon style="fill: #000000" points="521.5,136.76 516.5,126.76 521.5,129.26 526.5,126.76 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="521.5,136.76 516.5,126.76 521.5,129.26 526.5,126.76 "/>
+  </g>
+  <g>
+    <g>
+      <rect style="fill: #ffffff" x="461.5" y="240" width="120" height="80"/>
+      <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="461.5" y="240" width="120" height="80"/>
+      <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="521.5" y="283.9">
+        <tspan x="521.5" y="283.9"></tspan>
+      </text>
+    </g>
+    <g>
+      <polygon style="fill: #ffffff" points="528.167,273.333 534.833,286.667 521.5,280 "/>
+      <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="528.167,273.333 534.833,286.667 521.5,280 "/>
+      <polygon style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" points="528.167,273.333 534.833,286.667 521.5,280 "/>
+      <polygon style="fill: #ffffff" points="554.833,260 561.5,273.333 534.833,286.667 528.167,273.333 "/>
+      <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="554.833,260 561.5,273.333 534.833,286.667 528.167,273.333 "/>
+      <polygon style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" points="554.833,260 561.5,273.333 534.833,286.667 528.167,273.333 "/>
+      <polygon style="fill: #ffffff" points="521.5,280 534.833,286.667 534.833,300 521.5,293.333 "/>
+      <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="521.5,280 534.833,286.667 534.833,300 521.5,293.333 "/>
+      <polygon style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" points="521.5,280 534.833,286.667 534.833,300 521.5,293.333 "/>
+      <polygon style="fill: #ffffff" points="534.833,286.667 561.5,273.333 561.5,286.667 534.833,300 "/>
+      <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="534.833,286.667 561.5,273.333 561.5,286.667 534.833,300 "/>
+      <polygon style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" points="534.833,286.667 561.5,273.333 561.5,286.667 534.833,300 "/>
+    </g>
+    <g>
+      <path style="fill: #800000" d="M 489.305 299.024 C 489.305,299.024 489.305,287.317 489.305,287.317 C 489.305,287.317 493.207,287.317 493.207,287.317 C 493.207,287.317 493.207,299.024 493.207,299.024 C 493.207,299.024 492.72,300 491.256,300 C 489.793,300 489.305,299.024 489.305,299.024z"/>
+      <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 489.305 299.024 C 489.305,299.024 489.305,287.317 489.305,287.317 C 489.305,287.317 493.207,287.317 493.207,287.317 C 493.207,287.317 493.207,299.024 493.207,299.024 C 493.207,299.024 492.72,300 491.256,300 C 489.793,300 489.305,299.024 489.305,299.024"/>
+      <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 489.305 299.024 C 489.305,299.024 489.305,287.317 489.305,287.317 C 489.305,287.317 493.207,287.317 493.207,287.317 C 493.207,287.317 493.207,299.024 493.207,299.024 C 493.207,299.024 492.72,300 491.256,300 C 489.793,300 489.305,299.024 489.305,299.024"/>
+      <polygon style="fill: #008000" points="483.451,267.805 486.378,267.805 483.451,275.61 486.378,275.61 483.451,283.415 485.402,283.415 481.5,287.317 501.012,287.317 497.11,283.415 499.061,283.415 496.134,275.61 499.061,275.61 496.134,267.805 499.061,267.805 491.256,260 "/>
+      <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="483.451,267.805 486.378,267.805 483.451,275.61 486.378,275.61 483.451,283.415 485.402,283.415 481.5,287.317 501.012,287.317 497.11,283.415 499.061,283.415 496.134,275.61 499.061,275.61 496.134,267.805 499.061,267.805 491.256,260 "/>
+      <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #00ff00" points="483.451,267.805 486.378,267.805 483.451,275.61 486.378,275.61 483.451,283.415 485.402,283.415 481.5,287.317 501.012,287.317 497.11,283.415 499.061,283.415 496.134,275.61 499.061,275.61 496.134,267.805 499.061,267.805 491.256,260 "/>
+    </g>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ff7070" points="246.9,131 246.9,132 31.575,132 31.575,155.528 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ff7070" points="26.575,147.764 31.575,157.764 36.575,147.764 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ff7070" x1="521.5" y1="178.973" x2="521.5" y2="229"/>
+    <polygon style="fill: #ff7070" points="516.5,229 521.5,239 526.5,229 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ff7070" points="516.5,229 521.5,239 526.5,229 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffce" x="-115.125" y="-100" width="188.65" height="39"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-115.125" y="-100" width="188.65" height="39"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-20.8" y="-76.6">
+      <tspan x="-20.8" y="-76.6">::visuOgreAdaptor::SMesh</tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-141.302,-80.5 -150,-80.5 -150,-11 -75.6296,-11 "/>
+    <polygon style="fill: #ffffff" points="-116.131,-80.5 -130.131,-75.7 -144.131,-80.5 -130.131,-85.3 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-116.131,-80.5 -130.131,-75.7 -144.131,-80.5 -130.131,-85.3 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-141.302,-80.5 -150,-80.5 -150,269 -140.994,269 "/>
+    <polygon style="fill: #ffffff" points="-116.131,-80.5 -130.131,-75.7 -144.131,-80.5 -130.131,-85.3 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-116.131,-80.5 -130.131,-75.7 -144.131,-80.5 -130.131,-85.3 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="180" y="112" width="133.8" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="180" y="112" width="133.8" height="38"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="246.9" y="134.9">
+      <tspan x="246.9" y="134.9">Geometry shader</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffce" x="-125.55" y="160" width="209.5" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-125.55" y="160" width="209.5" height="38"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-20.8" y="182.9">
+      <tspan x="-20.8" y="182.9">::Ogre::RenderToVertexBuffer</tspan>
+    </text>
+  </g>
+</svg>

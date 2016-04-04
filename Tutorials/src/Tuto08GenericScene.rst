@@ -195,7 +195,7 @@ This file is in the ``rc/`` directory of the application. It defines the service
                         Generic scene:
                         This scene display a 3D image and a textured mesh.
                     -->
-                    <service uid="genericScene" impl="::fwRenderVTK::VtkRenderService" autoConnect="yes">
+                    <service uid="genericScene" impl="::fwRenderVTK::SRender" autoConnect="yes">
                         <scene>
                             <!-- Image picker -->
                             <picker id="myPicker" vtkclass="fwVtkCellPicker" />

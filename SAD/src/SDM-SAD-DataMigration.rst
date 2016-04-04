@@ -221,7 +221,8 @@ VersionsManager
 
 The ``fwStructuralPatch`` library contains the structural patches for ``fwData`` and ``fwMedData`` conversion.
 
-The ``fwMDSemanticPatch`` library contains the semantic patches for ``fwData`` and ``fwMedData`` conversion in the ``MedicalData`` context.
+The ``fwMDSemanticPatch`` library contains the semantic patches for ``fwData`` and ``fwMedData`` conversion in the 
+``MedicalData`` context.
 
 The ``patchMedicalData`` bundle must be activated in your application to allow migration in ``MedicalData`` context. 
     
@@ -231,9 +232,13 @@ The ``patchMedicalData`` bundle must be activated in your application to allow m
 Structural patch
 ~~~~~~~~~~~~~~~~~
 
-The structural patches are registered in the ``::fwAtomsPatch::StructuralPatchDB`` singleton. A structural patch provides a method ``apply`` that performs the structure conversion. The constructor defines the classname and versions of the origin and target objects as described in the ``.graphlink`` links section.
+The structural patches are registered in the ``::fwAtomsPatch::StructuralPatchDB`` singleton. A structural patch 
+provides a method ``apply`` that performs the structure conversion. The constructor defines the classname and versions 
+of the origin and target objects as described in the ``.graphlink`` links section.
 
-Example of structural patch to convert the ``fwData::Image`` from version 1 to 2. We add three attributes related to medical imaging: the number of components ``nb_components``, the window center ``window_center`` and the window width ``window_width``.
+Example of structural patch to convert the ``fwData::Image`` from version 1 to 2. We add three attributes related to 
+medical imaging: the number of components ``nb_components``, the window center ``window_center`` and the window width 
+``window_width``.
 
 .. code-block:: cpp
 
@@ -287,6 +292,17 @@ Example of structural patch to convert the ``fwData::Image`` from version 1 to 2
     } // namespace fwData
     
     } // namespace fwStructuralPatch
+    
+
+To register the structural patch:
+
+.. code-block:: cpp
+
+    // fwStructuralPatch/autoload.cpp
+    
+    ::fwAtomsPatch::StructuralPatchDB::sptr structuralPatches = ::fwAtomsPatch::StructuralPatchDB::getDefault();
+    structuralPatches->registerPatch(::fwStructuralPatch::fwData::Image::V1ToV2::New());
+    
 
 
 .. _Creator:
@@ -294,7 +310,8 @@ Example of structural patch to convert the ``fwData::Image`` from version 1 to 2
 Creator
 ~~~~~~~~
 
-The creator provides a method ``create`` that allows to create a new object with the default attribute initialization. The creator is used in structural patches to create new sub-objects. 
+The creator provides a method ``create`` that allows to create a new object with the default attribute initialization. 
+The creator is used in structural patches to create new sub-objects. 
 Creators are registered in the ``::fwAtomsPatch::StructuralCreatorDB`` singleton.
 
 Creators are useful for adding an attribute that is a non-null object.
@@ -343,6 +360,15 @@ Example of creator for the ``::fwMedData::Patient`` :
     } // namespace fwMedData
     } // namespace creator
     } // namespace fwStructuralPatch
+
+To register the creator:
+
+.. code-block:: cpp
+
+    // fwStructuralPatch/creator/autoload.cpp
+    
+    ::fwAtomsPatch::StructuralCreatorDB::sptr creators = ::fwAtomsPatch::StructuralCreatorDB::getDefault();
+    creators->registerCreator(::fwStructuralPatch::creator::fwMedData::Equipment1::New());
 
 
 .. _SemanticPatch:
@@ -418,7 +444,16 @@ Example of semantic patch :
     } // namespace fwMDSemanticPatch
 
 This patch changed the attribute ``nb_components`` in the image copied from array ``nb_of_components``.
-   
+
+
+To register the semantic patch:
+
+.. code-block:: cpp
+
+    // fwMDSemanticPatch/V1/V2/fwData/autoload.cpp
+    ::fwAtomsPatch::SemanticPatchDB::sptr contextPatchDB = ::fwAtomsPatch::SemanticPatchDB::getDefault();
+    contextPatchDB->registerPatch(::fwMDSemanticPatch::V1::V2::fwData::Composite::New());
+
    
 .. _Patcher:
  

@@ -1,0 +1,164 @@
+@import url(http://fonts.googleapis.com/css?family=Bitter);
+@import url(http://fonts.googleapis.com/css?family=Armata);
+body {
+color: #101010;
+font-family: 'Armata', sans-serif;
+font-size: 1.8em;
+
+background: url(../images/ircad_france.png) no-repeat 95% 95%,
+url(../images/ihu_couleur_grand.png) no-repeat 5% 95%;
+background-size: 10% auto, 5% auto;
+background-color: #ececec
+}
+
+h1 {
+font-family: 'Bitter' , serif;
+font-weight: bold;
+text-italic: none;
+font-size: 2em;
+color: #45949d;
+}
+h2 {
+font-size: 1.25em;
+font-family: 'Bitter', serif;
+color: #ba4747;
+}
+blockquote {
+font-family: 'Bitter', serif;
+font-style: italic;
+}
+a, em {
+color: #ba7575;
+text-decoration: none;
+font-weight: bold;
+}
+video {
+display: block;
+margin: 0 auto;
+}
+
+table {
+border: medium solid #000000;
+width: 50%;
+}
+th {
+border: thin solid #45949d;
+padding: 5px;
+padding-right: 50px;
+padding-left: 50px;
+font-size: 0.8em;
+}
+td {
+border: thin solid #45949d;
+padding: 5px;
+text-align: center;
+font-size: 0.7em;
+}
+
+#circle-no-background {
+width: 900px;
+height: 900px;
+border:1px solid #a4a4a4;
+border-radius: 500px;
+text-align: center;
+}
+
+#circle-background {
+width: 900px;
+height: 900px;
+background: #e8e8e8;
+border:1px solid #a4a4a4;
+border-radius: 500px;
+text-align: center;
+}
+
+#ircad-context {
+text-align: center;
+}
+
+#object-service {
+text-align: right;
+}
+
+#square-no-background {
+width: 900px;
+height: 600px;
+border:1px solid #a4a4a4;
+border-radius:0px;
+position: relative;
+padding-top: 10px;
+padding-right: 50px;
+padding-bottom: 10px;
+padding-left: 50px;
+}
+
+.square-background {
+width: 900px;
+height: 600px;
+background: #e8e8e8;
+border:1px solid #a4a4a4;
+border-radius:0px;
+position: relative;
+padding-top: 10px;
+padding-right: 50px;
+padding-bottom: 10px;
+padding-left: 50px;
+text-align: center;
+}
+
+img.ircad {
+text-align:center;
+}
+
+/****** Text styles ******/
+.main-color {
+color: #27B57A;
+}
+.funny-font{
+color: #727272;
+font-family: 'Lobster Two', serif;
+font-style: italic;
+}
+.big-bold {
+font-weight: bold;
+font-size: 2em;
+}
+.big-bold-color {
+font-weight: bold;
+font-size: 2em;
+color: #27B57A;
+}
+.bold-color {
+font-weight: bold;
+color: #27B57A;
+}
+.code{
+font-size: 1.2em;
+}
+.legend{
+font-size: 2.0em;
+font-weight: bold;
+text-align: center;
+line-height: 2.0;
+}
+
+.li1 {
+line-height: 1.0;
+font-size: 0.9em;
+}
+
+.centered {
+text-align: center;
+}
+
+.text-small {
+font-size: 0.7em;
+}
+
+
+
+li {
+line-height: 2;
+}
+
+}
